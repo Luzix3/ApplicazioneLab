@@ -6,23 +6,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.lucia.applicazionelab.MainActivity;
 import com.example.lucia.applicazionelab.R;
 
-public class PagePassDim extends AppCompatActivity {
+public class PagePassDimSuccess extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_page_pass_dim);
+        setContentView(R.layout.activity_page_pass_dim_success);
 
 
-        Button btnProcedi = (Button)findViewById(R.id.buttonProcedi);
+        Button btnTornaLogin = (Button)findViewById(R.id.buttonTornaLog);
 
-        btnProcedi.setOnClickListener(new View.OnClickListener() {
+        btnTornaLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent openPagePassDimSuccess = new Intent(PagePassDim.this,PagePassDimSuccess.class);
-                startActivity(openPagePassDimSuccess);
+                Intent openPageLog = new Intent(PagePassDimSuccess.this,MainActivity.class);
+                startActivity(openPageLog);
             }
         });
 

@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
          * todo: devi settare il fatto che non può clccarsi il bottone da solo: aggiungi degli if
          *
          */
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".Login.Page1" />
         <activity android:name=".Registrazione.Page2reg" />
-        <activity android:name=".Passworddim.PagePassDim"></activity>
+        <activity android:name=".Passworddim.PagePassDim" />
+        <activity android:name=".Passworddim.PagePassDimSuccess"></activity>
     </application>
 
 </manifest>
