@@ -1,11 +1,15 @@
 package com.example.lucia.applicazionelab;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.example.lucia.applicazionelab.Login.Page1;
+import com.example.lucia.applicazionelab.Passworddim.PagePassDim;
+import com.example.lucia.applicazionelab.Registrazione.Page2reg;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,7 +20,11 @@ public class MainActivity extends AppCompatActivity {
 
         Button btnLogin = (Button)findViewById(R.id.buttonLogin);
 
-        //si apre solo se utente e password sono settate e se user e password corrispondono a qualcosa
+        /**
+         * todo: mettere i dati con il database
+         * todo: devi settare il fatto che non può clccarsi il bottone da solo: aggiungi degli if
+         *
+         */
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -27,6 +35,29 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
+
+        Button btnRegistrati = (Button)findViewById(R.id.buttonRegistrati);
+
+        btnRegistrati.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent openPage2reg = new Intent(MainActivity.this, Page2reg.class);
+                startActivity(openPage2reg);
+            }
+        });
+
+        TextView btnPassword = (TextView)findViewById(R.id.textPassdimenticata);
+
+        btnPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent openPagePassDim = new Intent(MainActivity.this, PagePassDim.class);
+                startActivity(openPagePassDim);
+
+            }
+        });
+
 
     }
 

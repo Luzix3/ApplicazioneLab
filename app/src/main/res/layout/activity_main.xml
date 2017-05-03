@@ -10,14 +10,16 @@
         android:id="@+id/TextLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:layout_marginBottom="8dp"
         android:layout_marginLeft="24dp"
-        app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="24dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginBottom="17dp"
+        android:text="Login"
+        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
+        android:textColor="@android:color/holo_orange_dark"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintHorizontal_bias="0.502" />
+        app:layout_constraintHorizontal_bias="0.035"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
@@ -41,14 +43,16 @@
         android:id="@+id/textUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Username"
-        app:layout_constraintRight_toLeftOf="@+id/EditUsername"
-        android:layout_marginRight="24dp"
-        app:layout_constraintTop_toTopOf="@+id/guideline2"
-        android:layout_marginTop="24dp"
         android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Username"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textColor="@android:color/holo_orange_light"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.489" />
+        app:layout_constraintRight_toLeftOf="@+id/EditUsername"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
     <EditText
         android:id="@+id/editPassword"
@@ -70,72 +74,66 @@
 
     <Button
         android:id="@+id/buttonLogin"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
-        app:layout_constraintTop_toTopOf="@+id/guideline4"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="24dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@android:color/holo_orange_dark"
+        android:text="Login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
         app:layout_constraintVertical_bias="0.032" />
 
     <TextView
         android:id="@+id/TextPassword"
         android:layout_width="67dp"
         android:layout_height="19dp"
-        android:text="Password"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/textUsername"
+        android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Password"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textColor="@android:color/holo_orange_light"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/editPassword"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4" />
+        app:layout_constraintTop_toBottomOf="@+id/textUsername"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintVertical_bias="0.384" />
 
     <Button
         android:id="@+id/buttonRegistrati"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
+        android:backgroundTint="@android:color/holo_orange_dark"
         android:text="Registrati"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/buttonLogin"
         app:layout_constraintTop_toTopOf="@+id/guideline4"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.028" />
 
     <TextView
         android:id="@+id/textPassdimenticata"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Password dimenticata?"
-        android:layout_marginTop="13dp"
-        app:layout_constraintTop_toBottomOf="@+id/TextPassword"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4" />
-
-    <Button
-        android:id="@+id/buttonpassdimenticata"
-        android:layout_width="128dp"
-        android:layout_height="34dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="23dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="-5dp"
-        android:text="Clicca qui!"
+        android:layout_marginLeft="16dp"
+        android:text="Password dimenticata? Clicca qui!"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Small"
+        android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toRightOf="@+id/textPassdimenticata"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editPassword"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:textColor="@android:color/darker_gray" />
+
 </android.support.constraint.ConstraintLayout>
