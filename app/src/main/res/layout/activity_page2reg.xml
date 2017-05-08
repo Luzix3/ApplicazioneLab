@@ -19,12 +19,11 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline8"
         app:layout_constraintHorizontal_bias="0.036"
-        app:layout_constraintVertical_bias="0.421"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
@@ -38,18 +37,19 @@
 
 
     <android.support.constraint.ConstraintLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="352dp"
+        android:layout_height="432dp"
         app:layout_constraintTop_toTopOf="@+id/guideline8"
         android:layout_marginTop="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"
-        app:layout_constraintVertical_bias="0.094"
+        app:layout_constraintVertical_bias="1.0"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        android:layout_marginEnd="8dp">
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginEnd="8dp"
+        android:id="@+id/constraintLayout">
 
         <ScrollView
             android:layout_width="fill_parent"
@@ -80,7 +80,7 @@
                     android:layout_marginRight="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:text="Username"
+                    android:text="Username *"
                     android:textAppearance="@style/TextAppearance.AppCompat"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintHorizontal_bias="0.258"
@@ -98,10 +98,11 @@
 
                 <TextView
                     android:id="@+id/textRegPass"
-                    android:layout_width="70dp"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
-                    android:text="Password"
-                    android:textAppearance="@style/TextAppearance.AppCompat" />
+                    android:text="Password *"
+                    android:textAppearance="@style/TextAppearance.AppCompat"
+                    android:layout_weight="0.31" />
 
                 <EditText
                     android:id="@+id/editRegPass"
@@ -114,7 +115,7 @@
                     android:id="@+id/textRegEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="E-mail"
+                    android:text="E-mail *"
                     android:textAppearance="@style/TextAppearance.AppCompat" />
 
                 <EditText
@@ -125,12 +126,71 @@
                     android:inputType="textEmailAddress" />
 
                 <TextView
+                    android:id="@+id/textCellulare"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cellulare *"
+                    android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                <EditText
+                    android:id="@+id/editCellulare"
+                    android:layout_width="232dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="phone" />
+
+                <TextView
                     android:id="@+id/textTipoUtente"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Sei un cliente o un gestore della biblioteca?"
+                    android:text="Sei un cliente o un gestore della biblioteca? *"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@android:color/background_dark" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxCliente"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cliente" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxGestore"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Gestore" />
+
+                <TextView
+                    android:id="@+id/textCodiceGestore"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Codice gestore(solo se sei un gestore):"
+                    android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                <EditText
+                    android:id="@+id/editText2"
+                    android:layout_width="124dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="phone" />
+
+                <CheckBox
+                    android:id="@+id/checkBoxCondizioni"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Accetto le condizioni" />
+
+                <TextView
+                    android:id="@+id/textCampiobbligatori"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="* Campi obbligatori"
+                    android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                <Button
+                    android:id="@+id/buttonAvanti"
+                    android:layout_width="327dp"
+                    android:layout_height="wrap_content"
+                    android:text="Fine" />
 
                 <android.support.constraint.Guideline
                     android:id="@+id/guideline9"

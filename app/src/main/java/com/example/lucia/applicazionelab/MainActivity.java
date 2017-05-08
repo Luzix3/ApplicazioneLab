@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                
                 // definisco l'intenzione di aprire l'Activity "Page1.java"
                 Intent openPage1 = new Intent(MainActivity.this, Page1.class);
                 // passo all'attivazione dell'activity page1.java
