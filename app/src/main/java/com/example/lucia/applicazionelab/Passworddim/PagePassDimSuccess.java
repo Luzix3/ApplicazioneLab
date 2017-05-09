@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.lucia.applicazionelab.MainActivity;
+import com.example.lucia.applicazionelab.Login.Loginpage;
 import com.example.lucia.applicazionelab.R;
 
 public class PagePassDimSuccess extends AppCompatActivity {
@@ -22,7 +22,7 @@ public class PagePassDimSuccess extends AppCompatActivity {
         btnTornaLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent openPageLog = new Intent(PagePassDimSuccess.this,MainActivity.class);
+                Intent openPageLog = new Intent(PagePassDimSuccess.this,Loginpage.class);
                 startActivity(openPageLog);
             }
         });
