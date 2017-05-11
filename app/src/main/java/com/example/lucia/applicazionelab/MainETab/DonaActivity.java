@@ -1,20 +1,19 @@
-package com.example.lucia.applicazionelab.Registrazione;
+package com.example.lucia.applicazionelab.MainETab;
 
-import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.widget.TextView;
 
 import com.example.lucia.applicazionelab.R;
 
-public class Page2reg extends Activity {
+public class DonaActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_page2reg);
+        setContentView(R.layout.activity_dona);
+
+
     }
-
-
-
-
 }

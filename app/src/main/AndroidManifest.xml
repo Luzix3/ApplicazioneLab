@@ -9,18 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainETab.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".Registrazione.Page2reg" />
         <activity android:name=".Passworddim.PagePassDim" />
         <activity android:name=".Passworddim.PagePassDimSuccess" />
-
+        <activity android:name=".MainETab.LibriActivity" />
+        <activity android:name=".MainETab.CercaActivity" />
+        <activity android:name=".MainETab.DonaActivity"></activity>
     </application>
 
 </manifest>

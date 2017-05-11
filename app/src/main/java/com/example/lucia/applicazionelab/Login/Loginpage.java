@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.lucia.applicazionelab.MainActivity;
+import com.example.lucia.applicazionelab.MainETab.MainActivity;
 import com.example.lucia.applicazionelab.Passworddim.PagePassDim;
 import com.example.lucia.applicazionelab.R;
 import com.example.lucia.applicazionelab.Registrazione.Page2reg;
