@@ -7,8 +7,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:supportsRtl="true">
         <activity android:name=".MainETab.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,12 +15,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Registrazione.Page2reg" />
-        <activity android:name=".Passworddim.PagePassDim" />
-        <activity android:name=".Passworddim.PagePassDimSuccess" />
-        <activity android:name=".MainETab.LibriActivity" />
-        <activity android:name=".MainETab.CercaActivity" />
-        <activity android:name=".MainETab.DonaActivity"></activity>
+        <activity android:name=".Registrazione.Page2reg"
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".Passworddim.PagePassDim"
+            android:theme="@style/AppTheme"/>
+        <activity android:name=".Passworddim.PagePassDimSuccess"
+            android:theme="@style/AppTheme"/>
+
+
+        <activity android:name=".MainETab.LibriActivity"
+            android:theme="@style/ActivityBarra"
+            android:label="BibliApp"
+           />
+        <activity android:name=".MainETab.CercaActivity"
+            android:label="BibliApp"
+            android:theme="@style/ActivityBarra"/>
+
+        <activity android:name=".MainETab.DonaActivity"
+            android:label="BibliApp"
+            android:theme="@style/ActivityBarra" >
+
+    </activity>
     </application>
 
 </manifest>
