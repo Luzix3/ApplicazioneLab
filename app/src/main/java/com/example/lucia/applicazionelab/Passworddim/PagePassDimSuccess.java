@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.lucia.applicazionelab.Login.Loginpage;
+import com.example.lucia.applicazionelab.MainETab.Loginpage;
 import com.example.lucia.applicazionelab.R;
 
 public class PagePassDimSuccess extends AppCompatActivity {

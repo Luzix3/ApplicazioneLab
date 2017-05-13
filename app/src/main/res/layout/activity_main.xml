@@ -35,7 +35,9 @@
             <TabWidget
                 android:id="@android:id/tabs"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:backgroundTint="@android:color/holo_orange_light" />
 
             <FrameLayout
                 android:id="@android:id/tabcontent"
@@ -46,6 +48,7 @@
                     android:id="@+id/Libri"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:backgroundTint="@color/colorPrimary"
                     android:orientation="vertical">
 
                 </LinearLayout>
@@ -54,6 +57,8 @@
                     android:id="@+id/Cerca"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@android:color/background_light"
+                    android:backgroundTint="@android:color/background_light"
                     android:orientation="vertical">
 
                 </LinearLayout>
@@ -76,29 +81,30 @@
         android:id="@+id/textBenvenuto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
         android:text="Benvenuto in Bibliapp!"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/black"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="12dp"
-        android:layout_marginLeft="8dp"
+        android:textColor="@android:color/holo_orange_dark"
+        app:layout_constraintHorizontal_bias="0.098"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/textEffettuaLogin"
-        android:layout_marginRight="8dp"
-        app:layout_constraintHorizontal_bias="0.098"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textEffettuaLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
         android:text="Vai al Login!"
         android:textAppearance="@style/TextAppearance.AppCompat"
-        android:layout_marginRight="28dp"
-        app:layout_constraintRight_toRightOf="parent"
+        android:textColor="@android:color/holo_orange_dark"
         app:layout_constraintBaseline_toBaselineOf="@+id/textBenvenuto"
-        android:layout_marginEnd="28dp" />
+        app:layout_constraintRight_toRightOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

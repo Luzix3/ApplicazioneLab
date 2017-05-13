@@ -1,4 +1,4 @@
-package com.example.lucia.applicazionelab.Login;
+package com.example.lucia.applicazionelab.MainETab;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.lucia.applicazionelab.MainETab.MainActivity;
 import com.example.lucia.applicazionelab.Passworddim.PagePassDim;
 import com.example.lucia.applicazionelab.R;
 import com.example.lucia.applicazionelab.Registrazione.Page2reg;

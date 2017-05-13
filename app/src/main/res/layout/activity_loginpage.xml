@@ -114,7 +114,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        android:backgroundTint="@android:color/holo_orange_dark"
+        android:backgroundTint="@color/colorPrimary"
         android:text="Registrati"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.515"

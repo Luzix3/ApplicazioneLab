@@ -21,7 +21,8 @@
             android:theme="@style/AppTheme"/>
         <activity android:name=".Passworddim.PagePassDimSuccess"
             android:theme="@style/AppTheme"/>
-
+        <activity android:name=".MainETab.Loginpage"
+            android:theme="@style/AppTheme"/>
 
         <activity android:name=".MainETab.LibriActivity"
             android:theme="@style/ActivityBarra"

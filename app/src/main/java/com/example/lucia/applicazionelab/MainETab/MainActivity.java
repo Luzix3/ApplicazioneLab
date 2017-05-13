@@ -2,17 +2,11 @@ package com.example.lucia.applicazionelab.MainETab;
 
 import android.app.TabActivity;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.LinearLayout;
+import android.view.View;
 import android.widget.TabHost;
+import android.widget.TextView;
 
-import com.example.lucia.applicazionelab.MainETab.CercaActivity;
-import com.example.lucia.applicazionelab.MainETab.DonaActivity;
-import com.example.lucia.applicazionelab.MainETab.LibriActivity;
 import com.example.lucia.applicazionelab.R;
 
 
@@ -56,8 +50,16 @@ public class MainActivity extends TabActivity {
         TabHostWindows.addTab(Cerca);
         TabHostWindows.addTab(Dona);
 
+        TextView btnVaiLogin = (TextView)findViewById(R.id.textEffettuaLogin);
 
+        btnVaiLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent openPageLogin1 = new Intent(MainActivity.this, Loginpage.class);
+                startActivity(openPageLogin1);
 
+            }
+        });
 
 
 
