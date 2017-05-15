@@ -11,7 +11,7 @@ import com.example.lucia.applicazionelab.R;
 
 public class CercaActivity extends AppCompatActivity {
 
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
