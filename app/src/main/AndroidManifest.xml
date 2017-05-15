@@ -40,7 +40,8 @@
             android:label="BibliApp"
             android:theme="@style/ActivityBarra" />
         <activity android:name=".MainETab.Dona2" />
-        <activity android:name=".MainETab.Prenota"></activity>
+        <activity android:name=".MainETab.Prenota" />
+        <activity android:name=".MainETab.prenota2"></activity>
     </application>
 
 </manifest>
