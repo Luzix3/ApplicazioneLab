@@ -15,28 +15,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Registrazione.Page2reg"
-            android:theme="@style/AppTheme"/>
-        <activity android:name=".Passworddim.PagePassDim"
-            android:theme="@style/AppTheme"/>
-        <activity android:name=".Passworddim.PagePassDimSuccess"
-            android:theme="@style/AppTheme"/>
-        <activity android:name=".MainETab.Loginpage"
-            android:theme="@style/AppTheme"/>
-
-        <activity android:name=".MainETab.LibriActivity"
-            android:theme="@style/ActivityBarra"
+        <activity
+            android:name=".Registrazione.Page2reg"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Passworddim.PagePassDim"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Passworddim.PagePassDimSuccess"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".MainETab.Loginpage"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".MainETab.LibriActivity"
             android:label="BibliApp"
-           />
-        <activity android:name=".MainETab.CercaActivity"
+            android:theme="@style/ActivityBarra" />
+        <activity
+            android:name=".MainETab.CercaActivity"
             android:label="BibliApp"
-            android:theme="@style/ActivityBarra"/>
-
-        <activity android:name=".MainETab.DonaActivity"
+            android:theme="@style/ActivityBarra" />
+        <activity
+            android:name=".MainETab.DonaActivity"
             android:label="BibliApp"
-            android:theme="@style/ActivityBarra" >
-
-    </activity>
+            android:theme="@style/ActivityBarra" />
+        <activity android:name=".MainETab.Dona2"></activity>
     </application>
 
 </manifest>
