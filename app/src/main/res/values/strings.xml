@@ -1,6 +1,9 @@
 <resources>
-    <string name="app_name">BibliApp</string>
+    <string name="app_name">BiblApp</string>
     <string name="title_activity_dona2">Dona2</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="obbligatorio">il campo è obbligatorio</string>
 
 
 </resources>

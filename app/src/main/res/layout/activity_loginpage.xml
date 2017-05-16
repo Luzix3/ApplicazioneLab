@@ -136,4 +136,24 @@
         app:layout_constraintLeft_toLeftOf="parent"
         tools:textColor="@android:color/darker_gray" />
 
+    <ProgressBar
+        android:id="@+id/barraprogress"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@android:color/holo_orange_dark"
+        android:progressBackgroundTint="@android:color/holo_orange_dark"
+        android:progressDrawable="@android:color/holo_orange_light"
+        android:progressTint="@android:color/holo_orange_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.568"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
+        app:layout_constraintVertical_bias="0.326" />
+
 </android.support.constraint.ConstraintLayout>

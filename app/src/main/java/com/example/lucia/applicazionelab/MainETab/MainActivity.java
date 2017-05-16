@@ -3,26 +3,49 @@ package com.example.lucia.applicazionelab.MainETab;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TabHost;
 import android.widget.TextView;
 
 import com.example.lucia.applicazionelab.R;
-
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 @SuppressWarnings("deprecation")
 public class MainActivity extends TabActivity {
 
     TabHost TabHostWindows;
+    private final static String TAG =  "MainActivity";
 
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         setContentView(R.layout.activity_main);
+
+
+       // FirebaseAuth.getInstance().signOut();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser(); // ho detto mi dici chi è l'utente collegato in questo
+        //momento con questo account
+
+
+
+
+
+        if (user == null)
+        {
+            //devo fare il login
+            Intent intent = new Intent(this,Loginpage.class);
+            startActivity(intent);
+        }else
+        {
+            //sono gia loggato
+            Log.d(TAG, "loggato come user" + user.getEmail());
+
+        }
+
 
         //inizializzo la tab kk
         TabHostWindows = (TabHost) findViewById(android.R.id.tabhost);
