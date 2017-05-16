@@ -141,8 +141,9 @@
 
                 <Button
                     android:id="@+id/buttonAvanti"
-                    android:layout_width="327dp"
+                    android:layout_width="198dp"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/holo_orange_dark"
                     android:text="Fine" />
 
                 <android.support.constraint.Guideline

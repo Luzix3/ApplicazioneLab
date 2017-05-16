@@ -4,6 +4,7 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="obbligatorio">il campo è obbligatorio</string>
+    <string name="errorecasella">Funzione non disponibile</string>
 
 
 </resources>
