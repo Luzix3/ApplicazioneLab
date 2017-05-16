@@ -23,7 +23,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 /**
  * todo: mettere i dati con il database
- * todo: devi settare il fatto che non può clccarsi il bottone da solo: aggiungi degli if
+ *
  *
  */
 
