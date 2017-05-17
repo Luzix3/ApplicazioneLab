@@ -7,140 +7,67 @@
     tools:context="com.example.lucia.applicazionelab.Passworddim.PagePassDimSuccess">
 
     <TextView
-        android:id="@+id/textView10"
-        android:layout_width="185dp"
-        android:layout_height="33dp"
-        android:text='regala un sorriso"'
-        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
-        tools:layout_editor_absoluteX="139dp"
-        tools:layout_editor_absoluteY="262dp" />
-
-    <TextView
         android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="348dp"
+        android:layout_height="45dp"
         android:text="La tua richiesta di donazione è stata registrata"
         android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
         android:textColor="?android:attr/colorMultiSelectHighlight"
-        app:layout_constraintBottom_toTopOf="@+id/guideline5"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="16dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
-        android:textColor="?android:attr/colorMultiSelectHighlight"
-        app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/textSuccess"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintHorizontal_bias="0.0" />
+        android:layout_marginTop="8dp" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="349dp"
         android:layout_height="36dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
         android:text="Ti ringraziamo anticipatamente per la donazione effettuata!"
         android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
-        app:layout_constraintBottom_toTopOf="@+id/guideline6"
-        app:layout_constraintHorizontal_bias="0.173"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline5"
-        app:layout_constraintVertical_bias="0.255" />
-
-    <TextView
-        android:id="@+id/textPassDim2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="16dp"
-        android:text="La tua richiesta di donazione è stata registrata"
-        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
-        android:textColor="?android:attr/colorMultiSelectHighlight"
-        app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        android:layout_marginBottom="37dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonTornaLog"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintHorizontal_bias="0.0" />
-
-    <android.support.constraint.Guideline
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/guideline5"
-        app:layout_constraintGuide_begin="83dp"
-        android:orientation="horizontal" />
+        android:layout_marginTop="8dp"
+        app:layout_constraintVertical_bias="0.88" />
 
     <TextView
         android:id="@+id/textSuccess"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
         android:text="Attendiamo la tua visita entro il giorno stabilito."
         android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
-        app:layout_constraintBottom_toTopOf="@+id/guideline6"
-        app:layout_constraintHorizontal_bias="0.078"
         app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline5"
-        app:layout_constraintVertical_bias="0.047" />
+        android:layout_marginBottom="52dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintVertical_bias="0.982" />
 
     <Button
         android:id="@+id/buttonTornaLog"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
         android:backgroundTint="@android:color/holo_orange_dark"
         android:text="Torna alla pagina principale"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.585"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline6"
-        app:layout_constraintVertical_bias="0.472" />
-
-    <android.support.constraint.Guideline
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/guideline6"
-        app:layout_constraintGuide_begin="342dp"
-        android:orientation="horizontal" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="185dp"
-        android:layout_height="33dp"
-        android:text='"Chi dona un libro'
-        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
-        tools:layout_editor_absoluteX="66dp"
-        tools:layout_editor_absoluteY="229dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="271dp" />
 
 </android.support.constraint.ConstraintLayout>

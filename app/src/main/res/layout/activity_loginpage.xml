@@ -36,7 +36,9 @@
         android:layout_marginRight="26dp"
         android:layout_marginTop="12dp"
         android:ems="10"
+        android:foregroundTint="@android:color/black"
         android:inputType="textPersonName"
+        android:textColorLink="@android:color/black"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
@@ -62,7 +64,9 @@
         android:layout_marginRight="26dp"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:foregroundTint="@android:color/black"
         android:inputType="textPassword"
+        android:textColorLink="@android:color/black"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/EditUsername" />
 

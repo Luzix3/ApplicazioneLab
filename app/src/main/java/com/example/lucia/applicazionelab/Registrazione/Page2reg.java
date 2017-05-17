@@ -107,6 +107,12 @@ public class Page2reg extends Activity {
                     Editemail.setError(getString(R.string.emailvalida));
                 }
 
+                if(cellulare.length() <10)
+                {
+                    Toast.makeText(getApplicationContext(), "Deve essere di almeno 10 caratteri!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 if (password2.length() < 6) {
                     Toast.makeText(getApplicationContext(), "Password troppo corta, deve essere di almeno 6 caratteri!", Toast.LENGTH_SHORT).show();
                     return;
@@ -121,7 +127,7 @@ public class Page2reg extends Activity {
                 }
 
 
-                if (!email2.isEmpty() && !cellulare.isEmpty() && a==true && !password2.isEmpty() && isEmailValid(email2) && Ccondizioni.isChecked() && Cutente.isChecked() &&  !(Cgestore.isChecked()))
+                if (cellulare.length() <10 && password2.length() < 6 && !email2.isEmpty() && !cellulare.isEmpty() && a==true && !password2.isEmpty() && isEmailValid(email2) && Ccondizioni.isChecked() && Cutente.isChecked() &&  !(Cgestore.isChecked()))
                 {
                     // todo: creare oggetto daabase
 

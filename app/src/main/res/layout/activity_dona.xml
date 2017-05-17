@@ -63,12 +63,13 @@
                 android:background="@android:color/holo_orange_light"
                 android:backgroundTint="@android:color/holo_orange_light"
                 android:backgroundTintMode="src_over"
-                android:calendarTextColor="@android:color/holo_orange_dark"
+                android:calendarTextColor="@android:color/black"
                 android:datePickerMode="spinner"
                 android:dayOfWeekBackground="@android:color/black"
                 android:dayOfWeekTextAppearance="@android:color/black"
                 android:headerBackground="@android:color/holo_orange_dark"
-                android:headerDayOfMonthTextAppearance="@android:color/black" />
+                android:headerDayOfMonthTextAppearance="@android:color/black"
+                android:pointerIcon="none" />
 
             <TextView
                 android:id="@+id/textView12"
