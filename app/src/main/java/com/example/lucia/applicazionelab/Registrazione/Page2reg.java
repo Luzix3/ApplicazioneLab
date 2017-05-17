@@ -121,8 +121,6 @@ public class Page2reg extends Activity {
                 }
 
 
-
-
                 if (!email2.isEmpty() && !cellulare.isEmpty() && a==true && !password2.isEmpty() && isEmailValid(email2) && Ccondizioni.isChecked() && Cutente.isChecked() &&  !(Cgestore.isChecked()))
                 {
                     // todo: creare oggetto daabase
