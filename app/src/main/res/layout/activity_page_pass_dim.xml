@@ -18,18 +18,8 @@
         android:textColor="?android:attr/colorMultiSelectHighlight"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editPassUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="35dp"
-        android:layout_marginTop="6dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.502" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
@@ -39,54 +29,36 @@
         android:orientation="horizontal" />
 
     <TextView
-        android:id="@+id/textPassUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="32dp"
-        android:text="Username"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textColor="@android:color/holo_orange_light"
-        app:layout_constraintHorizontal_bias="0.653"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/editPassUser"
-        app:layout_constraintTop_toTopOf="@+id/guideline" />
-
-    <TextView
         android:id="@+id/textPassEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="6dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
         android:text="E-mail"
         android:textAppearance="@style/TextAppearance.AppCompat"
         android:textColor="@android:color/holo_orange_light"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
-        app:layout_constraintHorizontal_bias="0.603"
+        app:layout_constraintHorizontal_bias="0.632"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/editPassEmail"
-        app:layout_constraintTop_toBottomOf="@+id/textPassUser"
-        app:layout_constraintVertical_bias="0.304" />
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        android:layout_marginTop="8dp" />
 
     <Button
         android:id="@+id/buttonProcedi"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginRight="53dp"
         android:layout_marginTop="8dp"
         android:backgroundTint="@android:color/holo_orange_dark"
         android:text="Procedi"
-        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="8dp"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.007" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
@@ -101,11 +73,36 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/editPassUser"
         android:layout_marginRight="35dp"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline3"
-        app:layout_constraintVertical_bias="0.232" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/textPassEmail" />
+
+    <TextView
+        android:id="@+id/textInserisci"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Inserisci la tua E-mail:"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        android:layout_marginTop="9dp"
+        app:layout_constraintHorizontal_bias="0.094" />
+
+    <TextView
+        android:id="@+id/textBackLog"
+        android:layout_width="109dp"
+        android:layout_height="18dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="22dp"
+        android:text="Torna al login"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        app:layout_constraintHorizontal_bias="0.262"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/buttonProcedi"
+        app:layout_constraintTop_toTopOf="@+id/guideline3" />
+
 </android.support.constraint.ConstraintLayout>
