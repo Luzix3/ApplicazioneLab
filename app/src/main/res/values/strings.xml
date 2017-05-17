@@ -6,6 +6,7 @@
     <string name="obbligatorio">il campo è obbligatorio</string>
     <string name="errorecasella">Funzione non disponibile</string>
     <string name="emailvalida">Email non valida!</string>
+    <string name="passuguali">Le Password devono essere uguali!</string>
 
 
 </resources>

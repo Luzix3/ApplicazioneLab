@@ -30,6 +30,7 @@ public class Page2reg extends Activity {
     CheckBox Cgestore;
     CheckBox Ccondizioni;
     EditText EditCell;
+    EditText Editconfpass;
 
     public static boolean isEmailValid(String email) {
         String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
@@ -51,14 +52,18 @@ public class Page2reg extends Activity {
         Cgestore = (CheckBox)findViewById(R.id.checkBoxGestore);
         Ccondizioni= (CheckBox)findViewById(R.id.checkBoxCondizioni);
         EditCell = (EditText)findViewById(R.id.editCellulare);
+        Editconfpass = (EditText)findViewById(R.id.editConfPass);
 
         btnReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                boolean a=false;
 
                 String email2 = Editemail.getText().toString();
                 String password2 = Editpass.getText().toString();
                 String cellulare = EditCell.getText().toString();
+                String confpass = Editconfpass.getText().toString();
+
                 if (email2.isEmpty())
                 {
                     Editemail.setError(getString(R.string.obbligatorio));
@@ -68,6 +73,13 @@ public class Page2reg extends Activity {
                 {
                     Editpass.setError(getString(R.string.obbligatorio));
                 }
+
+                if (confpass.isEmpty())
+                {
+                    Editconfpass.setError(getString(R.string.obbligatorio));
+
+                }
+
                 if (cellulare.isEmpty())
                 {
                     EditCell.setError(getString(R.string.obbligatorio));
@@ -94,15 +106,24 @@ public class Page2reg extends Activity {
                 {
                     Editemail.setError(getString(R.string.emailvalida));
                 }
+
                 if (password2.length() < 6) {
                     Toast.makeText(getApplicationContext(), "Password troppo corta, deve essere di almeno 6 caratteri!", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
+                if (!(password2.equals(confpass)))
+                {
+                    Editconfpass.setError(getString(R.string.passuguali));
+
+                }else{
+                    a =true;
+                }
 
 
 
-                if (!email2.isEmpty() && !cellulare.isEmpty() &&  !password2.isEmpty() && isEmailValid(email2) && Ccondizioni.isChecked() && Cutente.isChecked() &&  !(Cgestore.isChecked()))
+
+                if (!email2.isEmpty() && !cellulare.isEmpty() && a==true && !password2.isEmpty() && isEmailValid(email2) && Ccondizioni.isChecked() && Cutente.isChecked() &&  !(Cgestore.isChecked()))
                 {
                     // todo: creare oggetto daabase
 
