@@ -42,8 +42,13 @@
         android:id="@+id/buttonLog"
         android:layout_width="76dp"
         android:layout_height="48dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="58dp"
+        android:background="@android:color/holo_orange_dark"
         android:backgroundTint="@android:color/holo_orange_dark"
         android:text="Login"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="168dp" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAvvenutareg" />
 </android.support.constraint.ConstraintLayout>

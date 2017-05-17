@@ -29,20 +29,29 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".MainETab.LibriActivity"
-            android:label="BibliApp"
+            android:label="BiblApp"
             android:theme="@style/ActivityBarra" />
         <activity
             android:name=".MainETab.CercaActivity"
-            android:label="BibliApp"
+            android:label="BiblApp"
             android:theme="@style/ActivityBarra" />
         <activity
             android:name=".MainETab.DonaActivity"
-            android:label="BibliApp"
+            android:label="BiblApp"
             android:theme="@style/ActivityBarra" />
-        <activity android:name=".MainETab.Dona2" />
-        <activity android:name=".MainETab.Prenota" />
-        <activity android:name=".MainETab.prenota2" />
-        <activity android:name=".Registrazione.RegSuccess"></activity>
+        <activity android:name=".MainETab.Dona2"
+            android:theme="@style/AppTheme"/>
+
+        <activity android:name=".MainETab.Prenota"
+            android:theme="@style/AppTheme"/>
+
+        <activity android:name=".MainETab.prenota2"
+            android:theme="@style/AppTheme"/>
+
+        <activity android:name=".Registrazione.RegSuccess"
+            android:theme="@style/AppTheme">
+
+        </activity>
     </application>
 
 </manifest>

@@ -16,6 +16,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+
 public class Page2reg extends Activity {
 
     Button btnReg;
@@ -25,6 +29,12 @@ public class Page2reg extends Activity {
     CheckBox Cgestore;
     CheckBox Ccondizioni;
 
+    public static boolean isEmailValid(String email) {
+        String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,15 +83,40 @@ public class Page2reg extends Activity {
                 }
                 // todo: mettere caratteri obbligatori alla password e mettere emailvalida
 
-                if(!email2.isEmpty() && !password2.isEmpty())
+                if(!(isEmailValid(email2)))
+                {
+                    Editemail.setError(getString(R.string.emailvalida));
+                }
+
+
+                if (!email2.isEmpty() &&  !password2.isEmpty() && isEmailValid(email2) && Ccondizioni.isChecked() && Cutente.isChecked() &&  !(Cgestore.isChecked()))
                 {
                     // todo: creare oggetto daabase
+
+                    Intent openPageRegSucc = new Intent(Page2reg.this, RegSuccess.class);
+                    startActivity(openPageRegSucc);
+
+
+                }
+
+
+
+
+                }
+
+
+
+                /*
+                if(!email2.isEmpty() && !password2.isEmpty())
+                {
+
                     //problema qui!!
                     Intent openPageRegSucc = new Intent(Page2reg.this, RegSuccess.class);
                     startActivity(openPageRegSucc);
                 }
+                */
 
-             }
+
         });
 
 
