@@ -100,6 +100,20 @@
                     android:inputType="textPassword" />
 
                 <TextView
+                    android:id="@+id/textCellulare"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cellulare"
+                    android:textAppearance="@style/TextAppearance.AppCompat" />
+
+                <EditText
+                    android:id="@+id/editCellulare"
+                    android:layout_width="228dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName" />
+
+                <TextView
                     android:id="@+id/textTipoUtente"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

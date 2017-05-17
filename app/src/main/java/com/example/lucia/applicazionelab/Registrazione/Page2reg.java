@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.lucia.applicazionelab.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -28,6 +29,7 @@ public class Page2reg extends Activity {
     CheckBox Cutente;
     CheckBox Cgestore;
     CheckBox Ccondizioni;
+    EditText EditCell;
 
     public static boolean isEmailValid(String email) {
         String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
@@ -48,6 +50,7 @@ public class Page2reg extends Activity {
         Cutente = (CheckBox)findViewById(R.id.checkBoxCliente);
         Cgestore = (CheckBox)findViewById(R.id.checkBoxGestore);
         Ccondizioni= (CheckBox)findViewById(R.id.checkBoxCondizioni);
+        EditCell = (EditText)findViewById(R.id.editCellulare);
 
         btnReg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +58,7 @@ public class Page2reg extends Activity {
 
                 String email2 = Editemail.getText().toString();
                 String password2 = Editpass.getText().toString();
+                String cellulare = EditCell.getText().toString();
                 if (email2.isEmpty())
                 {
                     Editemail.setError(getString(R.string.obbligatorio));
@@ -64,7 +68,10 @@ public class Page2reg extends Activity {
                 {
                     Editpass.setError(getString(R.string.obbligatorio));
                 }
-
+                if (cellulare.isEmpty())
+                {
+                    EditCell.setError(getString(R.string.obbligatorio));
+                }
 
 
                 if (Cgestore.isChecked())
@@ -87,14 +94,41 @@ public class Page2reg extends Activity {
                 {
                     Editemail.setError(getString(R.string.emailvalida));
                 }
+                if (password2.length() < 6) {
+                    Toast.makeText(getApplicationContext(), "Password troppo corta, deve essere di almeno 6 caratteri!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
 
-                if (!email2.isEmpty() &&  !password2.isEmpty() && isEmailValid(email2) && Ccondizioni.isChecked() && Cutente.isChecked() &&  !(Cgestore.isChecked()))
+
+
+                if (!email2.isEmpty() && !cellulare.isEmpty() &&  !password2.isEmpty() && isEmailValid(email2) && Ccondizioni.isChecked() && Cutente.isChecked() &&  !(Cgestore.isChecked()))
                 {
                     // todo: creare oggetto daabase
 
-                    Intent openPageRegSucc = new Intent(Page2reg.this, RegSuccess.class);
-                    startActivity(openPageRegSucc);
+
+                    final FirebaseAuth mAuth2 = FirebaseAuth.getInstance();
+
+                    mAuth2.createUserWithEmailAndPassword(email2, password2)
+                            .addOnCompleteListener(Page2reg.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    Toast.makeText(Page2reg.this, "Creazione utente: " + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+
+                                    // Se la registrazione fallisce, mostra un messaggio.Se invece va a buon fine
+                                    // si passa alla pagina di conferma
+                                    if (!task.isSuccessful()) {
+                                        Toast.makeText(Page2reg.this, "Registrazione fallita" + task.getException(),
+                                                Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        startActivity(new Intent(Page2reg.this, RegSuccess.class));
+                                        finish();
+                                    }
+                                }
+                            });
+
+
+
 
 
                 }

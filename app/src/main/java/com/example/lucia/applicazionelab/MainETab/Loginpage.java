@@ -96,7 +96,7 @@ public class Loginpage extends AppCompatActivity {
                                         else
                                         {
                                             //devo visualizzare un mex di errore
-                                            Toast.makeText(getApplicationContext(),"Username e password non esistenti, registrati!", Toast.LENGTH_LONG).show();
+                                            Toast.makeText(getApplicationContext(),"Dati non validi", Toast.LENGTH_LONG).show();
                                         }
                                     }else
                                     {
