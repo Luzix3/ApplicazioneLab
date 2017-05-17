@@ -30,10 +30,6 @@ public class MainActivity extends TabActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser(); // ho detto mi dici chi è l'utente collegato in questo
         //momento con questo account
 
-
-
-
-
         if (user == null)
         {
             //devo fare il login
@@ -45,7 +41,6 @@ public class MainActivity extends TabActivity {
             Log.d(TAG, "loggato come user" + user.getEmail());
 
         }
-
 
         //inizializzo la tab kk
         TabHostWindows = (TabHost) findViewById(android.R.id.tabhost);
@@ -89,31 +84,6 @@ public class MainActivity extends TabActivity {
 
 
 
-/*
-        Resources res = getResources();
-        TabHost tabHost = (TabHost) findViewById(android.R.id.tabhost); // attività per la tabhost
-        TabHost.TabSpec spec; // tabspec riutilizzabile da ogni tab
-        Intent intent; //intent riutilizzabile per ogni tab
-
-        // crea un intent per lanciare un'attività per la tab
-        intent = new Intent().setClass(this, Libri.class);
-
-        // inizializza una tabspec per ogni tab e lo aggiunge al tabhost
-        spec = tabHost.newTabSpec("Libri").setIndicator("Libri").setContent(intent);
-        tabHost.addTab(spec);
-
-
-        intent = new Intent().setClass(this, Cerca.class);
-        spec = tabHost.newTabSpec("Cerca").setIndicator("Cerca").setContent(intent);
-        tabHost.addTab(spec);
-
-        intent = new Intent().setClass(this, Dona.class);
-        spec = tabHost.newTabSpec("Dona").setIndicator("Dona").setContent(intent);
-        tabHost.addTab(spec);
-
-        tabHost.setCurrentTabByTag("Libri");
-
-*/
 
 
     }
