@@ -64,9 +64,9 @@ public class Page2reg extends Activity {
             public void onClick(View v) {
                 boolean a = false;
 
-                String email2 = Editemail.getText().toString();
-                String password2 = Editpass.getText().toString();
-                String cellulare = EditCell.getText().toString();
+                final String email2 = Editemail.getText().toString();
+                final String password2 = Editpass.getText().toString();
+                final String cellulare = EditCell.getText().toString();
                 String confpass = Editconfpass.getText().toString();
 
                 if (email2.isEmpty()) {
@@ -140,20 +140,34 @@ public class Page2reg extends Activity {
                                         Toast.makeText(Page2reg.this, "Registrazione fallita" + task.getException(),
                                                 Toast.LENGTH_SHORT).show();
                                     } else {
+
+                                        Utente u = new Utente(email2, password2, cellulare);
+                                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                        DatabaseReference reference = database.getReference("Utente").child(u.getEmail());
+                                        reference.setValue(u);
+                                        DatabaseReference refpass = database.getReference("Utente").child(u.getPassword());
+                                        refpass.setValue(u);
+                                        DatabaseReference refTelefono = database.getReference("Utente").child(u.getCellulare());
+                                        refTelefono.setValue(u);
+
                                         startActivity(new Intent(Page2reg.this, RegSuccess.class));
                                         finish();
+
                                     }
                                 }
                             });
 
 
+                        /*
+        //devo dirgli dove scrivere, ovvero il punto di partenza da cui scrivere
+        DatabaseReference reference = database1.getReference("cognome");
+        reference.setValue("Rossi");
+         // se cambio viene modificato il cognome, se non metto niente, riporta niente
+         // se metto null sparisce
+        DatabaseReference refTelefono = database1.getReference("telefono").child("prefisso");
+        refTelefono.setValue(888);
+       */
 
-                    // studente s = new Studente("A130000666", "Noratsds", "pierluigi", 67);
-                    Utente u = new Utente(email2, password2, cellulare);
-                    FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference reference = database.getReference("Utente").child(u.getEmail());
-                    // reference.setValue("email", u.getEmail());
-                    reference.setValue(u);
 
 
 
