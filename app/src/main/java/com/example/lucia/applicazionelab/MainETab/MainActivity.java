@@ -25,20 +25,39 @@ public class MainActivity extends TabActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        TextView btnLogOut= (TextView)findViewById(R.id.textLogOut);
+        TextView btnVaiLogin = (TextView)findViewById(R.id.textEffettuaLogin);
        // FirebaseAuth.getInstance().signOut();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser(); // ho detto mi dici chi è l'utente collegato in questo
         //momento con questo account
 
         if (user == null)
         {
+            btnVaiLogin.setVisibility(View.VISIBLE);
             //devo fare il login
-            Intent intent = new Intent(this,Loginpage.class);
-            startActivity(intent);
+            btnVaiLogin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent openPageLogin1 = new Intent(MainActivity.this, Loginpage.class);
+                    startActivity(openPageLogin1);
+
+                }
+            });
+
         }else
         {
-            //sono gia loggato
             Log.d(TAG, "loggato come user" + user.getEmail());
+            btnLogOut.setVisibility(View.VISIBLE);
+            btnLogOut.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    FirebaseAuth.getInstance().signOut();
+                    Intent openPagelogout = new Intent (MainActivity.this, Loginpage.class);
+                    startActivity(openPagelogout);
+                }
+            });
+
+
 
         }
 
@@ -68,16 +87,11 @@ public class MainActivity extends TabActivity {
         TabHostWindows.addTab(Cerca);
         TabHostWindows.addTab(Dona);
 
-        TextView btnVaiLogin = (TextView)findViewById(R.id.textEffettuaLogin);
 
-        btnVaiLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent openPageLogin1 = new Intent(MainActivity.this, Loginpage.class);
-                startActivity(openPageLogin1);
 
-            }
-        });
+
+
+
 
 
 
