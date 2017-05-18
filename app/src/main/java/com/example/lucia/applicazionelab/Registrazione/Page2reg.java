@@ -11,6 +11,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.lucia.applicazionelab.Database.Utente;
 import com.example.lucia.applicazionelab.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -19,6 +20,10 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class Page2reg extends Activity {
@@ -45,70 +50,61 @@ public class Page2reg extends Activity {
         setContentView(R.layout.activity_page2reg);
 
 
-        btnReg = (Button)findViewById(R.id.buttonAvanti);
-        Editemail = (EditText)findViewById(R.id.editRegEmail);
-        Editpass = (EditText)findViewById(R.id.editRegPass);
-        Cutente = (CheckBox)findViewById(R.id.checkBoxCliente);
-        Cgestore = (CheckBox)findViewById(R.id.checkBoxGestore);
-        Ccondizioni= (CheckBox)findViewById(R.id.checkBoxCondizioni);
-        EditCell = (EditText)findViewById(R.id.editCellulare);
-        Editconfpass = (EditText)findViewById(R.id.editConfPass);
+        btnReg = (Button) findViewById(R.id.buttonAvanti);
+        Editemail = (EditText) findViewById(R.id.editRegEmail);
+        Editpass = (EditText) findViewById(R.id.editRegPass);
+        Cutente = (CheckBox) findViewById(R.id.checkBoxCliente);
+        Cgestore = (CheckBox) findViewById(R.id.checkBoxGestore);
+        Ccondizioni = (CheckBox) findViewById(R.id.checkBoxCondizioni);
+        EditCell = (EditText) findViewById(R.id.editCellulare);
+        Editconfpass = (EditText) findViewById(R.id.editConfPass);
 
         btnReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean a=false;
+                boolean a = false;
 
                 String email2 = Editemail.getText().toString();
                 String password2 = Editpass.getText().toString();
                 String cellulare = EditCell.getText().toString();
                 String confpass = Editconfpass.getText().toString();
 
-                if (email2.isEmpty())
-                {
+                if (email2.isEmpty()) {
                     Editemail.setError(getString(R.string.obbligatorio));
 
                 }
-                if (password2.isEmpty())
-                {
+                if (password2.isEmpty()) {
                     Editpass.setError(getString(R.string.obbligatorio));
                 }
 
-                if (confpass.isEmpty())
-                {
+                if (confpass.isEmpty()) {
                     Editconfpass.setError(getString(R.string.obbligatorio));
 
                 }
 
-                if (cellulare.isEmpty())
-                {
+                if (cellulare.isEmpty()) {
                     EditCell.setError(getString(R.string.obbligatorio));
                 }
 
 
-                if (Cgestore.isChecked())
-                {
+                if (Cgestore.isChecked()) {
                     Cgestore.setError(getString(R.string.errorecasella));
                 }
 
-                if (!(Cutente.isChecked()) )
-                {
+                if (!(Cutente.isChecked())) {
                     Cutente.setError(getString(R.string.obbligatorio));
                 }
 
-                if (!(Ccondizioni.isChecked()) )
-                {
+                if (!(Ccondizioni.isChecked())) {
                     Ccondizioni.setError(getString(R.string.obbligatorio));
                 }
                 // todo: mettere caratteri obbligatori alla password e mettere emailvalida
 
-                if(!(isEmailValid(email2)))
-                {
+                if (!(isEmailValid(email2))) {
                     Editemail.setError(getString(R.string.emailvalida));
                 }
 
-                if(cellulare.length() <10)
-                {
+                if (cellulare.length() < 10) {
                     Toast.makeText(getApplicationContext(), "Deve essere di almeno 10 caratteri!", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -118,17 +114,15 @@ public class Page2reg extends Activity {
                     return;
                 }
 
-                if (!(password2.equals(confpass)))
-                {
+                if (!(password2.equals(confpass))) {
                     Editconfpass.setError(getString(R.string.passuguali));
 
-                }else{
-                    a =true;
+                } else {
+                    a = true;
                 }
 
 
-                if (cellulare.length() <10 && password2.length() < 6 && !email2.isEmpty() && !cellulare.isEmpty() && a==true && !password2.isEmpty() && isEmailValid(email2) && Ccondizioni.isChecked() && Cutente.isChecked() &&  !(Cgestore.isChecked()))
-                {
+                if ( cellulare.length() > 10 && password2.length() > 6 && !email2.isEmpty() && !cellulare.isEmpty() && a == true && !password2.isEmpty() && isEmailValid(email2) && Ccondizioni.isChecked() && Cutente.isChecked() && !(Cgestore.isChecked())) {
                     // todo: creare oggetto daabase
 
 
@@ -154,36 +148,26 @@ public class Page2reg extends Activity {
 
 
 
+                    // studente s = new Studente("A130000666", "Noratsds", "pierluigi", 67);
+                    Utente u = new Utente(email2, password2, cellulare);
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference reference = database.getReference("Utente").child(u.getEmail());
+                    // reference.setValue("email", u.getEmail());
+                    reference.setValue(u);
 
 
+
+       /* FirebaseDatabase database1= FirebaseDatabase.getInstance();
+        DatabaseReference reference = database1.getReference("studenti").child(s.getMatricola());
+        // reference.setValue("nome", s.getNome());
+        reference.setValue(s);
+*/
                 }
-
-
-
-
-                }
-
-
-
-                /*
-                if(!email2.isEmpty() && !password2.isEmpty())
-                {
-
-                    //problema qui!!
-                    Intent openPageRegSucc = new Intent(Page2reg.this, RegSuccess.class);
-                    startActivity(openPageRegSucc);
-                }
-                */
+            }
 
 
         });
 
 
-
-
     }
-
-
-
-
 }
