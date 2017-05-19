@@ -65,11 +65,9 @@ public class Utente implements Serializable{
         this.password = password;
         this.cellulare=cellulare;
     }
-    public Utente (String email, String password, String cellulare, String libro, String codlibro)
+    public Utente (String libro, String codlibro)
     {
-        this.email=email;
-        this.password = password;
-        this.cellulare=cellulare;
+
         this.libro= libro;
         this.codlibro = codlibro;
 
