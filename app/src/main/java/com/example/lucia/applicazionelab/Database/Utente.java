@@ -55,7 +55,7 @@ public class Utente implements Serializable{
     }
 
 
-    private Utente() {
+    public Utente() {
 
     }
 

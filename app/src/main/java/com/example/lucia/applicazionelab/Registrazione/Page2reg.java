@@ -125,7 +125,7 @@ public class Page2reg extends Activity {
                 if ( cellulare.length() > 10 && password2.length() > 6 && !email2.isEmpty() && !cellulare.isEmpty() && a == true && !password2.isEmpty() && isEmailValid(email2) && Ccondizioni.isChecked() && Cutente.isChecked() && !(Cgestore.isChecked())) {
                     // todo: creare oggetto daabase
 
-
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
                     final FirebaseAuth mAuth2 = FirebaseAuth.getInstance();
 
                     mAuth2.createUserWithEmailAndPassword(email2, password2)
@@ -141,14 +141,14 @@ public class Page2reg extends Activity {
                                                 Toast.LENGTH_SHORT).show();
                                     } else {
 
+                                        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Utenti");
+                                        //ora creo un nodo user che mi ritorna la chiave unica dell'user (quella che solo questa app può avere
+
+                                        String userId = mDatabase.push().getKey();
+                                        // creo un oggetto della classe utente
                                         Utente u = new Utente(email2, password2, cellulare);
-                                        FirebaseDatabase database = FirebaseDatabase.getInstance();
-                                        DatabaseReference reference = database.getReference("Utente").child(u.getEmail());
-                                        reference.setValue(u);
-                                        DatabaseReference refpass = database.getReference("Utente").child(u.getPassword());
-                                        refpass.setValue(u);
-                                        DatabaseReference refTelefono = database.getReference("Utente").child(u.getCellulare());
-                                        refTelefono.setValue(u);
+                                        // metto l'user nel database sotto il nodo Utenti con la sua chiave unica
+                                        mDatabase.child(userId).setValue(u);
 
                                         startActivity(new Intent(Page2reg.this, RegSuccess.class));
                                         finish();
