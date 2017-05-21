@@ -1,10 +1,12 @@
 package com.example.lucia.applicazionelab.Database;
 
 import android.content.Context;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -42,13 +44,15 @@ public class LibroAdapter extends BaseAdapter {
         TextView textGenere= (TextView)convertView.findViewById(R.id.textGenere);
         TextView textAnno= (TextView)convertView.findViewById(R.id.textAnno);
         TextView textCodLibro= (TextView)convertView.findViewById(R.id.textCodLibro);
+        ImageView ImageCopertina = (ImageView)convertView.findViewById(R.id.ImmagineCopertina);
 
         Libro libro = lista.get(position);
-        textLibro.setText(libro.getNome());
+        textLibro.setText(libro.getLibro());
         textAutore.setText(libro.getAutore());
         textGenere.setText(libro.getGenere());
         textAnno.setText(libro.getAnno());
         textCodLibro.setText(libro.getCodlibro());
+        ImageCopertina.setImageResource(R.drawable.image_bg);
 
         return null;
     }
@@ -59,7 +63,7 @@ public class LibroAdapter extends BaseAdapter {
         return 0;
     }
 
-    //data la posizione prende l'elemento a quella posizione e cioè lo studente e lo restituisce
+    //data la posizione prende l'elemento a quella posizione e cioè il libro e lo restituisce
     @Override
     public Libro getItem(int position) {
         return lista.get(position);

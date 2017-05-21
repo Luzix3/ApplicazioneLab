@@ -84,7 +84,7 @@ public class CercaActivity extends AppCompatActivity {
 
         Libro l = new Libro();
         l.setCodlibro("0000001");
-        l.setNome("Harry Potter 1");
+        l.setLibro("Harry Potter 1");
         l.setAutore("j.k. rowling");
         l.setGenere("Fantasy");
         l.setAnno("2002");

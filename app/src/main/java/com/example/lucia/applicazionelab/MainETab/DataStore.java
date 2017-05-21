@@ -65,7 +65,7 @@ public class DataStore {
                 for (DataSnapshot elemento:dataSnapshot.getChildren()) {
                     Libro libro = new Libro();
                     libro.setCodlibro(elemento.getKey());
-                    libro.setNome(elemento.child(KEY_NOME).getValue(String.class));
+                    libro.setLibro(elemento.child(KEY_NOME).getValue(String.class));
                     libro.setAutore(elemento.child(KEY_AUTORE).getValue(String.class));
                     libro.setGenere(elemento.child(KEY_GENERE).getValue(String.class));
                     libro.setAnno(elemento.child(KEY_ANNO).getValue(String.class));
@@ -157,8 +157,8 @@ public class DataStore {
 
     /**
      * Restituisce l'indice di un libro nell'array partendo dal codice libro
-     * @param codlibro codice del libro da cercare da cercare
-     * @return indice del libro. -1 se non trovato
+     * @param codlibro codice del libro da cercare
+     ** @return indice del libro. -1 se non trovato
      */
     private int getLibroIndex(String codlibro) {
         boolean trovato = false;

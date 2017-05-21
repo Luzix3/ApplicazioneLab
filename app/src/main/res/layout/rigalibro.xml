@@ -3,69 +3,84 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/list_selector"
+    android:backgroundTint="?android:attr/colorPressedHighlight"
     android:orientation="horizontal"
-    android:padding="5dip" >
+    android:padding="5dip">
 
-
+    <!--  ListRow Left sied Thumbnail image -->
     <LinearLayout
-        android:id="@+id/listlibro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_marginRight="5dip"
         android:background="@drawable/image_bg"
-        android:padding="3dip">
+        android:padding="3dip"
+        android:id="@+id/linearLayout">
 
         <ImageView
-            android:id="@+id/ImmagineLibro"
+            android:id="@+id/ImmagineCopertina"
             android:layout_width="50dip"
             android:layout_height="50dip" />
 
     </LinearLayout>
 
+    <!-- Title Of Song-->
     <TextView
         android:id="@+id/textLibro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="23dp"
-        android:layout_toEndOf="@+id/listlibro"
-        android:text="Nome libro"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/black" />
+        android:layout_toEndOf="@+id/linearLayout"
+        android:text="Nome Libro"
+        android:textColor="#040404"
+        android:textSize="15dip"
+        android:textStyle="bold"
+        android:typeface="sans" />
 
+    <!-- Artist Name -->
     <TextView
         android:id="@+id/textAutore"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Autore"
+        android:textColor="#343434"
+        android:textSize="10dip"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/linearLayout" />
+
+    <!-- Rightend Duration -->
+    <TextView
+        android:id="@+id/textAnno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textLibro"
-        android:layout_below="@+id/textLibro"
-        android:text="Nome autore" />
+        android:layout_marginRight="5dip"
+        android:gravity="right"
+        android:text="Anno"
+        android:textColor="#10bcc9"
+        android:textSize="10dip"
+        android:textStyle="bold"
+        android:layout_alignTop="@+id/textGenere"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="15dp" />
 
     <TextView
         android:id="@+id/textGenere"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textAutore"
-        android:layout_below="@+id/textAutore"
-        android:text="Genere" />
-
-    <TextView
-        android:id="@+id/textAnno"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textGenere"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="18dp"
-        android:text="Anno" />
+        android:layout_alignBottom="@+id/linearLayout"
+        android:layout_toEndOf="@+id/linearLayout"
+        android:text="Genere"
+        android:textAppearance="@style/TextAppearance.AppCompat" />
 
     <TextView
         android:id="@+id/textCodLibro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textLibro"
-        android:layout_marginEnd="28dp"
-        android:layout_toStartOf="@+id/textAnno"
-        android:text="Codice libro" />
+        android:layout_alignParentEnd="true"
+        android:text="Codice Libro"
+        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+
 
 </RelativeLayout>
