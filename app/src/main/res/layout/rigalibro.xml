@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_selector"
+    android:orientation="horizontal"
+    android:padding="5dip" >
+
+
+    <LinearLayout
+        android:id="@+id/listlibro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="5dip"
+        android:background="@drawable/image_bg"
+        android:padding="3dip">
+
+        <ImageView
+            android:id="@+id/ImmagineLibro"
+            android:layout_width="50dip"
+            android:layout_height="50dip" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textLibro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="23dp"
+        android:layout_toEndOf="@+id/listlibro"
+        android:text="Nome libro"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/textAutore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textLibro"
+        android:layout_below="@+id/textLibro"
+        android:text="Nome autore" />
+
+    <TextView
+        android:id="@+id/textGenere"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textAutore"
+        android:layout_below="@+id/textAutore"
+        android:text="Genere" />
+
+    <TextView
+        android:id="@+id/textAnno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textGenere"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="18dp"
+        android:text="Anno" />
+
+    <TextView
+        android:id="@+id/textCodLibro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textLibro"
+        android:layout_marginEnd="28dp"
+        android:layout_toStartOf="@+id/textAnno"
+        android:text="Codice libro" />
+
+</RelativeLayout>
