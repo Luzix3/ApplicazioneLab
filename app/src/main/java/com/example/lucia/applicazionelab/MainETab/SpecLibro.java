@@ -1,7 +1,7 @@
 package com.example.lucia.applicazionelab.MainETab;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.example.lucia.applicazionelab.Database.Libro;
 import com.example.lucia.applicazionelab.R;
 
-public class SpecLibro extends AppCompatActivity {
+public class SpecLibro extends Activity {
 
     // Costanti
     private final static String EXTRA_LIBRO = "libro";
@@ -30,12 +30,12 @@ public class SpecLibro extends AppCompatActivity {
         setContentView(R.layout.activity_spec_libro);
 
         // Imposto gli id widget
-       mCodLibro = (TextView)findViewById(R.id.textCodLibro);
-        mAutore = (TextView)findViewById(R.id.textAutore);
-        mLibro = (TextView)findViewById(R.id.textLibro);
-        mGenere = (TextView)findViewById(R.id.textGenere);
-        mAnno= (TextView)findViewById(R.id.textAnno);
-        mImageLibro = (ImageView)findViewById(R.id.ImmagineCopertina);
+       mCodLibro = (TextView)findViewById(R.id.textCodLibro2);
+        mAutore = (TextView)findViewById(R.id.textAutore2);
+        mLibro = (TextView)findViewById(R.id.textLibro2);
+        mGenere = (TextView)findViewById(R.id.textGenere2);
+        mAnno= (TextView)findViewById(R.id.textAnno2);
+        // mImageLibro = (ImageView)findViewById(R.id.ImmagineLibro);
 
         // Ottengo i dati passati ed eventualmente visualizzo il libro
         Intent intent = getIntent();
@@ -44,10 +44,10 @@ public class SpecLibro extends AppCompatActivity {
         if (libro != null) {
             mCodLibro.setText(libro.getCodlibro());
             mAutore.setText(libro.getAutore());
-            mLibro.setText(libro.getLibro());
+            mLibro.setText(libro.getNome());
             mAnno.setText(libro.getAnno());
             mGenere.setText(libro.getGenere());
-            mImageLibro.setImageResource(R.drawable.image_bg);
+            // mImageLibro.setImageResource(R.drawable.image_bg);
 
         }
     }

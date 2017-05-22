@@ -41,6 +41,7 @@ public class CercaActivity extends AppCompatActivity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_cerca);
+
         // Autenticazione Firebase
         mAuth5 = FirebaseAuth.getInstance();
 
@@ -67,7 +68,7 @@ public class CercaActivity extends AppCompatActivity {
             public void libriAggiornati() {
 
 
-               adapter.updateData(archivio.elencoLibri());
+               adapter.update(archivio.elencoLibri());
             }
         });
 
@@ -84,7 +85,7 @@ public class CercaActivity extends AppCompatActivity {
 
         Libro l = new Libro();
         l.setCodlibro("0000001");
-        l.setLibro("Harry Potter 1");
+        l.setNome("Harry Potter 1");
         l.setAutore("j.k. rowling");
         l.setGenere("Fantasy");
         l.setAnno("2002");

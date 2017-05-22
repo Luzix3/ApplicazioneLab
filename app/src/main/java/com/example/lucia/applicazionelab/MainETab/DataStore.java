@@ -65,7 +65,7 @@ public class DataStore {
                 for (DataSnapshot elemento:dataSnapshot.getChildren()) {
                     Libro libro = new Libro();
                     libro.setCodlibro(elemento.getKey());
-                    libro.setLibro(elemento.child(KEY_NOME).getValue(String.class));
+                    libro.setNome(elemento.child(KEY_NOME).getValue(String.class));
                     libro.setAutore(elemento.child(KEY_AUTORE).getValue(String.class));
                     libro.setGenere(elemento.child(KEY_GENERE).getValue(String.class));
                     libro.setAnno(elemento.child(KEY_ANNO).getValue(String.class));

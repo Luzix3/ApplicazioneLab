@@ -15,10 +15,10 @@
         android:layout_marginRight="5dip"
         android:background="@drawable/image_bg"
         android:padding="3dip"
-        android:id="@+id/linearLayout">
+        android:id="@+id/LayoutTipo">
 
         <ImageView
-            android:id="@+id/ImmagineCopertina"
+            android:id="@+id/ImmagineCopertina2"
             android:layout_width="50dip"
             android:layout_height="50dip" />
 
@@ -26,31 +26,29 @@
 
     <!-- Title Of Song-->
     <TextView
-        android:id="@+id/textLibro"
+        android:id="@+id/textLibro2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/linearLayout"
+        android:layout_toEndOf="@+id/LayoutTipo"
         android:text="Nome Libro"
-        android:textColor="#040404"
-        android:textSize="15dip"
-        android:textStyle="bold"
-        android:typeface="sans" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
+        android:textColor="@android:color/black" />
 
     <!-- Artist Name -->
     <TextView
-        android:id="@+id/textAutore"
+        android:id="@+id/textAutore2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Autore"
         android:textColor="#343434"
         android:textSize="10dip"
         android:layout_centerVertical="true"
-        android:layout_toEndOf="@+id/linearLayout" />
+        android:layout_toEndOf="@+id/LayoutTipo" />
 
     <!-- Rightend Duration -->
     <TextView
-        android:id="@+id/textAnno"
+        android:id="@+id/textAnno2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="5dip"
@@ -59,24 +57,24 @@
         android:textColor="#10bcc9"
         android:textSize="10dip"
         android:textStyle="bold"
-        android:layout_alignTop="@+id/textGenere"
+        android:layout_alignTop="@+id/textGenere2"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="15dp" />
 
     <TextView
-        android:id="@+id/textGenere"
+        android:id="@+id/textGenere2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/linearLayout"
-        android:layout_toEndOf="@+id/linearLayout"
+        android:layout_alignBottom="@+id/LayoutTipo"
+        android:layout_toEndOf="@+id/LayoutTipo"
         android:text="Genere"
         android:textAppearance="@style/TextAppearance.AppCompat" />
 
     <TextView
-        android:id="@+id/textCodLibro"
+        android:id="@+id/textCodLibro2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textLibro"
+        android:layout_alignBottom="@+id/textLibro2"
         android:layout_alignParentEnd="true"
         android:text="Codice Libro"
         android:textAppearance="@style/TextAppearance.AppCompat" />

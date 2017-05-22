@@ -12,16 +12,16 @@ import java.io.Serializable;
 public class Libro implements Serializable{
     private String autore;
     private String codlibro;
-    private String libro;
+    private String nome;
     private String anno;
     private String genere;
-    private Image copertina;
+    //private Image copertina;
 
     //mettere private cosi si nasconde l'implementazione della classe
     //aggiunge getter e setter
     //mancano i costruttori
 
-
+/*
     public Image getCopertina() {
         return copertina;
     }
@@ -29,6 +29,8 @@ public class Libro implements Serializable{
     public void setCopertina(Image copertina) {
         this.copertina = copertina;
     }
+
+    */
 
     public String getGenere() {
         return genere;
@@ -38,12 +40,12 @@ public class Libro implements Serializable{
         this.genere = genere;
     }
 
-    public String getLibro() {
-        return libro;
+    public String getNome() {
+        return nome;
     }
 
-    public void setLibro(String libro) {
-        this.libro = libro;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getAutore() {
@@ -74,18 +76,18 @@ public class Libro implements Serializable{
      *
      * @param autore
      * @param codlibro
-     * @param libro
+     * @param nome
      * @param anno
      * @param genere
-     * @param copertina
+     *
      */
-    public Libro(String autore, String codlibro, String libro, String anno, String genere, Image copertina) {
+    public Libro(String autore, String codlibro, String nome, String anno, String genere) {
         this.autore = autore;
         this.codlibro=codlibro;
-        this.libro = libro;
+        this.nome = nome;
         this.anno=anno;
         this.genere=genere;
-        this.copertina=copertina;
+         // this.copertina=copertina;
 
     }
 
