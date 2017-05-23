@@ -17,7 +17,7 @@
         android:layout_marginTop="8dp"
         android:text="Le opzioni indicano la durata massima dell'utilizzo del libro, puoi consegnare il libro anche prima della scadenza."
         android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textColor="@android:color/holo_orange_dark"
+        android:textColor="#FFC01218"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline6"
         app:layout_constraintHorizontal_bias="0.0"
@@ -36,7 +36,7 @@
         android:layout_marginTop="16dp"
         android:text="Procedi con la prenotazione"
         android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
-        android:textColor="@android:color/holo_orange_dark"
+        android:textColor="#FFC01218"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintHorizontal_bias="0.062"
@@ -61,7 +61,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        android:backgroundTint="@android:color/holo_orange_dark"
+        android:backgroundTint="#FFC01218"
         android:text="PRENOTA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -82,9 +82,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Una settimana"
-        android:textColor="@android:color/holo_orange_dark"
+        android:textColor="#FFC01218"
         android:textStyle="bold"
-        app:buttonTint="@android:color/holo_orange_light"
+        app:buttonTint="#FFC01218"
         tools:layout_editor_absoluteX="25dp"
         tools:layout_editor_absoluteY="100dp" />
 
@@ -93,9 +93,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Due settimane"
-        android:textColor="@android:color/holo_orange_dark"
+        android:textColor="#FFC01218"
         android:textStyle="bold"
-        app:buttonTint="@android:color/holo_orange_light"
+        app:buttonTint="#FFC01218"
         tools:layout_editor_absoluteX="25dp"
         tools:layout_editor_absoluteY="143dp" />
 
@@ -104,9 +104,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="20 giorni"
-        android:textColor="@android:color/holo_orange_dark"
+        android:textColor="#FFC01218"
         android:textStyle="bold"
-        app:buttonTint="@android:color/holo_orange_light"
+        app:buttonTint="#FFC01218"
         tools:layout_editor_absoluteX="25dp"
         tools:layout_editor_absoluteY="189dp" />
 
@@ -117,7 +117,7 @@
         android:text="Per quanti giorni desideri prenotare il libro?"
         tools:layout_editor_absoluteX="25dp"
         tools:layout_editor_absoluteY="51dp"
-        android:textColor="@android:color/holo_orange_dark"
+        android:textColor="#FFC01218"
         android:textStyle="bold"/>
 
 </android.support.constraint.ConstraintLayout>

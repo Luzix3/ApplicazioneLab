@@ -76,7 +76,7 @@
                     android:layout_height="wrap_content"
                     android:text="E-mail "
                     android:textAppearance="@style/TextAppearance.AppCompat"
-                    android:textColor="@android:color/holo_orange_dark"
+                    android:textColor="#FFC01218"
                     android:textStyle="bold"/>
 
                 <EditText
@@ -93,7 +93,7 @@
                     android:layout_weight="0.31"
                     android:text="Password "
                     android:textAppearance="@style/TextAppearance.AppCompat"
-                    android:textColor="@android:color/holo_orange_dark"
+                    android:textColor="#FFC01218"
                     android:textStyle="bold"/>
 
                 <EditText
@@ -109,7 +109,7 @@
                     android:layout_height="wrap_content"
                     android:text="Conferma Password"
                     android:textAppearance="@style/TextAppearance.AppCompat"
-                    android:textColor="@android:color/holo_orange_dark"
+                    android:textColor="#FFC01218"
                     android:textStyle="bold"/>
 
                 <EditText
@@ -125,7 +125,7 @@
                     android:layout_height="wrap_content"
                     android:text="Cellulare"
                     android:textAppearance="@style/TextAppearance.AppCompat"
-                    android:textColor="@android:color/holo_orange_dark"
+                    android:textColor="#FFC01218"
                     android:textStyle="bold"/>
 
                 <EditText
@@ -142,7 +142,7 @@
                     android:text="Sei un cliente o un gestore della biblioteca? "
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
 
-                    android:textColor="@android:color/holo_orange_dark"
+                    android:textColor="#FFC01218"
                     android:textStyle="bold"/>
 
                 <CheckBox
@@ -150,18 +150,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Cliente"
-                    android:textColor="@android:color/holo_orange_dark"
+                    android:textColor="#FFC01218"
                     android:textStyle="bold"
-                    app:buttonTint="@android:color/holo_orange_light" />
+                    app:buttonTint="#FFC01218" />
 
                 <CheckBox
                     android:id="@+id/checkBoxGestore"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Gestore"
-                    android:textColor="@android:color/holo_orange_dark"
+                    android:textColor="#FFC01218"
                     android:textStyle="bold"
-                    app:buttonTint="@android:color/holo_orange_light" />
+                    app:buttonTint="#FFC01218" />
 
                 <TextView
                     android:id="@+id/textCodiceGestore"
@@ -169,7 +169,7 @@
                     android:layout_height="wrap_content"
                     android:text="Codice gestore(solo se sei un gestore):"
                     android:textAppearance="@style/TextAppearance.AppCompat"
-                    android:textColor="@android:color/holo_orange_dark"
+                    android:textColor="#FFC01218"
                     android:textStyle="bold"/>
 
                 <EditText
@@ -184,16 +184,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Accetto le condizioni"
-                    android:textColor="@android:color/holo_orange_dark"
+                    android:textColor="#FFC01218"
                     android:textStyle="bold"
-                    app:buttonTint="@android:color/holo_orange_light" />
+                    app:buttonTint="#FFC01218" />
 
                 <Button
                     android:id="@+id/buttonAvanti"
                     android:layout_width="198dp"
                     android:layout_height="wrap_content"
-                    android:background="@android:color/holo_orange_dark"
-                    android:backgroundTint="@android:color/holo_orange_dark"
+                    android:background="#FFC01218"
+                    android:backgroundTint="#FFC01218"
                     android:text="Fine" />
 
                 <android.support.constraint.Guideline

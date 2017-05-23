@@ -16,7 +16,7 @@
         android:layout_marginTop="16dp"
         android:text="Registrazione"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@android:color/holo_orange_dark"
+        android:textColor="#FFC01218"
         app:layout_constraintHorizontal_bias="0.081"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -29,14 +29,14 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="50dp"
-        android:backgroundTint="@android:color/black"
+        android:backgroundTint="#FFC01218"
         android:text="La registrazione è avvenuta con successo, fai il login ed inizia ad utilizzare Biblapp!"
         android:textAppearance="@style/TextAppearance.AppCompat"
 
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textRegSucc1"
-        android:textColor="@android:color/holo_orange_dark"
+        android:textColor="#FFC01218"
         android:textStyle="bold"/>
 
     <Button
@@ -46,8 +46,8 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="58dp"
-        android:background="@android:color/holo_orange_dark"
-        android:backgroundTint="@android:color/holo_orange_dark"
+        android:background="#FFC01218"
+        android:backgroundTint="#FFC01218"
         android:text="Login"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

@@ -21,7 +21,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:textColor="@android:color/holo_orange_dark"
+        android:textColor="#FFC01218"
         android:textStyle="bold"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -47,7 +47,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline5"
-        android:textColor="@android:color/holo_orange_dark"
+        android:textColor="#FFC01218"
         android:textStyle="bold"
         app:layout_constraintVertical_bias="0.97" />
 
@@ -60,7 +60,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        android:backgroundTint="@android:color/holo_orange_dark"
+        android:backgroundTint="#FFC01218"
         android:text="Torna alla pagina principale"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.965"
@@ -84,6 +84,6 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="106dp"
-        android:textColor="@android:color/holo_orange_dark"
+        android:textColor="#FFC01218"
         android:textStyle="bold"/>
 </android.support.constraint.ConstraintLayout>

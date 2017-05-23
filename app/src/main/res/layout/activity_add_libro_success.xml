@@ -16,7 +16,7 @@
         android:layout_marginTop="16dp"
         android:text="Hai aggiunto il libro correttamente, grazie!"
         android:textAppearance="@style/TextAppearance.AppCompat.Large.Inverse"
-        android:textColor="@android:color/black"
+        android:textColor="#FFC01218"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

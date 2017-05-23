@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:text="Scrivi il titolo del libro che vuoi donare:"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@android:color/holo_orange_dark"
+                android:textColor="#FFC01218"
                 android:textStyle="bold"
                 android:textColorLink="@android:color/holo_orange_dark" />
 
@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:text="Seleziona il giorno in cui passerai da noi:"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@android:color/holo_orange_dark"
+                android:textColor="#FFC01218"
                 android:textStyle="bold"
                 android:textColorLink="@android:color/holo_orange_dark" />
 
@@ -63,14 +63,14 @@
                 android:id="@+id/datePicker"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@android:color/holo_orange_light"
-                android:backgroundTint="@android:color/holo_orange_light"
+                android:background="#FFC01218"
+                android:backgroundTint="#FFC01218"
                 android:backgroundTintMode="src_over"
                 android:calendarTextColor="@android:color/black"
                 android:datePickerMode="spinner"
                 android:dayOfWeekBackground="@android:color/black"
                 android:dayOfWeekTextAppearance="@android:color/black"
-                android:headerBackground="@android:color/holo_orange_dark"
+                android:headerBackground="#FFC01218"
                 android:headerDayOfMonthTextAppearance="@android:color/black"
                 android:pointerIcon="none" />
 
@@ -83,7 +83,7 @@
                 android:id="@+id/buttonProcediLibro"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
-                android:background="@android:color/holo_orange_dark"
+                android:background="#FFC01218"
                 android:text="Procedi" />
         </LinearLayout>
     </ScrollView>

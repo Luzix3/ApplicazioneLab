@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/list_selector"
-    android:backgroundTint="@android:color/transparent"
+    android:backgroundTint="#D7F6F5F5"
     android:orientation="horizontal"
     android:padding="5dip">
 
@@ -33,7 +33,7 @@
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/LayoutTipo"
         android:text="Nome Libro"
-        android:textColor="@android:color/holo_orange_dark"
+        android:textColor="#FFC01218"
         android:textStyle="bold" />
 
     <TextView
@@ -43,9 +43,9 @@
         android:layout_centerVertical="true"
         android:layout_toEndOf="@+id/LayoutTipo"
         android:text="Autore"
-        android:textColor="@android:color/holo_orange_dark"
-        android:textStyle="bold"
-        android:textSize="10dip" />
+        android:textColor="#FFC01218"
+        android:textSize="10dip"
+        android:textStyle="bold" />
 
 
     <TextView
@@ -69,7 +69,7 @@
         android:layout_alignBottom="@+id/LayoutTipo"
         android:layout_toEndOf="@+id/LayoutTipo"
         android:text="Genere"
-        android:textColor="@android:color/holo_orange_dark"
+        android:textColor="#FFC01218"
         android:textStyle="bold" />
 
     <TextView
@@ -79,7 +79,7 @@
         android:layout_alignBottom="@+id/textLibro2"
         android:layout_alignParentEnd="true"
         android:text="Codice Libro"
-        android:textColor="@android:color/holo_orange_dark"
+        android:textColor="#FFC01218"
         android:textStyle="bold" />
 
 

@@ -32,7 +32,7 @@
         android:layout_marginTop="8dp"
         android:text="Aggiungi un libro alla biblioteca!"
         android:textAppearance="@style/TextAppearance.AppCompat"
-        android:textColor="@android:color/holo_orange_dark"
+        android:textColor="#FFC01218"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
