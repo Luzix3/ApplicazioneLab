@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_light"
+    android:background="@drawable/immagine2"
     tools:context="com.example.lucia.applicazionelab.MainETab.MainActivity">
 
     <TextView
@@ -17,6 +17,9 @@
         android:text="Login"
         android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
         android:textColor="@android:color/holo_orange_dark"
+
+
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.035"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -50,6 +53,7 @@
         android:layout_marginRight="24dp"
         android:layout_marginTop="24dp"
         android:text="Username"
+        android:textStyle="bold"
         android:textAppearance="@style/TextAppearance.AppCompat"
         android:textColor="@android:color/holo_orange_light"
         app:layout_constraintHorizontal_bias="0.489"
@@ -100,6 +104,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
+        android:textStyle="bold"
         android:text="Password"
         android:textAppearance="@style/TextAppearance.AppCompat"
         android:textColor="@android:color/holo_orange_light"
@@ -135,6 +140,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="16dp"
         android:text="Password dimenticata? Clicca qui!"
+        android:textStyle="bold"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Small"
         android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"

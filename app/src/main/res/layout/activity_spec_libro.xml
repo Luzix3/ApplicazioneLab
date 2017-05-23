@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_light"
+    android:background="@drawable/immagine2"
     tools:context="com.example.lucia.applicazionelab.MainETab.SpecLibro">
 
     <TextView
@@ -18,24 +18,26 @@
         android:layout_marginTop="48dp"
         android:text="Specifiche libro:"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/black"
+
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.504" />
+        android:textColor="@android:color/holo_orange_dark"
+        android:textStyle="bold"  />
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:id="@+id/scrollView2"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintHorizontal_bias="0.0"
         android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textSpec">
 
         <LinearLayout
@@ -53,8 +55,8 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:text="Nome libro:"
-                android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textStyle="bold"
                 app:layout_constraintHorizontal_bias="0.078"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toLeftOf="@+id/textLibro2"
@@ -67,6 +69,7 @@
                 android:layout_marginEnd="174dp"
                 android:layout_marginRight="174dp"
                 android:text="TextView"
+                android:textStyle="bold"
                 android:textColor="@android:color/holo_orange_light"
                 app:layout_constraintBaseline_toBaselineOf="@+id/text1"
                 app:layout_constraintRight_toRightOf="parent" />
@@ -81,8 +84,8 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="Autore:"
-                android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textStyle="bold"
                 app:layout_constraintHorizontal_bias="0.073"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toLeftOf="@+id/textAutore2"
@@ -95,6 +98,7 @@
                 android:layout_marginEnd="174dp"
                 android:layout_marginRight="174dp"
                 android:text="TextView"
+                android:textStyle="bold"
                 android:textColor="@android:color/holo_orange_light"
                 app:layout_constraintBaseline_toBaselineOf="@+id/text2"
                 app:layout_constraintRight_toRightOf="parent" />
@@ -109,8 +113,8 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="14dp"
                 android:text="Genere:"
-                android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textStyle="bold"
                 app:layout_constraintHorizontal_bias="0.074"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toLeftOf="@+id/textGenere2"
@@ -123,6 +127,7 @@
                 android:layout_marginEnd="174dp"
                 android:layout_marginRight="174dp"
                 android:text="TextView"
+                android:textStyle="bold"
                 android:textColor="@android:color/holo_orange_light"
                 app:layout_constraintBaseline_toBaselineOf="@+id/text3"
                 app:layout_constraintRight_toRightOf="parent" />
@@ -138,8 +143,8 @@
                 android:layout_marginTop="16dp"
                 android:layout_weight="0.37"
                 android:text="Anno di uscita:"
-                android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textStyle="bold"
                 app:layout_constraintHorizontal_bias="0.077"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toLeftOf="@+id/textAnno2"
@@ -152,6 +157,7 @@
                 android:layout_marginEnd="174dp"
                 android:layout_marginRight="174dp"
                 android:text="TextView"
+                android:textStyle="bold"
                 android:textColor="@android:color/holo_orange_light"
                 app:layout_constraintBaseline_toBaselineOf="@+id/text4"
                 app:layout_constraintRight_toRightOf="parent" />
@@ -165,8 +171,8 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:text="Codice libro:"
-                android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textStyle="bold"
                 app:layout_constraintBaseline_toBaselineOf="@+id/textCodLibro2"
                 app:layout_constraintHorizontal_bias="0.08"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -180,6 +186,7 @@
                 android:layout_marginRight="174dp"
                 android:text="TextView"
                 android:textColor="@android:color/holo_orange_light"
+                android:textStyle="bold"
                 app:layout_constraintRight_toRightOf="parent"
                 tools:layout_editor_absoluteY="174dp" />
         </LinearLayout>
@@ -193,7 +200,7 @@
         android:layout_marginStart="8dp"
         android:visibility="invisible"
         app:srcCompat="@drawable/image_bg"
-        tools:layout_editor_absoluteY="332dp"
-        tools:layout_editor_absoluteX="171dp" />
+        tools:layout_editor_absoluteX="171dp"
+        tools:layout_editor_absoluteY="332dp" />
 
 </android.support.constraint.ConstraintLayout>

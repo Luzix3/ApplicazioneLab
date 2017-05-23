@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/immagine2"
     tools:context="com.example.lucia.applicazionelab.Passworddim.PagePassDimSuccess">
 
     <TextView
@@ -16,12 +17,14 @@
         android:layout_marginTop="8dp"
         android:text="Le opzioni indicano la durata massima dell'utilizzo del libro, puoi consegnare il libro anche prima della scadenza."
         android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline6"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline5"
-        app:layout_constraintVertical_bias="0.966"
-        app:layout_constraintHorizontal_bias="0.0" />
+        app:layout_constraintVertical_bias="0.966" />
 
     <TextView
         android:id="@+id/textprenot"
@@ -33,7 +36,8 @@
         android:layout_marginTop="16dp"
         android:text="Procedi con la prenotazione"
         android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
-        android:textColor="?android:attr/colorMultiSelectHighlight"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintHorizontal_bias="0.062"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -42,11 +46,11 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <android.support.constraint.Guideline
+        android:id="@+id/guideline5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/guideline5"
-        app:layout_constraintGuide_begin="416dp"
-        android:orientation="horizontal" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="416dp" />
 
     <Button
         android:id="@+id/Button"
@@ -67,17 +71,20 @@
         app:layout_constraintVertical_bias="0.904" />
 
     <android.support.constraint.Guideline
+        android:id="@+id/guideline6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/guideline6"
-        app:layout_constraintGuide_begin="286dp"
-        android:orientation="horizontal" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="286dp" />
 
     <CheckBox
         android:id="@+id/checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Una settimana"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textStyle="bold"
+        app:buttonTint="@android:color/holo_orange_light"
         tools:layout_editor_absoluteX="25dp"
         tools:layout_editor_absoluteY="100dp" />
 
@@ -86,6 +93,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Due settimane"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textStyle="bold"
+        app:buttonTint="@android:color/holo_orange_light"
         tools:layout_editor_absoluteX="25dp"
         tools:layout_editor_absoluteY="143dp" />
 
@@ -94,6 +104,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="20 giorni"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textStyle="bold"
+        app:buttonTint="@android:color/holo_orange_light"
         tools:layout_editor_absoluteX="25dp"
         tools:layout_editor_absoluteY="189dp" />
 
@@ -103,6 +116,8 @@
         android:layout_height="41dp"
         android:text="Per quanti giorni desideri prenotare il libro?"
         tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="51dp" />
+        tools:layout_editor_absoluteY="51dp"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textStyle="bold"/>
 
 </android.support.constraint.ConstraintLayout>

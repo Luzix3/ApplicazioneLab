@@ -37,6 +37,7 @@ public class CercaActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -90,6 +91,23 @@ public class CercaActivity extends AppCompatActivity {
         l.setGenere("Fantasy");
         l.setAnno("2002");
         archivio.aggiungiLibro(l);
+
+
+
+
+        TextView textAddLibro = (TextView)findViewById(R.id.textAddLibro);
+
+        textAddLibro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent openPageAdd = new Intent(CercaActivity.this, AddLibro.class);
+                startActivity(openPageAdd);
+            }
+        });
+
+
+
+
     }
 
     @Override
@@ -97,9 +115,6 @@ public class CercaActivity extends AppCompatActivity {
         super.onDestroy();
         archivio.terminaOsservazioneLibri();
     }
-
-
-
 
 
 

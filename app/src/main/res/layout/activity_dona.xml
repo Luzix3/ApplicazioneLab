@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/immagine2"
     tools:context="com.example.lucia.applicazionelab.Passworddim.PagePassDim">
 
 
@@ -33,6 +34,7 @@
                 android:text="Scrivi il titolo del libro che vuoi donare:"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@android:color/holo_orange_dark"
+                android:textStyle="bold"
                 android:textColorLink="@android:color/holo_orange_dark" />
 
             <EditText
@@ -49,6 +51,7 @@
                 android:text="Seleziona il giorno in cui passerai da noi:"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@android:color/holo_orange_dark"
+                android:textStyle="bold"
                 android:textColorLink="@android:color/holo_orange_dark" />
 
             <TextView
@@ -86,11 +89,11 @@
     </ScrollView>
 
     <android.support.constraint.Guideline
+        android:id="@+id/guideline7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/guideline7"
-        app:layout_constraintGuide_begin="52dp"
-        android:orientation="horizontal" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="52dp" />
 
     <TextView
         android:id="@+id/textDona"

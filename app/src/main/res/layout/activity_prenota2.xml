@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.lucia.applicazionelab.Passworddim.PagePassDimSuccess">
+    android:background="@drawable/immagine2"
+    tools:context="com.example.lucia.applicazionelab.MainETab.prenota2">
 
     <TextView
         android:id="@+id/textPassDim2"
@@ -16,19 +17,21 @@
         android:layout_marginTop="16dp"
         android:text="Il tuo libro è stato prenotato con successo!"
         android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
-        android:textColor="?android:attr/colorMultiSelectHighlight"
+
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintLeft_toLeftOf="parent"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textStyle="bold"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.constraint.Guideline
+        android:id="@+id/guideline5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/guideline5"
-        app:layout_constraintGuide_begin="57dp"
-        android:orientation="horizontal" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="57dp" />
 
     <TextView
         android:id="@+id/textSuccess"
@@ -44,6 +47,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline5"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textStyle="bold"
         app:layout_constraintVertical_bias="0.97" />
 
     <Button
@@ -65,11 +70,11 @@
         app:layout_constraintVertical_bias="0.188" />
 
     <android.support.constraint.Guideline
+        android:id="@+id/guideline6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/guideline6"
-        app:layout_constraintGuide_begin="190dp"
-        android:orientation="horizontal" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="190dp" />
 
     <TextView
         android:id="@+id/ATT"
@@ -78,5 +83,7 @@
         android:text="ATTENZIONE!"
         android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="106dp" />
+        tools:layout_editor_absoluteY="106dp"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textStyle="bold"/>
 </android.support.constraint.ConstraintLayout>

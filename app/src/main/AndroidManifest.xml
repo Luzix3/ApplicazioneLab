@@ -51,17 +51,12 @@
         <activity
             android:name=".Registrazione.RegSuccess"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".MainETab.SpecLibro"
+            android:theme="@style/AppTheme" />
 
-
-
-
-
-
-
-
-        <activity android:name=".MainETab.SpecLibro"
-            android:theme="@style/AppTheme">
-        </activity>
+        <activity android:name=".MainETab.AddLibro" />
+        <activity android:name=".MainETab.AddLibroSuccess"></activity>
     </application>
 
 </manifest>

@@ -18,6 +18,7 @@ public class DonaActivity extends AppCompatActivity {
     Button btnDona;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
 
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
