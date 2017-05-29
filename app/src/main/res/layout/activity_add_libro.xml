@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/immagine4"
+
     tools:context="com.example.lucia.applicazionelab.MainETab.AddLibro">
 
     <TextView
@@ -18,7 +18,7 @@
         android:layout_marginTop="8dp"
         android:text="Aiutaci ad arricchire il database della biblioteca!"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
-        android:textColor="#FFC01218"
+        android:textColor="@android:color/holo_orange_dark"
         android:textStyle="bold"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:text="Nome Libro:"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
-                android:textColor="#FFC01218"
+                android:textColor="@android:color/holo_orange_dark"
                 android:textStyle="bold"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="-47dp" />
@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:text="Autore:"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
-                android:textColor="#FFC01218"
+                android:textColor="@android:color/holo_orange_dark"
                 android:textStyle="bold" />
 
             <EditText
@@ -87,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:text="Genere:"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
-                android:textColor="#FFC01218"
+                android:textColor="@android:color/holo_orange_dark"
                 android:textStyle="bold" />
 
             <EditText
@@ -103,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:text="Codice Libro"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
-                android:textColor="#FFC01218"
+                android:textColor="@android:color/holo_orange_dark"
                 android:textStyle="bold" />
 
             <EditText
@@ -119,7 +119,7 @@
                 android:layout_height="wrap_content"
                 android:text="Anno di uscita:"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
-                android:textColor="#FFC01218"
+                android:textColor="@android:color/holo_orange_dark"
                 android:textStyle="bold" />
 
             <EditText
@@ -135,7 +135,7 @@
                 android:layout_height="wrap_content"
                 android:text="Trama del libro:"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
-                android:textColor="#FFC01218"
+                android:textColor="@android:color/holo_orange_dark"
                 android:textStyle="bold" />
 
             <EditText
@@ -149,7 +149,7 @@
                 android:id="@+id/buttonProcedi3"
                 android:layout_width="157dp"
                 android:layout_height="34dp"
-                android:background="#FFC01218"
+                android:background="@android:color/holo_orange_dark"
                 android:text="Aggiungi!" />
         </LinearLayout>
     </ScrollView>

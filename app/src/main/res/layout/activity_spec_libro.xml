@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/immagine4"
+
     tools:context="com.example.lucia.applicazionelab.MainETab.SpecLibro">
 
     <TextView
@@ -23,7 +23,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textColor="#FFC01218"
+        android:textColor="@android:color/holo_orange_dark"
         android:textStyle="bold"  />
 
     <ScrollView
@@ -55,7 +55,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:text="Nome libro:"
-                android:textColor="#FFC01218"
+                android:textColor="@android:color/holo_orange_dark"
                 android:textStyle="bold"
                 app:layout_constraintHorizontal_bias="0.078"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -70,7 +70,7 @@
                 android:layout_marginRight="174dp"
                 android:text="TextView"
                 android:textStyle="bold"
-                android:textColor="#FFC01218"
+                android:textColor="@android:color/holo_orange_dark"
                 app:layout_constraintBaseline_toBaselineOf="@+id/text1"
                 app:layout_constraintRight_toRightOf="parent" />
 
@@ -84,7 +84,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="Autore:"
-                android:textColor="#FFC01218"
+                android:textColor="@android:color/holo_orange_dark"
                 android:textStyle="bold"
                 app:layout_constraintHorizontal_bias="0.073"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -99,7 +99,7 @@
                 android:layout_marginRight="174dp"
                 android:text="TextView"
                 android:textStyle="bold"
-                android:textColor="#FFC01218"
+                android:textColor="@android:color/holo_orange_dark"
                 app:layout_constraintBaseline_toBaselineOf="@+id/text2"
                 app:layout_constraintRight_toRightOf="parent" />
 
@@ -113,7 +113,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="14dp"
                 android:text="Genere:"
-                android:textColor="#FFC01218"
+                android:textColor="@android:color/holo_orange_dark"
                 android:textStyle="bold"
                 app:layout_constraintHorizontal_bias="0.074"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -128,7 +128,7 @@
                 android:layout_marginRight="174dp"
                 android:text="TextView"
                 android:textStyle="bold"
-                android:textColor="#FFC01218"
+                android:textColor="@android:color/holo_orange_dark"
                 app:layout_constraintBaseline_toBaselineOf="@+id/text3"
                 app:layout_constraintRight_toRightOf="parent" />
 
@@ -143,7 +143,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_weight="0.37"
                 android:text="Anno di uscita:"
-                android:textColor="#FFC01218"
+                android:textColor="@android:color/holo_orange_dark"
                 android:textStyle="bold"
                 app:layout_constraintHorizontal_bias="0.077"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -158,7 +158,7 @@
                 android:layout_marginRight="174dp"
                 android:text="TextView"
                 android:textStyle="bold"
-                android:textColor="#FFC01218"
+                android:textColor="@android:color/holo_orange_dark"
                 app:layout_constraintBaseline_toBaselineOf="@+id/text4"
                 app:layout_constraintRight_toRightOf="parent" />
 
@@ -171,7 +171,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:text="Codice libro:"
-                android:textColor="#FFC01218"
+                android:textColor="@android:color/holo_orange_dark"
                 android:textStyle="bold"
                 app:layout_constraintBaseline_toBaselineOf="@+id/textCodLibro2"
                 app:layout_constraintHorizontal_bias="0.08"
@@ -185,7 +185,7 @@
                 android:layout_marginEnd="174dp"
                 android:layout_marginRight="174dp"
                 android:text="TextView"
-                android:textColor="#FFC01218"
+                android:textColor="@android:color/holo_orange_dark"
                 android:textStyle="bold"
                 app:layout_constraintRight_toRightOf="parent"
                 tools:layout_editor_absoluteY="174dp" />

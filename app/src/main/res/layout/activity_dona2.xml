@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/immagine4"
-    tools:context="com.example.lucia.applicazionelab.Passworddim.PagePassDimSuccess">
+
+    tools:context="com.example.lucia.applicazionelab.MainETab.Dona2">
 
     <TextView
         android:id="@+id/textView8"
@@ -20,7 +20,7 @@
 
 
         android:textStyle="bold"
-        android:textColor="#FFC01218"
+        android:textColor="@android:color/holo_orange_dark"
         app:layout_constraintBottom_toTopOf="@+id/textSuccess"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -36,7 +36,7 @@
         android:layout_marginTop="8dp"
         android:text="Ti ringraziamo anticipatamente per la donazione effettuata!"
         android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
-        android:textColor="#FFC01218"
+        android:textColor="@android:color/holo_orange_dark"
 
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/buttonTornaLog"
@@ -56,7 +56,7 @@
         android:layout_marginTop="8dp"
         android:text="Attendiamo la tua visita entro il giorno stabilito."
         android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
-        android:textColor="#FFC01218"
+        android:textColor="@android:color/holo_orange_dark"
 
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
@@ -73,7 +73,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="271dp"
-        android:backgroundTint="#FFC01218"
+        android:backgroundTint="@android:color/holo_orange_dark"
         android:text="Torna alla pagina principale"
         app:layout_constraintHorizontal_bias="0.585"
         app:layout_constraintLeft_toLeftOf="parent"

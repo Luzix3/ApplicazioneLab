@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/immagine4"
+
     tools:context="com.example.lucia.applicazionelab.MainETab.AddLibroSuccess">
 
     <TextView
@@ -16,7 +16,7 @@
         android:layout_marginTop="16dp"
         android:text="Hai aggiunto il libro correttamente, grazie!"
         android:textAppearance="@style/TextAppearance.AppCompat.Large.Inverse"
-        android:textColor="#FFC01218"
+        android:textColor="@android:color/holo_orange_dark"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

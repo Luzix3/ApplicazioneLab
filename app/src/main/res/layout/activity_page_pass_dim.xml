@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/immagine4"
+
     tools:context="com.example.lucia.applicazionelab.Passworddim.PagePassDim">
 
     <TextView
@@ -15,7 +15,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="16dp"
         android:text="Password dimenticata"
-        android:textColor="#FFC01218"
+        android:textColor="@android:color/holo_orange_dark"
         android:textStyle="bold"
         android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
 
@@ -43,7 +43,7 @@
 
         android:textAppearance="@style/TextAppearance.AppCompat"
         android:textStyle="bold"
-        android:textColor="#FFC01218"
+        android:textColor="@android:color/holo_orange_dark"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintHorizontal_bias="0.632"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -58,7 +58,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginRight="53dp"
         android:layout_marginTop="8dp"
-        android:backgroundTint="#FFC01218"
+        android:backgroundTint="@android:color/holo_orange_dark"
         android:text="Procedi"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -90,7 +90,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="9dp"
         android:text="Inserisci la tua E-mail:"
-        android:textColor="#FFC01218"
+        android:textColor="@android:color/holo_orange_dark"
         android:textStyle="bold"
         android:textAppearance="@style/TextAppearance.AppCompat"
         app:layout_constraintHorizontal_bias="0.094"
@@ -106,7 +106,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="22dp"
         android:text="Torna al login"
-        android:textColor="#FFC01218"
+        android:textColor="@android:color/holo_orange_dark"
 
         android:textAppearance="@style/TextAppearance.AppCompat"
         android:textStyle="bold"

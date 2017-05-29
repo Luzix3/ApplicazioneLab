@@ -1,14 +1,27 @@
 package com.example.lucia.applicazionelab.MainETab;
 
 import android.content.Intent;
+import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import android.app.SearchManager;
+import android.widget.AbsListView;
+import android.widget.SearchView;
+import android.widget.SearchView.OnQueryTextListener;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.EditText;
+import android.widget.Filter;
 import android.widget.ListView;
+
 import android.widget.TextView;
 
 import com.example.lucia.applicazionelab.Database.Libro;
@@ -17,7 +30,8 @@ import com.example.lucia.applicazionelab.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class CercaActivity extends AppCompatActivity {
+public class CercaActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
+
 
 
     // Costanti
@@ -35,6 +49,13 @@ public class CercaActivity extends AppCompatActivity {
       // Autenticazione Firebase
     private FirebaseAuth mAuth5;
 
+
+
+    //searchbar
+    SearchView editsearch;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -42,6 +63,16 @@ public class CercaActivity extends AppCompatActivity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_cerca);
+
+
+
+       final SwipeRefreshLayout swipeLayout = (SwipeRefreshLayout) findViewById(R.id.swipeToRefresh);
+
+        swipeLayout.setEnabled(false);
+
+
+
+
 
         // Autenticazione Firebase
         mAuth5 = FirebaseAuth.getInstance();
@@ -105,10 +136,50 @@ public class CercaActivity extends AppCompatActivity {
             }
         });
 
+        editsearch = (SearchView) findViewById(R.id.searchView);
+        editsearch.setOnQueryTextListener(this);
 
 
+        swipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeLayout.setRefreshing(true);
+                (new Handler()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        swipeLayout.setRefreshing(false);
+                    }
+                }, 3000);
+            }
+
+
+        });
+
+
+
+        listaLibri.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView absListView, int i) {
+            }
+
+            @Override
+            public void onScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                if (firstVisibleItem == 0)
+                    swipeLayout.setEnabled(true);
+                else
+                    swipeLayout.setEnabled(false);
+            }
+        });
 
     }
+
+
+
+
+
+
+
+
 
     @Override
     protected void onDestroy() {
@@ -117,8 +188,20 @@ public class CercaActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
 
 
 
+
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        String text = newText;
+        adapter.filter(text);
+        return false;
+    }
 }
 
