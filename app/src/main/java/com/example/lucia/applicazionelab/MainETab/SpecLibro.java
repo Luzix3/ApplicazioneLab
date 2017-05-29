@@ -5,11 +5,16 @@ import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.lucia.applicazionelab.Database.Libro;
 import com.example.lucia.applicazionelab.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 @SuppressWarnings("deprecation")
 
 public class SpecLibro extends ActionBarActivity {
@@ -24,6 +29,8 @@ public class SpecLibro extends ActionBarActivity {
     private TextView mGenere;
     private TextView mAnno;
     private ImageView mImageLibro;
+    TextView prenota;
+    private FirebaseAuth mauth;
 
 
     @Override
@@ -31,6 +38,8 @@ public class SpecLibro extends ActionBarActivity {
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spec_libro);
+
+
 
         // Imposto gli id widget
        mCodLibro = (TextView)findViewById(R.id.textCodLibro2);
@@ -53,5 +62,30 @@ public class SpecLibro extends ActionBarActivity {
             // mImageLibro.setImageResource(R.drawable.image_bg);
 
         }
+        mauth = FirebaseAuth.getInstance();
+
+
+        prenota= (TextView)findViewById(R.id.textPrenota);
+        prenota.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseUser user1 = mauth.getCurrentUser();
+                   if (user1 == null)
+                   {
+                       Toast.makeText(getApplicationContext(),"Devi effettuare il login per poter prenotare!", Toast.LENGTH_LONG).show();
+                       Intent intent1 = new Intent(SpecLibro.this, Loginpage.class);
+
+                       startActivity(intent1);
+                   }else
+                   {
+                       Intent intent1 = new Intent(SpecLibro.this, Prenota.class);
+
+                       startActivity(intent1);
+                   }
+
+            }
+        });
+
+
     }
 }
