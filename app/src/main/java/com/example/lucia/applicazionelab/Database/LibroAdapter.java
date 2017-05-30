@@ -37,9 +37,10 @@ public class LibroAdapter extends BaseAdapter  {
     private Context context;
     private DataStore archivio = new DataStore();
 
+
     LayoutInflater inflater;
 
-    public LibroAdapter (Context context)
+    public LibroAdapter (Context context, List<Libro> libri)
     {
         this.context = context;
         this.libri = libri;
@@ -128,18 +129,22 @@ public class LibroAdapter extends BaseAdapter  {
     // Filter Class
     public void filter(String charText) {
         charText = charText.toLowerCase(Locale.getDefault());
-        libri.clear();
+
+        List <Libro> libritemp = new ArrayList<Libro>(libri);
+       libri.clear();
         if (charText.length() == 0) {
-            libri.addAll(archivio.elencoLibri());
+            libri.addAll(libritemp);
 
         } else {
-            for (Libro wp : archivio.elencoLibri()) {
+            for (Libro wp : libritemp) {
                 if (wp.getNome().toLowerCase(Locale.getDefault()).contains(charText)) {
                     libri.add(wp);
                 }
             }
         }
         notifyDataSetChanged();
+
+
     }
 
 

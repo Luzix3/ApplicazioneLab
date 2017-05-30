@@ -30,6 +30,8 @@ import com.example.lucia.applicazionelab.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.ArrayList;
+
 public class CercaActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
 
@@ -48,6 +50,7 @@ public class CercaActivity extends AppCompatActivity implements SearchView.OnQue
 
       // Autenticazione Firebase
     private FirebaseAuth mAuth5;
+    ArrayList<Libro> arraylist = new ArrayList<Libro>();
 
 
 
@@ -93,7 +96,7 @@ public class CercaActivity extends AppCompatActivity implements SearchView.OnQue
         }
 
         listaLibri = (ListView)findViewById(R.id.ListaLibri);
-        adapter = new LibroAdapter(this);
+        adapter = new LibroAdapter(this,arraylist );
 
         archivio.iniziaOsservazioneLibri(new DataStore.UpdateListener() {
             @Override
@@ -136,8 +139,6 @@ public class CercaActivity extends AppCompatActivity implements SearchView.OnQue
             }
         });
 
-        editsearch = (SearchView) findViewById(R.id.searchView);
-        editsearch.setOnQueryTextListener(this);
 
 
         swipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -170,6 +171,12 @@ public class CercaActivity extends AppCompatActivity implements SearchView.OnQue
                     swipeLayout.setEnabled(false);
             }
         });
+
+
+
+        editsearch = (SearchView) findViewById(R.id.searchView);
+        editsearch.setOnQueryTextListener(this);
+
 
     }
 
