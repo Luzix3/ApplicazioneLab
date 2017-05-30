@@ -21,6 +21,7 @@ public class SpecLibro extends ActionBarActivity {
 
     // Costanti
     private final static String EXTRA_LIBRO = "libro";
+    private final static String EXTRA_LIBRO2 = "libro2";
 
     // Widget
     private TextView mCodLibro;
@@ -51,7 +52,7 @@ public class SpecLibro extends ActionBarActivity {
 
         // Ottengo i dati passati ed eventualmente visualizzo il libro
         Intent intent = getIntent();
-        Libro libro = (Libro)intent.getSerializableExtra(EXTRA_LIBRO);
+        final Libro libro = (Libro)intent.getSerializableExtra(EXTRA_LIBRO);
 
         if (libro != null) {
             mCodLibro.setText(libro.getCodlibro());
@@ -79,7 +80,7 @@ public class SpecLibro extends ActionBarActivity {
                    }else
                    {
                        Intent intent1 = new Intent(SpecLibro.this, Prenota.class);
-
+                       intent1.putExtra(EXTRA_LIBRO2, libro.getCodlibro());
                        startActivity(intent1);
                    }
 
