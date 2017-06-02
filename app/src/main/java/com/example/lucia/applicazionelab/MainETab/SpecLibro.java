@@ -21,6 +21,11 @@ public class SpecLibro extends ActionBarActivity {
 
     // Costanti
     private final static String EXTRA_LIBRO = "libro";
+    private final static String EXTRA_NOME = "nome libro";
+    private final static String EXTRA_AUTORE = "autore";
+    private final static String EXTRA_CODICE = "codice";
+    private final static String EXTRA_GENERE = "genere";
+    private final static String EXTRA_ANNO = "anno";
     private final static String EXTRA_LIBRO2 = "libro2";
 
     // Widget
@@ -79,9 +84,14 @@ public class SpecLibro extends ActionBarActivity {
                        startActivity(intent1);
                    }else
                    {
-                       Intent intent1 = new Intent(SpecLibro.this, Prenota.class);
-                       intent1.putExtra(EXTRA_LIBRO2, libro.getCodlibro());
-                       startActivity(intent1);
+
+                       Libro libro2 = new Libro(libro.getAutore(), libro.getCodlibro(), libro.getNome(), libro.getAnno(), libro.getGenere());
+
+                       Intent intent = new Intent(SpecLibro.this, Prenota.class);
+                       intent.putExtra(EXTRA_LIBRO2, libro2);
+
+
+                       startActivity(intent);
                    }
 
             }

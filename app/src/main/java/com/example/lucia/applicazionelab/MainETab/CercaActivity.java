@@ -109,9 +109,16 @@ public class CercaActivity extends AppCompatActivity implements SearchView.OnQue
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Libro libro = adapter.getItem(position);
+
                 Intent intent = new Intent(view.getContext(), SpecLibro.class);
                 intent.putExtra(EXTRA_LIBRO, libro);
+
+                Intent intent2 = new Intent(view.getContext(), Prenota.class);
+                intent2.putExtra(EXTRA_LIBRO, libro);
+
                 startActivity(intent);
+
+
             }
         });
 

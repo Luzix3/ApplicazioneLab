@@ -37,6 +37,7 @@ public class DataStore2 {
     private final static String KEY_NOME = "nome";
     private final static String KEY_GENERE = "genere";
     private final static String KEY_ANNO = "anno";
+    private final static String KEY_CODLIBRO = "codice libro";
 
     private ValueEventListener listenerLibri;
     private FirebaseAuth mAuth7;
@@ -67,13 +68,15 @@ public class DataStore2 {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference(DB_MIEILIBRI).child(user7);
 
+
         listenerLibri = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 libri.clear();
                 for (DataSnapshot elemento:dataSnapshot.getChildren()) {
                     Libro libro = new Libro();
-                    libro.setCodlibro(elemento.getKey());
+
+                    libro.setCodlibro(elemento.child(KEY_CODLIBRO).getValue(String.class));
                     libro.setNome(elemento.child(KEY_NOME).getValue(String.class));
                     libro.setAutore(elemento.child(KEY_AUTORE).getValue(String.class));
                     libro.setGenere(elemento.child(KEY_GENERE).getValue(String.class));
