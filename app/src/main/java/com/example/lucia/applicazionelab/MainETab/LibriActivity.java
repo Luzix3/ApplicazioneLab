@@ -9,6 +9,8 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.lucia.applicazionelab.Database.DataStore2;
 import com.example.lucia.applicazionelab.Database.Utente;
 
 import com.example.lucia.applicazionelab.Database.Libro;
@@ -20,15 +22,23 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
 public class LibriActivity extends AppCompatActivity {
 
 
     private ListView listaMieiLibri;
 
-    DataStore archivio2;
+    private DataStore2 archivio2 = new DataStore2();
+
+    // Adapter
+    private LibroAdapter adapter1;
+
 
     // Autenticazione Firebase
     private FirebaseAuth mAuth6;
+
+    ArrayList<Libro> arraylist = new ArrayList<Libro>();
 
 
     @Override
@@ -58,7 +68,30 @@ public class LibriActivity extends AppCompatActivity {
         }
 
         listaMieiLibri = (ListView)findViewById(R.id.ListaMieiLibri);
-        Utente u = new Utente();
+        adapter1 = new LibroAdapter(this,arraylist);
+
+        archivio2.iniziaOsservazioneLibri2(new DataStore.UpdateListener() {
+            @Override
+            public void libriAggiornati() {
+
+                adapter1.update(archivio2.elencoLibri2());
+            }
+        });
+
+        listaMieiLibri.setAdapter(adapter1);
+        listaMieiLibri.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Libro libro = adapter1.getItem(position);
+                // Intent intent = new Intent(view.getContext(), SpecLibro.class);
+                // intent.putExtra(EXTRA_LIBRO, libro);
+                // startActivity(intent);
+            }
+        });
+
+
+
+
         /*
         u.setEmail(user5.getEmail());
         String user= user5.getUid();

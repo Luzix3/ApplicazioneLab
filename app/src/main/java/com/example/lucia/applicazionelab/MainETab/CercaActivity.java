@@ -74,9 +74,6 @@ public class CercaActivity extends AppCompatActivity implements SearchView.OnQue
         swipeLayout.setEnabled(false);
 
 
-
-
-
         // Autenticazione Firebase
         mAuth5 = FirebaseAuth.getInstance();
 

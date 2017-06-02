@@ -1,6 +1,8 @@
-package com.example.lucia.applicazionelab.MainETab;
+package com.example.lucia.applicazionelab.Database;
 
 import com.example.lucia.applicazionelab.Database.Libro;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,17 +28,18 @@ import java.util.List;
  * Created by Lucia on 20/05/17.
  */
 
-public class DataStore {
+public class DataStore2 {
 
     // Costanti
     private final static String TAG = "DataStore";
-    private final static String DB_LIBRI = "libri";
+    private final static String DB_MIEILIBRI = "Miei Libri";
     private final static String KEY_AUTORE = "autore";
     private final static String KEY_NOME = "nome";
     private final static String KEY_GENERE = "genere";
     private final static String KEY_ANNO = "anno";
 
     private ValueEventListener listenerLibri;
+    private FirebaseAuth mAuth7;
 
     // Lista locale dei libri
     // Todo: da eliminare
@@ -45,18 +48,24 @@ public class DataStore {
     /**
      * Costruttore
      */
-    public DataStore() {
+    public DataStore2() {
         libri = new ArrayList<>();
     }
 
-    public interface UpdateListener {
+    public interface UpdateListener2 {
         void libriAggiornati();
     }
 
-    public void iniziaOsservazioneLibri (final UpdateListener notifica) {
+    public void iniziaOsservazioneLibri2 (final com.example.lucia.applicazionelab.MainETab.DataStore.UpdateListener notifica) {
+
+        mAuth7 = FirebaseAuth.getInstance();
+
+        // Comportamento differenziato
+        FirebaseUser user5 = mAuth7.getCurrentUser();
+        String user7 = user5.getUid();
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference(DB_LIBRI);
+        DatabaseReference ref = database.getReference(DB_MIEILIBRI).child(user7);
 
         listenerLibri = new ValueEventListener() {
             @Override
@@ -83,9 +92,15 @@ public class DataStore {
         ref.addValueEventListener(listenerLibri);
     }
 
-    public void terminaOsservazioneLibri() {
+
+    public void terminaOsservazioneLibri2() {
         if (listenerLibri != null)
-            FirebaseDatabase.getInstance().getReference(DB_LIBRI).removeEventListener(listenerLibri);
+            mAuth7 = FirebaseAuth.getInstance();
+
+        // Comportamento differenziato
+        FirebaseUser user5 = mAuth7.getCurrentUser();
+        String user7 = user5.getUid();
+            FirebaseDatabase.getInstance().getReference(DB_MIEILIBRI).child(user7).removeEventListener(listenerLibri);
     }
 
 
@@ -94,8 +109,13 @@ public class DataStore {
      * Aggiunge un libro al database
      * @param libro
      */
-    public void aggiungiLibro(Libro libro) {
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(DB_LIBRI).child(libro.getCodlibro());
+    public void aggiungiLibro2(Libro libro) {
+        mAuth7 = FirebaseAuth.getInstance();
+
+        // Comportamento differenziato
+        FirebaseUser user5 = mAuth7.getCurrentUser();
+        String user7 = user5.getUid();
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(DB_MIEILIBRI).child(user7).child(libro.getCodlibro());
         ref.setValue(libro);
         /* ref.child(KEY_COGNOME).setValue(studente.getCognome());
         ref.child(KEY_NOME).setValue(studente.getNome());
@@ -107,10 +127,10 @@ public class DataStore {
      * aggiorna i dati del libro impostando il codice libro come parametro identificativo
      * @param libro dati da aggiornare
      */
-    public void aggiornaLibro(Libro libro) {
+    public void aggiornaLibro2(Libro libro) {
         int posizione = getLibroIndex(libro.getCodlibro());
         if (posizione == -1)
-            aggiungiLibro(libro);
+            aggiungiLibro2(libro);
         else
             libri.set(posizione, libro);
     }
@@ -119,7 +139,7 @@ public class DataStore {
      * Elimina un libro
      * @param codlibro dello studente da eliminare
      */
-    public void eliminaLibro(String codlibro) {
+    public void eliminaLibro2(String codlibro) {
         int posizione = getLibroIndex(codlibro);
         if (posizione != -1)
             libri.remove(posizione);
@@ -130,7 +150,7 @@ public class DataStore {
      * @param codlibro codlibro da cercare
      * @return Libro letto, oppure null nel caso non venga trovato
      */
-    public Libro leggiLibro(String codlibro) {
+    public Libro leggiLibro2(String codlibro) {
         int posizione = getLibroIndex(codlibro);
         if (posizione == -1)
             return null;
@@ -143,7 +163,7 @@ public class DataStore {
      * Todo: Attenzione il metodo è potenzialmente pericoloso. Potrebbe restituire troppi dati!
      * @return Lista di libri
      */
-    public List<Libro> elencoLibri() {
+    public List<Libro> elencoLibri2() {
         return libri;
     }
 
@@ -151,7 +171,7 @@ public class DataStore {
      * Restituisce il numero di libri presenti nel database
      * @return numero di libri
      */
-    public int numeroLibri() {
+    public int numeroLibri2() {
         return libri.size();
     }
 
