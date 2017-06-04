@@ -52,8 +52,13 @@
             android:name=".MainETab.SpecLibro"
             android:theme="@style/AppTheme" />
         <activity android:name=".MainETab.AddLibro" />
+
         <activity android:name=".MainETab.AddLibroSuccess" />
-        <activity android:name=".MainETab.DettagliMioLibro"></activity>
+
+        <activity android:name=".MainETab.DettagliMioLibro"
+            android:theme="@style/AppTheme">
+
+        </activity>
     </application>
 
 </manifest>

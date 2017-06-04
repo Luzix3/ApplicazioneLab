@@ -8,10 +8,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
+import com.example.lucia.applicazionelab.Database.DataStore;
 import com.example.lucia.applicazionelab.Database.DataStore2;
-import com.example.lucia.applicazionelab.Database.Utente;
 
 import com.example.lucia.applicazionelab.Database.Libro;
 import com.example.lucia.applicazionelab.Database.LibroAdapter;
@@ -19,8 +18,6 @@ import com.example.lucia.applicazionelab.Database.LibroAdapter;
 import com.example.lucia.applicazionelab.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -30,6 +27,7 @@ public class LibriActivity extends AppCompatActivity {
     private ListView listaMieiLibri;
 
     private DataStore2 archivio2 = new DataStore2();
+    private final static String EXTRA_PERIODO = "periodo prenotazione";
 
     // Adapter
     private LibroAdapter adapter1;
@@ -79,6 +77,10 @@ public class LibriActivity extends AppCompatActivity {
         });
 
         listaMieiLibri.setAdapter(adapter1);
+
+
+
+
 
         listaMieiLibri.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

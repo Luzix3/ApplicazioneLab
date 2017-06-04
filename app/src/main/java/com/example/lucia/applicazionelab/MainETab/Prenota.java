@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -23,6 +24,14 @@ public class Prenota extends AppCompatActivity {
     private final static String EXTRA_CODICE = "codice";
     private final static String EXTRA_GENERE = "genere";
     private final static String EXTRA_ANNO = "anno";
+    private final static String EXTRA_PERIODO = "periodo prenotazione";
+
+    CheckBox Unasettimana;
+    CheckBox Duesettimane;
+    CheckBox Ventigiorni;
+
+    String periodo;
+
 
 
 
@@ -46,6 +55,11 @@ Button prenota;
         // Comportamento differenziato
         final FirebaseUser user6 = mAuth6.getCurrentUser();
 
+        Unasettimana = (CheckBox)findViewById(R.id.check1week);
+        Duesettimane = (CheckBox)findViewById(R.id.check2weeks);
+        Ventigiorni = (CheckBox)findViewById(R.id.check20gg);
+
+
 
 
 
@@ -56,26 +70,52 @@ Button prenota;
             public void onClick(View v) {
 
 
+                 if (Unasettimana.isChecked() || Duesettimane.isChecked() || Ventigiorni.isChecked()) {
 
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference ref= FirebaseDatabase.getInstance().getReference("Miei Libri");
-                Libro libro1 = new Libro(libro2.getAutore(), libro2.getCodlibro(), libro2.getNome(), libro2.getAnno(), libro2.getGenere());
+                     if(Unasettimana.isChecked())
+                     {
+                         periodo= "Una settimana";
+                     }
+                     if(Duesettimane.isChecked())
+                     {
+                         periodo = "Due settimane";
+                     }
+                     if(Ventigiorni.isChecked())
+                     {
+                         periodo = "Venti giorni";
+                     }
 
-                ref.child(user6.getUid()).push().setValue(libro1);
+                     FirebaseDatabase database = FirebaseDatabase.getInstance();
+                     DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Miei Libri");
+                     Libro libro1 = new Libro(libro2.getAutore(), libro2.getCodlibro(), libro2.getNome(), libro2.getAnno(), libro2.getGenere());
 
-                Intent intent1 = new Intent(Prenota.this, LibriActivity.class);
+                     ref.child(user6.getUid()).push().setValue(libro1);
 
-                intent1.putExtra(EXTRA_CODICE, libro1.getCodlibro());
-                intent1.putExtra(EXTRA_NOME, libro1.getNome());
-                intent1.putExtra(EXTRA_ANNO, libro1.getAnno());
-                intent1.putExtra(EXTRA_AUTORE, libro1.getAutore());
-                intent1.putExtra(EXTRA_GENERE, libro1.getGenere());
+                     Intent intent1 = new Intent(Prenota.this, MainActivity.class);
 
-                Toast.makeText(getApplicationContext(),"Prenotazione avvenuta con successo!" +
-                        "Ritira il libro nelle prossime 24 ore, altrimenti la prenotazione verrà cancellata.", Toast.LENGTH_LONG).show();
+                     intent1.putExtra(EXTRA_CODICE, libro1.getCodlibro());
+                     intent1.putExtra(EXTRA_NOME, libro1.getNome());
+                     intent1.putExtra(EXTRA_ANNO, libro1.getAnno());
+                     intent1.putExtra(EXTRA_AUTORE, libro1.getAutore());
+                     intent1.putExtra(EXTRA_GENERE, libro1.getGenere());
+
+                     Intent intent2 = new Intent (Prenota.this, DettagliMioLibro.class);
+
+                     intent2.putExtra(EXTRA_PERIODO, periodo);
+
+                     Toast.makeText(getApplicationContext(), "Prenotazione avvenuta con successo!" +
+                             "Ritira il libro nelle prossime 24 ore, altrimenti la prenotazione verrà cancellata.", Toast.LENGTH_LONG).show();
 
 
-                 startActivity(intent1);
+
+                     startActivity(intent2);
+                     startActivity(intent1);
+
+
+                 }else
+                 {
+                     Toast.makeText(getApplicationContext(), "Devi selezionare un periodo di tempo se vuoi prenotare il libro!", Toast.LENGTH_LONG).show();
+                 }
 
 
 

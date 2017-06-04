@@ -6,24 +6,17 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import android.app.SearchManager;
 import android.widget.AbsListView;
 import android.widget.SearchView;
-import android.widget.SearchView.OnQueryTextListener;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
-import android.widget.EditText;
-import android.widget.Filter;
 import android.widget.ListView;
 
 import android.widget.TextView;
 
+import com.example.lucia.applicazionelab.Database.DataStore;
 import com.example.lucia.applicazionelab.Database.Libro;
 import com.example.lucia.applicazionelab.Database.LibroAdapter;
 import com.example.lucia.applicazionelab.R;
@@ -113,8 +106,7 @@ public class CercaActivity extends AppCompatActivity implements SearchView.OnQue
                 Intent intent = new Intent(view.getContext(), SpecLibro.class);
                 intent.putExtra(EXTRA_LIBRO, libro);
 
-                Intent intent2 = new Intent(view.getContext(), Prenota.class);
-                intent2.putExtra(EXTRA_LIBRO, libro);
+
 
                 startActivity(intent);
 

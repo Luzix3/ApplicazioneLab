@@ -1,4 +1,4 @@
-package com.example.lucia.applicazionelab.MainETab;
+package com.example.lucia.applicazionelab.Database;
 
 import com.example.lucia.applicazionelab.Database.Libro;
 import com.google.firebase.database.DataSnapshot;

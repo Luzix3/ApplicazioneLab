@@ -18,6 +18,7 @@ public class MainActivity extends TabActivity {
 
     TabHost TabHostWindows;
     private final static String TAG =  "MainActivity";
+    private final static String EXTRA_PERIODO = "periodo prenotazione";
 
     
     @Override
@@ -72,6 +73,7 @@ public class MainActivity extends TabActivity {
         //setto le tab
         Libri.setIndicator("Libri");
         //setto le activity di arrivo
+
         Libri.setContent(new Intent (this, LibriActivity.class));
 
         //faccio lo stesso per le altre tab

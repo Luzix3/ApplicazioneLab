@@ -1,27 +1,19 @@
 package com.example.lucia.applicazionelab.Database;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Filterable;
-import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 
-import com.example.lucia.applicazionelab.MainETab.DataStore;
 import com.example.lucia.applicazionelab.R;
-import java.lang.Object;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
-import java.util.logging.Filter;
-import java.util.logging.LogRecord;
 
 
 /**
