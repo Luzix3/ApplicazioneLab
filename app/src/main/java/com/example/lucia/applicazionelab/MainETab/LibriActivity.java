@@ -33,7 +33,7 @@ public class LibriActivity extends AppCompatActivity {
 
     // Adapter
     private LibroAdapter adapter1;
-
+    private final static String EXTRA_LIBRO2 = "libro2";
 
     // Autenticazione Firebase
     private FirebaseAuth mAuth6;
@@ -79,13 +79,14 @@ public class LibriActivity extends AppCompatActivity {
         });
 
         listaMieiLibri.setAdapter(adapter1);
+
         listaMieiLibri.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Libro libro = adapter1.getItem(position);
-                // Intent intent = new Intent(view.getContext(), SpecLibro.class);
-                // intent.putExtra(EXTRA_LIBRO, libro);
-                // startActivity(intent);
+                Intent intent = new Intent(view.getContext(), DettagliMioLibro.class);
+                 intent.putExtra(EXTRA_LIBRO2, libro);
+                 startActivity(intent);
             }
         });
 

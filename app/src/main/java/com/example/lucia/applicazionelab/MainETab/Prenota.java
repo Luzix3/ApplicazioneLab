@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.lucia.applicazionelab.Database.Libro;
 import com.example.lucia.applicazionelab.Database.Utente;
@@ -70,7 +71,11 @@ Button prenota;
                 intent1.putExtra(EXTRA_AUTORE, libro1.getAutore());
                 intent1.putExtra(EXTRA_GENERE, libro1.getGenere());
 
+                Toast.makeText(getApplicationContext(),"Prenotazione avvenuta con successo!" +
+                        "Ritira il libro nelle prossime 24 ore, altrimenti la prenotazione verrà cancellata.", Toast.LENGTH_LONG).show();
 
+
+                 startActivity(intent1);
 
 
 

@@ -46,9 +46,6 @@
             android:name=".MainETab.Prenota"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".MainETab.prenota2"
-            android:theme="@style/AppTheme" />
-        <activity
             android:name=".Registrazione.RegSuccess"
             android:theme="@style/AppTheme" />
         <activity
