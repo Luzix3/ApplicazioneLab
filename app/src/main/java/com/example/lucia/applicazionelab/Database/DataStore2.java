@@ -28,6 +28,8 @@ public class DataStore2 {
     private final static String KEY_GENERE = "genere";
     private final static String KEY_ANNO = "anno";
     private final static String KEY_CODLIBRO = "codice libro";
+    private final static String KEY_GIORNI = "giorni prenotazione";
+
 
     private ValueEventListener listenerLibri;
     private FirebaseAuth mAuth7;
@@ -71,6 +73,10 @@ public class DataStore2 {
                     libro.setAutore(elemento.child(KEY_AUTORE).getValue(String.class));
                     libro.setGenere(elemento.child(KEY_GENERE).getValue(String.class));
                     libro.setAnno(elemento.child(KEY_ANNO).getValue(String.class));
+                    libro.setGiorni(elemento.child(KEY_GIORNI).getValue(String.class));
+
+
+
                     libri.add(libro);
                 }
                 notifica.libriAggiornati();

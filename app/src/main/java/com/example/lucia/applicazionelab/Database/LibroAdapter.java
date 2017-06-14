@@ -28,7 +28,7 @@ public class LibroAdapter extends BaseAdapter  {
     private List<Libro> libri = Collections.emptyList();
     private Context context;
     private DataStore archivio = new DataStore();
-
+private DataStore2 archivio3 = new DataStore2();
 
     LayoutInflater inflater;
 
@@ -106,12 +106,19 @@ public class LibroAdapter extends BaseAdapter  {
         TextView textCodLibro= (TextView)convertView.findViewById(R.id.textCodLibro2);
         // ImageView ImageCopertina = (ImageView)convertView.findViewById(R.id.ImmagineLibro);
 
+
+
         Libro libro = libri.get(position);
         textLibro.setText(libro.getNome());
         textAutore.setText(libro.getAutore());
         textGenere.setText(libro.getGenere());
         textAnno.setText(libro.getAnno());
         textCodLibro.setText(libro.getCodlibro());
+        if (!(archivio3.elencoLibri2().isEmpty())) {
+            TextView textGiorni = (TextView)convertView.findViewById(R.id.textPrenotato);
+            textGiorni.setText(libro.getGiorni());
+        }
+
         // ImageCopertina.setImageResource(R.drawable.image_bg);
 
         return convertView;

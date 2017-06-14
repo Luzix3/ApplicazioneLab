@@ -15,6 +15,8 @@ public class Libro implements Serializable{
     private String nome;
     private String anno;
     private String genere;
+    private String giorni;
+
     //private Image copertina;
 
     //mettere private cosi si nasconde l'implementazione della classe
@@ -31,6 +33,14 @@ public class Libro implements Serializable{
     }
 
     */
+
+    public String getGiorni() {
+        return giorni;
+    }
+
+    public void setGiorni(String giorni) {
+        this.giorni = giorni;
+    }
 
     public String getGenere() {
         return genere;
@@ -88,6 +98,18 @@ public class Libro implements Serializable{
         this.anno=anno;
         this.genere=genere;
          // this.copertina=copertina;
+
+    }
+
+
+    public Libro(String autore, String codlibro, String nome, String anno, String genere, String giorni) {
+        this.autore = autore;
+        this.codlibro=codlibro;
+        this.nome = nome;
+        this.anno=anno;
+        this.genere=genere;
+        // this.copertina=copertina;
+       this.giorni = giorni;
 
     }
 

@@ -33,21 +33,20 @@ public class DettagliMioLibro extends AppCompatActivity {
         mConsegna= (TextView)findViewById(R.id.textConsegna);
         mTorna= (TextView)findViewById(R.id.textTorna);
 
-        Intent intent = getIntent();
-        final Libro libro = (Libro)intent.getSerializableExtra(EXTRA_LIBRO2);
+
+
+        Intent i = getIntent();
+       final Libro libro4 = (Libro) i.getSerializableExtra(EXTRA_LIBRO2);
 
 
 
 
-        if (libro != null) {
-            mNome.setText(libro.getNome());
+        if (libro4 != null) {
+            mNome.setText(libro4.getNome());
 
-            Intent intent2 = getIntent();
-            Bundle bd = intent.getExtras();
-            if(bd != null) {
-                String periodo =(String) bd.getString(EXTRA_PERIODO);
-                mPrenotato.setText(periodo);
-            }
+
+                mPrenotato.setText(libro4.getGiorni());
+
 
 
                 mConsegna.setText(" ");

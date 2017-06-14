@@ -17,6 +17,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.Serializable;
+
 public class Prenota extends AppCompatActivity {
     private final static String EXTRA_LIBRO2 = "libro2";
     private final static String EXTRA_NOME = "nome libro";
@@ -47,7 +49,7 @@ Button prenota;
         // Autenticazione Firebase
 
         Intent intent1 = getIntent();
-        final Libro libro2 = (Libro)intent1.getSerializableExtra(EXTRA_LIBRO2);
+       final  Libro libro2 = (Libro)intent1.getSerializableExtra(EXTRA_LIBRO2);
 
 
         mAuth6 = FirebaseAuth.getInstance();
@@ -74,20 +76,20 @@ Button prenota;
 
                      if(Unasettimana.isChecked())
                      {
-                         periodo= "Una settimana";
+                         libro2.setGiorni("Una settimana");
                      }
                      if(Duesettimane.isChecked())
                      {
-                         periodo = "Due settimane";
+                         libro2.setGiorni("Due settimane");
                      }
                      if(Ventigiorni.isChecked())
                      {
-                         periodo = "Venti giorni";
+                         libro2.setGiorni("20 giorni");
                      }
 
                      FirebaseDatabase database = FirebaseDatabase.getInstance();
                      DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Miei Libri");
-                     Libro libro1 = new Libro(libro2.getAutore(), libro2.getCodlibro(), libro2.getNome(), libro2.getAnno(), libro2.getGenere());
+                     Libro libro1 = new Libro(libro2.getAutore(), libro2.getCodlibro(), libro2.getNome(), libro2.getAnno(), libro2.getGenere(), libro2.getGiorni());
 
                      ref.child(user6.getUid()).push().setValue(libro1);
 
@@ -98,17 +100,18 @@ Button prenota;
                      intent1.putExtra(EXTRA_ANNO, libro1.getAnno());
                      intent1.putExtra(EXTRA_AUTORE, libro1.getAutore());
                      intent1.putExtra(EXTRA_GENERE, libro1.getGenere());
+                     intent1.putExtra(EXTRA_PERIODO, libro1.getGiorni());
 
-                     Intent intent2 = new Intent (Prenota.this, DettagliMioLibro.class);
 
-                     intent2.putExtra(EXTRA_PERIODO, periodo);
+
+
 
                      Toast.makeText(getApplicationContext(), "Prenotazione avvenuta con successo!" +
                              "Ritira il libro nelle prossime 24 ore, altrimenti la prenotazione verrà cancellata.", Toast.LENGTH_LONG).show();
 
 
 
-                     startActivity(intent2);
+
                      startActivity(intent1);
 
 
