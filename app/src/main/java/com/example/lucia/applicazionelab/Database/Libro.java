@@ -1,6 +1,7 @@
 package com.example.lucia.applicazionelab.Database;
 
 import android.media.Image;
+import android.net.Uri;
 
 import java.io.Serializable;
 
@@ -16,23 +17,22 @@ public class Libro implements Serializable{
     private String anno;
     private String genere;
     private String giorni;
+    private Uri imagepath;
 
-    //private Image copertina;
+
 
     //mettere private cosi si nasconde l'implementazione della classe
     //aggiunge getter e setter
     //mancano i costruttori
 
-/*
-    public Image getCopertina() {
-        return copertina;
+
+    public Uri getImagepath() {
+        return imagepath;
     }
 
-    public void setCopertina(Image copertina) {
-        this.copertina = copertina;
+    public void setImagepath(Uri imagepath) {
+        this.imagepath = imagepath;
     }
-
-    */
 
     public String getGiorni() {
         return giorni;
@@ -91,16 +91,36 @@ public class Libro implements Serializable{
      * @param genere
      *
      */
+    public Libro(String autore, String codlibro, String nome, String anno, String genere, Uri imagepath) {
+        this.autore = autore;
+        this.codlibro=codlibro;
+        this.nome = nome;
+        this.anno=anno;
+        this.genere=genere;
+        this.imagepath=imagepath;
+
+    }
+
     public Libro(String autore, String codlibro, String nome, String anno, String genere) {
         this.autore = autore;
         this.codlibro=codlibro;
         this.nome = nome;
         this.anno=anno;
         this.genere=genere;
-         // this.copertina=copertina;
 
     }
 
+
+    public Libro(String autore, String codlibro, String nome, String anno, String genere, Uri imagepath, String giorni) {
+        this.autore = autore;
+        this.codlibro=codlibro;
+        this.nome = nome;
+        this.anno=anno;
+        this.genere=genere;
+        this.imagepath=imagepath;
+       this.giorni = giorni;
+
+    }
 
     public Libro(String autore, String codlibro, String nome, String anno, String genere, String giorni) {
         this.autore = autore;
@@ -108,8 +128,8 @@ public class Libro implements Serializable{
         this.nome = nome;
         this.anno=anno;
         this.genere=genere;
-        // this.copertina=copertina;
-       this.giorni = giorni;
+
+        this.giorni = giorni;
 
     }
 

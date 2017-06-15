@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -104,7 +105,7 @@ private DataStore2 archivio3 = new DataStore2();
         TextView textGenere= (TextView)convertView.findViewById(R.id.textGenere2);
         TextView textAnno= (TextView)convertView.findViewById(R.id.textAnno2);
         TextView textCodLibro= (TextView)convertView.findViewById(R.id.textCodLibro2);
-        // ImageView ImageCopertina = (ImageView)convertView.findViewById(R.id.ImmagineLibro);
+        ImageView ImageCopertina = (ImageView)convertView.findViewById(R.id.ImmagineLibro);
 
 
 
@@ -119,7 +120,7 @@ private DataStore2 archivio3 = new DataStore2();
             textGiorni.setText(libro.getGiorni());
         }
 
-        // ImageCopertina.setImageResource(R.drawable.image_bg);
+
 
         return convertView;
     }
