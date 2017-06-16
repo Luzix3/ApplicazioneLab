@@ -114,13 +114,7 @@ public class CercaActivity extends AppCompatActivity implements SearchView.OnQue
             }
         });
 
-        Libro l = new Libro();
-        l.setCodlibro("0000001");
-        l.setNome("Harry Potter 1");
-        l.setAutore("j.k. rowling");
-        l.setGenere("Fantasy");
-        l.setAnno("2002");
-        archivio.aggiungiLibro(l);
+
 
 
 

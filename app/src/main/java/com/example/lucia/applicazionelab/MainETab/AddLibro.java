@@ -3,6 +3,7 @@ package com.example.lucia.applicazionelab.MainETab;
 import android.Manifest;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -21,10 +22,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.lucia.applicazionelab.Database.Libro;
 
 import com.example.lucia.applicazionelab.R;
 import com.example.lucia.applicazionelab.Registrazione.Page2reg;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,10 +37,12 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.net.URL;
+
 @SuppressWarnings("deprecation")
 public class AddLibro extends ActionBarActivity {
 
-    private static int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE= 2;
+    private static int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE= 1;
     Button btnAdd;
     EditText Editname;
     EditText EditAutor;
@@ -50,10 +55,13 @@ public class AddLibro extends ActionBarActivity {
     int PICK_IMAGE_REQUEST = 111;
     Uri filePath;
     ProgressDialog pd;
+   Uri img1;
+    String key;
 
     //creating reference to firebase storage
     FirebaseStorage storage = FirebaseStorage.getInstance();
     StorageReference storageRef = storage.getReferenceFromUrl("gs://biblapp-432f7.appspot.com/");
+
 
 
 
@@ -104,49 +112,6 @@ public class AddLibro extends ActionBarActivity {
 
 
 
-                if(filePath != null) {
-                    pd.show();
-
-                    StorageReference childRef = storageRef.child("image.jpg");
-
-                    if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
-                            != PackageManager.PERMISSION_GRANTED) {
-
-                        // Should we show an explanation?
-                        if (shouldShowRequestPermissionRationale(
-                                Manifest.permission.READ_EXTERNAL_STORAGE)) {
-                            // Explain to the user why we need to read the contacts
-                        }
-
-                        requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
-                                MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
-
-                        // MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE is an
-                        // app-defined int constant that should be quite unique
-
-                        return;
-                    }
-                    //uploading the image
-                    UploadTask uploadTask = childRef.putFile(filePath);
-
-
-                    uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            pd.dismiss();
-                            Toast.makeText(AddLibro.this, "Upload avvenuto con successo!", Toast.LENGTH_SHORT).show();
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            pd.dismiss();
-                            Toast.makeText(AddLibro.this, "Upload Failed -> " + e, Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                }
-                else {
-                    Toast.makeText(AddLibro.this, "Seleziona un'immagine", Toast.LENGTH_SHORT).show();
-                }
 
 
 
@@ -188,7 +153,74 @@ public class AddLibro extends ActionBarActivity {
 
                     String BookId = mDatabase1.push().getKey();
                     // creo un oggetto della classe utente
-                    Libro l1 = new Libro(autor1, code, name1, anno1, gener1,filePath);
+
+                    // Reference to an image file in Firebase Storage
+                     // StorageReference storageReference = childRef;
+
+
+
+                             if(filePath != null) {
+                              pd.show();
+
+
+                                StorageReference childRef = storageRef.child(BookId);
+
+                                 if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+                                       != PackageManager.PERMISSION_GRANTED) {
+
+                                  // Should we show an explanation?
+                                      if (shouldShowRequestPermissionRationale(
+                                          Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                                          // Explain to the user why we need to read the contacts
+                                               }
+
+                                        requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                                                   MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
+
+                                             // MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE is an
+                                             // app-defined int constant that should be quite unique
+
+                                               return;
+                                                 }
+                                                 //uploading the image
+                                                UploadTask uploadTask = childRef.putFile(filePath);
+
+
+                    uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            pd.dismiss();
+                            Toast.makeText(AddLibro.this, "Upload avvenuto con successo!", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            pd.dismiss();
+                            Toast.makeText(AddLibro.this, "Upload Failed -> " + e, Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+                else {
+                    Toast.makeText(AddLibro.this, "Seleziona un'immagine", Toast.LENGTH_SHORT).show();
+                }
+
+
+
+                    storageRef.child(BookId).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            img1= uri;
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception exception) {
+                            // Handle any errors
+                        }
+                    });
+
+
+
+                    Libro l1 = new Libro(autor1, code, name1, anno1, gener1, img1);
                     // metto l'user nel database sotto il nodo Utenti con la sua chiave unica
                     mDatabase1.child(BookId).setValue(l1);
 

@@ -2,8 +2,10 @@ package com.example.lucia.applicazionelab.Database;
 
 import android.media.Image;
 import android.net.Uri;
+import android.widget.ImageView;
 
 import java.io.Serializable;
+import java.net.URL;
 
 /**
  * Created by Lucia on 20/05/2017.
@@ -17,7 +19,8 @@ public class Libro implements Serializable{
     private String anno;
     private String genere;
     private String giorni;
-    private Uri imagepath;
+    private ImageView imagepath;
+    private Uri immagine;
 
 
 
@@ -26,11 +29,19 @@ public class Libro implements Serializable{
     //mancano i costruttori
 
 
-    public Uri getImagepath() {
+    public Uri getImmagine() {
+        return immagine;
+    }
+
+    public void setImmagine(Uri immagine) {
+        this.immagine = immagine;
+    }
+
+    public ImageView getImagepath() {
         return imagepath;
     }
 
-    public void setImagepath(Uri imagepath) {
+    public void setImagepath(ImageView imagepath) {
         this.imagepath = imagepath;
     }
 
@@ -91,13 +102,13 @@ public class Libro implements Serializable{
      * @param genere
      *
      */
-    public Libro(String autore, String codlibro, String nome, String anno, String genere, Uri imagepath) {
+    public Libro(String autore, String codlibro, String nome, String anno, String genere, Uri immagine) {
         this.autore = autore;
         this.codlibro=codlibro;
         this.nome = nome;
         this.anno=anno;
         this.genere=genere;
-        this.imagepath=imagepath;
+        this.immagine=immagine;
 
     }
 
@@ -111,13 +122,13 @@ public class Libro implements Serializable{
     }
 
 
-    public Libro(String autore, String codlibro, String nome, String anno, String genere, Uri imagepath, String giorni) {
+    public Libro(String autore, String codlibro, String nome, String anno, String genere, Uri immagine, String giorni) {
         this.autore = autore;
         this.codlibro=codlibro;
         this.nome = nome;
         this.anno=anno;
         this.genere=genere;
-        this.imagepath=imagepath;
+        this.immagine=immagine;
        this.giorni = giorni;
 
     }
