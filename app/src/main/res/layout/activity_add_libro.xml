@@ -167,7 +167,7 @@
                 android:layout_width="174dp"
                 android:layout_height="174dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/image_bg" />
+                 />
 
             <Button
                 android:id="@+id/buttonProcedi3"

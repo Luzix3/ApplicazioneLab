@@ -1,5 +1,7 @@
 package com.example.lucia.applicazionelab.Database;
 
+import android.net.Uri;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -28,7 +30,8 @@ public class DataStore2 {
     private final static String KEY_GENERE = "genere";
     private final static String KEY_ANNO = "anno";
     private final static String KEY_CODLIBRO = "codice libro";
-    private final static String KEY_GIORNI = "giorni prenotazione";
+    private final static String KEY_GIORNI = "giorni";
+    private final static String KEY_IMMAGINE = "urlimmagine";
 
 
     private ValueEventListener listenerLibri;
@@ -74,9 +77,7 @@ public class DataStore2 {
                     libro.setGenere(elemento.child(KEY_GENERE).getValue(String.class));
                     libro.setAnno(elemento.child(KEY_ANNO).getValue(String.class));
                     libro.setGiorni(elemento.child(KEY_GIORNI).getValue(String.class));
-
-
-
+                    libro.setUrlimmagine(elemento.child(KEY_IMMAGINE).getValue(String.class));
                     libri.add(libro);
                 }
                 notifica.libriAggiornati();

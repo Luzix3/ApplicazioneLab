@@ -19,8 +19,7 @@ public class Libro implements Serializable{
     private String anno;
     private String genere;
     private String giorni;
-    private ImageView imagepath;
-    private Uri immagine;
+    private String urlimmagine;
 
 
 
@@ -29,20 +28,12 @@ public class Libro implements Serializable{
     //mancano i costruttori
 
 
-    public Uri getImmagine() {
-        return immagine;
+    public String getUrlimmagine() {
+        return urlimmagine;
     }
 
-    public void setImmagine(Uri immagine) {
-        this.immagine = immagine;
-    }
-
-    public ImageView getImagepath() {
-        return imagepath;
-    }
-
-    public void setImagepath(ImageView imagepath) {
-        this.imagepath = imagepath;
+    public void setUrlimmagine(String urlimmagine) {
+        this.urlimmagine = urlimmagine;
     }
 
     public String getGiorni() {
@@ -102,50 +93,27 @@ public class Libro implements Serializable{
      * @param genere
      *
      */
-    public Libro(String autore, String codlibro, String nome, String anno, String genere, Uri immagine) {
+    public Libro(String autore, String codlibro, String nome, String anno, String genere, String urlimmagine) {
         this.autore = autore;
         this.codlibro=codlibro;
         this.nome = nome;
         this.anno=anno;
         this.genere=genere;
-        this.immagine=immagine;
-
-    }
-
-    public Libro(String autore, String codlibro, String nome, String anno, String genere) {
-        this.autore = autore;
-        this.codlibro=codlibro;
-        this.nome = nome;
-        this.anno=anno;
-        this.genere=genere;
+        this.urlimmagine=urlimmagine;
 
     }
 
 
-    public Libro(String autore, String codlibro, String nome, String anno, String genere, Uri immagine, String giorni) {
+    public Libro(String autore, String codlibro, String nome, String anno, String genere, String urlimmagine, String giorni) {
         this.autore = autore;
         this.codlibro=codlibro;
         this.nome = nome;
         this.anno=anno;
         this.genere=genere;
-        this.immagine=immagine;
+        this.urlimmagine=urlimmagine;
        this.giorni = giorni;
 
     }
-
-    public Libro(String autore, String codlibro, String nome, String anno, String genere, String giorni) {
-        this.autore = autore;
-        this.codlibro=codlibro;
-        this.nome = nome;
-        this.anno=anno;
-        this.genere=genere;
-
-        this.giorni = giorni;
-
-    }
-
-    //puoservire anche il costruttore vuoto, cosi posso creare un oggetto libro nuovo
-
 
     public Libro() {
 

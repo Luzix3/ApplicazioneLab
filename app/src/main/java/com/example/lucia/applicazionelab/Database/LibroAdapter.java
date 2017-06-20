@@ -1,6 +1,13 @@
 package com.example.lucia.applicazionelab.Database;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
+import android.net.Uri;
+import android.support.design.widget.NavigationView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,12 +16,27 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.bumptech.glide.Glide;
 import com.example.lucia.applicazionelab.R;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
+
+import static android.content.ContentValues.TAG;
+import static android.support.design.R.id.image;
 
 
 /**
@@ -23,15 +45,15 @@ import java.util.Locale;
  */
 
 public class LibroAdapter extends BaseAdapter  {
-
-
-
+    private FirebaseStorage storage = FirebaseStorage.getInstance();
+    private StorageReference storageRef = storage.getReference();
     private List<Libro> libri = Collections.emptyList();
     private Context context;
     private DataStore archivio = new DataStore();
-private DataStore2 archivio3 = new DataStore2();
-
+    private DataStore2 archivio3 = new DataStore2();
     LayoutInflater inflater;
+    private final static String KEY_IMMAGINE    = "urlimmagine";
+
 
     public LibroAdapter (Context context, List<Libro> libri)
     {
@@ -44,6 +66,7 @@ private DataStore2 archivio3 = new DataStore2();
     }
     public class ViewHolder {
         TextView name;
+
     }
 
 
@@ -54,6 +77,27 @@ private DataStore2 archivio3 = new DataStore2();
         notifyDataSetChanged();
 
     }
+
+
+
+
+
+    private Drawable caricaimmagine(String url) {
+
+        try {
+            InputStream inputstr = (InputStream) new URL(url).getContent();
+            Drawable d = Drawable.createFromStream(inputstr, KEY_IMMAGINE);
+            return d;
+        } catch (Exception e) {
+            System.out.println("Eccezione=" + e);
+            return null;
+        }
+
+    }
+
+
+
+
 
 
 
@@ -88,6 +132,7 @@ private DataStore2 archivio3 = new DataStore2();
             convertView = inflater.inflate(R.layout.rigalibro, null);
 
             holder.name = (TextView) convertView.findViewById(R.id.textLibro2);
+
             convertView.setTag(holder);
 
             // convertView= LayoutInflater.from(context).inflate(R.layout.rigalibro, parent, false);
@@ -105,7 +150,7 @@ private DataStore2 archivio3 = new DataStore2();
         TextView textGenere= (TextView)convertView.findViewById(R.id.textGenere2);
         TextView textAnno= (TextView)convertView.findViewById(R.id.textAnno2);
         TextView textCodLibro= (TextView)convertView.findViewById(R.id.textCodLibro2);
-        ImageView ImageCopertina = (ImageView)convertView.findViewById(R.id.ImmagineLibro);
+        ImageView ImageCopertina = (ImageView)convertView.findViewById(R.id.ImmagineCopertina2);
 
 
 
@@ -115,30 +160,32 @@ private DataStore2 archivio3 = new DataStore2();
         textGenere.setText(libro.getGenere());
         textAnno.setText(libro.getAnno());
         textCodLibro.setText(libro.getCodlibro());
+        //carico immagine dal metodo creato prima attraverso url
+       Picasso.with(context).load(libro.getUrlimmagine()).fit().into(ImageCopertina);
+
         if (!(archivio3.elencoLibri2().isEmpty())) {
             TextView textGiorni = (TextView)convertView.findViewById(R.id.textPrenotato);
             textGiorni.setText(libro.getGiorni());
         }
 
-
-
         return convertView;
     }
 
 
-    // Filter Class
+    // Filtra quando viene digitato un char
+
     public void filter(String charText) {
         charText = charText.toLowerCase(Locale.getDefault());
 
         List <Libro> libritemp = new ArrayList<Libro>(libri);
-       libri.clear();
+
         if (charText.length() == 0) {
-            libri.addAll(libritemp);
+            libritemp.addAll(libri);
 
         } else {
-            for (Libro wp : libritemp) {
-                if (wp.getNome().toLowerCase(Locale.getDefault()).contains(charText)) {
-                    libri.add(wp);
+            for (Libro libro : libri) {
+                if (libro.getNome().toLowerCase(Locale.getDefault()).contains(charText)) {
+                    libritemp.add(libro);
                 }
             }
         }
@@ -146,6 +193,8 @@ private DataStore2 archivio3 = new DataStore2();
 
 
     }
+
+
 
 
 

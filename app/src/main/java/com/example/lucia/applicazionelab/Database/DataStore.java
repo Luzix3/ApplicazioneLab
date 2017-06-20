@@ -7,9 +7,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.File;
 import java.util.ArrayList;
 
 
+import android.media.Image;
+import android.net.Uri;
 import android.provider.ContactsContract;
 
 import com.google.firebase.database.DataSnapshot;
@@ -17,6 +20,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +40,9 @@ public class DataStore {
     private final static String KEY_NOME = "nome";
     private final static String KEY_GENERE = "genere";
     private final static String KEY_ANNO = "anno";
+    private final static String KEY_IMMAGINE    = "urlimmagine";
+
+    private StorageReference mstorage;
 
     private ValueEventListener listenerLibri;
 
@@ -57,11 +65,12 @@ public class DataStore {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference(DB_LIBRI);
+        mstorage = FirebaseStorage.getInstance().getReference();
 
         listenerLibri = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                libri.clear();
+
                 for (DataSnapshot elemento:dataSnapshot.getChildren()) {
                     Libro libro = new Libro();
                     libro.setCodlibro(elemento.getKey());
@@ -69,6 +78,7 @@ public class DataStore {
                     libro.setAutore(elemento.child(KEY_AUTORE).getValue(String.class));
                     libro.setGenere(elemento.child(KEY_GENERE).getValue(String.class));
                     libro.setAnno(elemento.child(KEY_ANNO).getValue(String.class));
+                    libro.setUrlimmagine(elemento.child(KEY_IMMAGINE).getValue(String.class));
                     libri.add(libro);
                 }
                 notifica.libriAggiornati();

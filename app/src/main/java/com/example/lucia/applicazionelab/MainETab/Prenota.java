@@ -27,6 +27,7 @@ public class Prenota extends AppCompatActivity {
     private final static String EXTRA_GENERE = "genere";
     private final static String EXTRA_ANNO = "anno";
     private final static String EXTRA_PERIODO = "periodo prenotazione";
+    private final static String EXTRA_IMMAGINE  = "url immagine";
 
     CheckBox Unasettimana;
     CheckBox Duesettimane;
@@ -89,20 +90,23 @@ Button prenota;
 
                      FirebaseDatabase database = FirebaseDatabase.getInstance();
                      DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Miei Libri");
-                     Libro libro1 = new Libro(libro2.getAutore(), libro2.getCodlibro(), libro2.getNome(), libro2.getAnno(), libro2.getGenere(), libro2.getGiorni());
+                     Libro libro1 = new Libro(libro2.getAutore(), libro2.getCodlibro(), libro2.getNome(), libro2.getAnno(), libro2.getGenere(),libro2.getUrlimmagine() ,libro2.getGiorni());
 
                      ref.child(user6.getUid()).push().setValue(libro1);
 
                      Intent intent1 = new Intent(Prenota.this, MainActivity.class);
 
-                     intent1.putExtra(EXTRA_CODICE, libro1.getCodlibro());
+                     intent1.putExtra(EXTRA_LIBRO2, libro1);
+
+/*                     intent1.putExtra(EXTRA_CODICE, libro1.getCodlibro());
                      intent1.putExtra(EXTRA_NOME, libro1.getNome());
                      intent1.putExtra(EXTRA_ANNO, libro1.getAnno());
                      intent1.putExtra(EXTRA_AUTORE, libro1.getAutore());
                      intent1.putExtra(EXTRA_GENERE, libro1.getGenere());
                      intent1.putExtra(EXTRA_PERIODO, libro1.getGiorni());
+                     intent1.putExtra(EXTRA_IMMAGINE, libro1.getImmagine());
 
-
+*/
 
 
 
