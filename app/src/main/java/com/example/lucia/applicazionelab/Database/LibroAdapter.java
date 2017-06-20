@@ -50,7 +50,6 @@ public class LibroAdapter extends BaseAdapter  {
     private List<Libro> libri = Collections.emptyList();
     private Context context;
     private DataStore archivio = new DataStore();
-    private DataStore2 archivio3 = new DataStore2();
     LayoutInflater inflater;
     private final static String KEY_IMMAGINE    = "urlimmagine";
 
@@ -163,7 +162,7 @@ public class LibroAdapter extends BaseAdapter  {
         //carico immagine dal metodo creato prima attraverso url
        Picasso.with(context).load(libro.getUrlimmagine()).fit().into(ImageCopertina);
 
-        if (!(archivio3.elencoLibri2().isEmpty())) {
+        if (!(archivio.elencoPrenotazioni().isEmpty())) {
             TextView textGiorni = (TextView)convertView.findViewById(R.id.textPrenotato);
             textGiorni.setText(libro.getGiorni());
         }

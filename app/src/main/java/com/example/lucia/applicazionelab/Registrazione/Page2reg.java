@@ -143,6 +143,7 @@ public class Page2reg extends ActionBarActivity {
                                                 Toast.LENGTH_SHORT).show();
                                     } else {
 
+                                        /*
                                         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Utenti");
                                         //ora creo un nodo user che mi ritorna la chiave unica dell'user (quella che solo questa app può avere
 
@@ -151,6 +152,7 @@ public class Page2reg extends ActionBarActivity {
                                         Utente u = new Utente(email2, password2, cellulare);
                                         // metto l'user nel database sotto il nodo Utenti con la sua chiave unica
                                         mDatabase.child(userId).setValue(u);
+                                        */
 
                                         startActivity(new Intent(Page2reg.this, RegSuccess.class));
                                         finish();

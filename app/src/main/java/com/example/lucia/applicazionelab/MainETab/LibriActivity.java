@@ -10,7 +10,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.lucia.applicazionelab.Database.DataStore;
-import com.example.lucia.applicazionelab.Database.DataStore2;
 
 import com.example.lucia.applicazionelab.Database.Libro;
 import com.example.lucia.applicazionelab.Database.LibroAdapter;
@@ -26,7 +25,7 @@ public class LibriActivity extends AppCompatActivity {
 
     private ListView listaMieiLibri;
 
-    private DataStore2 archivio2 = new DataStore2();
+    private DataStore archivio = new DataStore();
     private final static String EXTRA_PERIODO = "periodo prenotazione";
 
     // Adapter
@@ -68,11 +67,11 @@ public class LibriActivity extends AppCompatActivity {
         listaMieiLibri = (ListView)findViewById(R.id.ListaMieiLibri);
         adapter1 = new LibroAdapter(this,arraylist);
 
-        archivio2.iniziaOsservazioneLibri2(new DataStore.UpdateListener() {
+        archivio.iniziaOsservazionePrenotazioni(new DataStore.UpdateListener() {
             @Override
             public void libriAggiornati() {
 
-                adapter1.update(archivio2.elencoLibri2());
+                adapter1.update(archivio.elencoPrenotazioni());
             }
         });
 
