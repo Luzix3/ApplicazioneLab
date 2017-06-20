@@ -18,7 +18,7 @@ public class Libro implements Serializable{
     private String nome;
     private String anno;
     private String genere;
-    private String giorni;
+    private int giorni;
     private String urlimmagine;
 
 
@@ -36,11 +36,11 @@ public class Libro implements Serializable{
         this.urlimmagine = urlimmagine;
     }
 
-    public String getGiorni() {
+    public int getGiorni() {
         return giorni;
     }
 
-    public void setGiorni(String giorni) {
+    public void setGiorni(int giorni) {
         this.giorni = giorni;
     }
 
@@ -104,7 +104,7 @@ public class Libro implements Serializable{
     }
 
 
-    public Libro(String autore, String codlibro, String nome, String anno, String genere, String urlimmagine, String giorni) {
+    public Libro(String autore, String codlibro, String nome, String anno, String genere, String urlimmagine, int giorni) {
         this.autore = autore;
         this.codlibro=codlibro;
         this.nome = nome;

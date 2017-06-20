@@ -77,7 +77,7 @@ public class DataStore {
         listenerLibri = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
+                libri.clear();
                 for (DataSnapshot elemento:dataSnapshot.getChildren()) {
                     Libro libro = new Libro();
                     libro.setCodlibro(elemento.getKey());

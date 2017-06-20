@@ -65,15 +65,15 @@ public class Prenota extends AppCompatActivity {
 
                      if(Unasettimana.isChecked())
                      {
-                         libro2.setGiorni("Una settimana");
+                         libro2.setGiorni(7);
                      }
                      if(Duesettimane.isChecked())
                      {
-                         libro2.setGiorni("Due settimane");
+                         libro2.setGiorni(15);
                      }
                      if(Ventigiorni.isChecked())
                      {
-                         libro2.setGiorni("20 giorni");
+                         libro2.setGiorni(20);
                      }
 
                      FirebaseDatabase database = FirebaseDatabase.getInstance();
