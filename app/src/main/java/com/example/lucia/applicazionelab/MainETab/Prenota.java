@@ -59,10 +59,7 @@ public class Prenota extends AppCompatActivity {
         prenota.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                  if (Unasettimana.isChecked() || Duesettimane.isChecked() || Ventigiorni.isChecked()) {
-
                      if(Unasettimana.isChecked())
                      {
                          libro2.setGiorni(7);
@@ -78,31 +75,18 @@ public class Prenota extends AppCompatActivity {
 
                      FirebaseDatabase database = FirebaseDatabase.getInstance();
                      DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Utenti");
-
                      Libro libro1 = new Libro(libro2.getAutore(), libro2.getCodlibro(), libro2.getNome(), libro2.getAnno(), libro2.getGenere(),libro2.getUrlimmagine() ,libro2.getGiorni());
-
                      ref.child(user6.getUid()).child(EXTRA_PRENOTAZIONE).push().setValue(libro1);
-
                      Intent intent1 = new Intent(Prenota.this, MainActivity.class);
-
                      intent1.putExtra(EXTRA_LIBRO2, libro1);
-
                      Toast.makeText(getApplicationContext(), "Prenotazione avvenuta con successo!" +
                              "Ritira il libro nelle prossime 24 ore, altrimenti la prenotazione verrà cancellata.", Toast.LENGTH_LONG).show();
-
                      startActivity(intent1);
-
-
                  }else
                  {
                      Toast.makeText(getApplicationContext(), "Devi selezionare un periodo di tempo se vuoi prenotare il libro!", Toast.LENGTH_LONG).show();
                  }
-
-
-
             }
         });
-
-
     }
 }

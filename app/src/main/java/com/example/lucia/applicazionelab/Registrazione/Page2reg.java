@@ -51,7 +51,6 @@ public class Page2reg extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page2reg);
 
-
         btnReg = (Button) findViewById(R.id.buttonAvanti);
         Editemail = (EditText) findViewById(R.id.editRegEmail);
         Editpass = (EditText) findViewById(R.id.editRegPass);
@@ -65,7 +64,6 @@ public class Page2reg extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 boolean a = false;
-
                 final String email2 = Editemail.getText().toString();
                 final String password2 = Editpass.getText().toString();
                 final String cellulare = EditCell.getText().toString();
@@ -73,7 +71,6 @@ public class Page2reg extends ActionBarActivity {
 
                 if (email2.isEmpty()) {
                     Editemail.setError(getString(R.string.obbligatorio));
-
                 }
                 if (password2.isEmpty()) {
                     Editpass.setError(getString(R.string.obbligatorio));
@@ -81,13 +78,11 @@ public class Page2reg extends ActionBarActivity {
 
                 if (confpass.isEmpty()) {
                     Editconfpass.setError(getString(R.string.obbligatorio));
-
                 }
 
                 if (cellulare.isEmpty()) {
                     EditCell.setError(getString(R.string.obbligatorio));
                 }
-
 
                 if (Cgestore.isChecked()) {
                     Cgestore.setError(getString(R.string.errorecasella));
@@ -100,7 +95,6 @@ public class Page2reg extends ActionBarActivity {
                 if (!(Ccondizioni.isChecked())) {
                     Ccondizioni.setError(getString(R.string.obbligatorio));
                 }
-                // todo: mettere caratteri obbligatori alla password e mettere emailvalida
 
                 if (!(isEmailValid(email2))) {
                     Editemail.setError(getString(R.string.emailvalida));
@@ -125,8 +119,6 @@ public class Page2reg extends ActionBarActivity {
 
 
                 if ( cellulare.length() > 10 && password2.length() > 6 && !email2.isEmpty() && !cellulare.isEmpty() && a == true && !password2.isEmpty() && isEmailValid(email2) && Ccondizioni.isChecked() && Cutente.isChecked() && !(Cgestore.isChecked())) {
-                    // todo: creare oggetto daabase
-
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                     final FirebaseAuth mAuth2 = FirebaseAuth.getInstance();
 
@@ -142,50 +134,15 @@ public class Page2reg extends ActionBarActivity {
                                         Toast.makeText(Page2reg.this, "Registrazione fallita" + task.getException(),
                                                 Toast.LENGTH_SHORT).show();
                                     } else {
-
-                                        /*
-                                        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("Utenti");
-                                        //ora creo un nodo user che mi ritorna la chiave unica dell'user (quella che solo questa app può avere
-
-                                        String userId = mDatabase.push().getKey();
-                                        // creo un oggetto della classe utente
-                                        Utente u = new Utente(email2, password2, cellulare);
-                                        // metto l'user nel database sotto il nodo Utenti con la sua chiave unica
-                                        mDatabase.child(userId).setValue(u);
-                                        */
-
                                         startActivity(new Intent(Page2reg.this, RegSuccess.class));
                                         finish();
-
                                     }
                                 }
                             });
-
-
-                        /*
-        //devo dirgli dove scrivere, ovvero il punto di partenza da cui scrivere
-        DatabaseReference reference = database1.getReference("cognome");
-        reference.setValue("Rossi");
-         // se cambio viene modificato il cognome, se non metto niente, riporta niente
-         // se metto null sparisce
-        DatabaseReference refTelefono = database1.getReference("telefono").child("prefisso");
-        refTelefono.setValue(888);
-       */
-
-
-
-
-       /* FirebaseDatabase database1= FirebaseDatabase.getInstance();
-        DatabaseReference reference = database1.getReference("studenti").child(s.getMatricola());
-        // reference.setValue("nome", s.getNome());
-        reference.setValue(s);
-*/
                 }
             }
 
 
         });
-
-
     }
 }

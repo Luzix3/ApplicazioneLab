@@ -27,33 +27,18 @@ public class DettagliMioLibro extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dettagli_mio_libro);
-
         mNome = (TextView)findViewById(R.id.textNome2);
         mPrenotato = (TextView)findViewById(R.id.textPrenotato);
         mConsegna= (TextView)findViewById(R.id.textConsegna);
         mTorna= (TextView)findViewById(R.id.textTorna);
 
-
-
         Intent i = getIntent();
-       final Libro libro4 = (Libro) i.getSerializableExtra(EXTRA_LIBRO2);
+        final Libro libro = (Libro) i.getSerializableExtra(EXTRA_LIBRO2);
 
-
-
-
-        if (libro4 != null) {
-            mNome.setText(libro4.getNome());
-
-
-                mPrenotato.setText(libro4.getGiorni());
-
-
-
-                mConsegna.setText(" ");
-
-
-
-
+        if (libro != null) {
+            mNome.setText(libro.getNome());
+            mPrenotato.setText(Integer.toString(libro.getGiorni()) + " giorni.");
+            mConsegna.setText(" ");
         }
 
         mTorna.setOnClickListener(new View.OnClickListener() {
@@ -63,12 +48,5 @@ public class DettagliMioLibro extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
-
-
-
-
-
-
-
     }
 }

@@ -7,13 +7,14 @@ import java.io.Serializable;
  */
 
 public class Utente implements Serializable{
-
- private String email;
+    //attributi utente
+    private String email;
     private String password;
     private String cellulare;
     private String libro;
     private String codlibro;
 
+    //getters and setters
     public String getEmail() {
         return email;
     }
@@ -54,9 +55,8 @@ public class Utente implements Serializable{
         this.codlibro = codlibro;
     }
 
-
+    //costruttore vuoto
     public Utente() {
-
     }
 
     public Utente (String email, String password, String cellulare)
@@ -67,11 +67,7 @@ public class Utente implements Serializable{
     }
     public Utente (String libro, String codlibro)
     {
-
         this.libro= libro;
         this.codlibro = codlibro;
-
     }
-
-
 }

@@ -52,17 +52,14 @@ public class SpecLibro extends ActionBarActivity {
     private FirebaseStorage storage = FirebaseStorage.getInstance();
     private StorageReference storageRef = storage.getReferenceFromUrl("gs://biblapp-432f7.appspot.com/");
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spec_libro);
 
-
-
         // Imposto gli id widget
-       mCodLibro = (TextView)findViewById(R.id.textCodLibro2);
+        mCodLibro = (TextView)findViewById(R.id.textCodLibro2);
         mAutore = (TextView)findViewById(R.id.textAutore2);
         mLibro = (TextView)findViewById(R.id.textLibro2);
         mGenere = (TextView)findViewById(R.id.textGenere2);
@@ -75,9 +72,7 @@ public class SpecLibro extends ActionBarActivity {
         Intent intent = getIntent();
         final Libro libro = (Libro)intent.getSerializableExtra(EXTRA_LIBRO);
 
-
         StorageReference childRef = storageRef.child(cod1);
-
 
         if (libro != null) {
             mCodLibro.setText(libro.getCodlibro());
@@ -93,8 +88,6 @@ public class SpecLibro extends ActionBarActivity {
 
         }
         mauth = FirebaseAuth.getInstance();
-
-
         prenota= (TextView)findViewById(R.id.textPrenota);
         prenota.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,23 +97,15 @@ public class SpecLibro extends ActionBarActivity {
                    {
                        Toast.makeText(getApplicationContext(),"Devi effettuare il login per poter prenotare!", Toast.LENGTH_LONG).show();
                        Intent intent1 = new Intent(SpecLibro.this, Loginpage.class);
-
                        startActivity(intent1);
                    }else
                    {
-
                        Libro libro2 = new Libro(libro.getAutore(), libro.getCodlibro(), libro.getNome(), libro.getAnno(), libro.getGenere(), libro.getUrlimmagine());
-
                        Intent intent = new Intent(SpecLibro.this, Prenota.class);
                        intent.putExtra(EXTRA_LIBRO2, libro2);
-
-
                        startActivity(intent);
                    }
-
             }
         });
-
-
     }
 }

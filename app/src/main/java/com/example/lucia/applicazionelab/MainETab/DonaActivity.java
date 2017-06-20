@@ -26,7 +26,6 @@ public class DonaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dona);
 
         btnDona = (Button)findViewById(R.id.buttonProcediLibro);
-
         btnDona.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,8 +33,6 @@ public class DonaActivity extends AppCompatActivity {
                 startActivity(openPagedonaend);
             }
         });
-
-
 
     }
 }

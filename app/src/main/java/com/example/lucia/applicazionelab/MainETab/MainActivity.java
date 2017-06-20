@@ -20,10 +20,8 @@ public class MainActivity extends TabActivity {
     private final static String TAG =  "MainActivity";
     private final static String EXTRA_PERIODO = "periodo prenotazione";
 
-    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -58,9 +56,6 @@ public class MainActivity extends TabActivity {
                     startActivity(openPagelogout);
                 }
             });
-
-
-
         }
 
         //inizializzo la tab kk
@@ -89,19 +84,5 @@ public class MainActivity extends TabActivity {
         TabHostWindows.addTab(Libri);
         TabHostWindows.addTab(Cerca);
         TabHostWindows.addTab(Dona);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

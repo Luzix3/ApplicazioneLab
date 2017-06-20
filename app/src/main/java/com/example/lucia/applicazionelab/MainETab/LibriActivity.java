@@ -46,19 +46,15 @@ public class LibriActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_libri);
 
-
         // Autenticazione Firebase
         mAuth6 = FirebaseAuth.getInstance();
 
         // Comportamento differenziato
         FirebaseUser user5 = mAuth6.getCurrentUser();
 
-
         if (user5 == null) {
-
             Intent intent = new Intent(this, Loginpage.class);
             startActivity(intent);
-
         } else {
             // Utente autenticato.
             // Nessuna operazione richiesta
@@ -76,62 +72,15 @@ public class LibriActivity extends AppCompatActivity {
         });
 
         listaMieiLibri.setAdapter(adapter1);
-
-
-
-
-
         listaMieiLibri.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Libro libro = adapter1.getItem(position);
                 Intent intent = new Intent(view.getContext(), DettagliMioLibro.class);
-                 intent.putExtra(EXTRA_LIBRO2, libro);
-                 startActivity(intent);
+                intent.putExtra(EXTRA_LIBRO2, libro);
+                startActivity(intent);
             }
         });
 
-
-
-
-        /*
-        u.setEmail(user5.getEmail());
-        String user= user5.getUid();
-        DatabaseReference mDatabase1 = FirebaseDatabase.getInstance().getReference("Miei Libri");
-        mDatabase1.child(user).setValue(user5.getEmail());
-
-*/
-
-
-
-
-
-
-
-
-        // mDatabase1.child(userId).setValue(user5.getUid());
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
-
-
-
-
-
-
-
-
 }

@@ -19,7 +19,6 @@ public class Dona2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dona2);
 
-
         btngoback = (Button)findViewById(R.id.buttonTornaLog);
 
         btngoback.setOnClickListener(new View.OnClickListener() {

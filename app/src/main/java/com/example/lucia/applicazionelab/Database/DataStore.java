@@ -47,18 +47,21 @@ public class DataStore {
     private final static String KEY_GIORNI = "giorni";
     private final static String KEY_CODLIBRO = "codice libro";
 
+    //Storage reference
     private StorageReference mstorage;
+
+    //autenticazione firebase
     private FirebaseAuth mAuth7;
 
+    //dichiarazione listener
     private ValueEventListener listenerLibri;
     private ValueEventListener listenerPrenotazioni;
 
     // Lista locale dei libri
-    // Todo: da eliminare
     private ArrayList<Libro> libri;
 
     /**
-     * Costruttore
+     * Costruttore del datastore
      */
     public DataStore() {
         libri = new ArrayList<>();
@@ -104,8 +107,6 @@ public class DataStore {
         if (listenerLibri != null)
             FirebaseDatabase.getInstance().getReference(DB_LIBRI).removeEventListener(listenerLibri);
     }
-
-
 
     /**
      * Aggiunge un libro al database
@@ -157,7 +158,6 @@ public class DataStore {
 
     /**
      * Ottiene l'elenco di tutti i libri
-     * Todo: Attenzione il metodo è potenzialmente pericoloso. Potrebbe restituire troppi dati!
      * @return Lista di libri
      */
     public List<Libro> elencoLibri() {
@@ -196,14 +196,12 @@ public class DataStore {
     public void iniziaOsservazionePrenotazioni (final DataStore.UpdateListener notifica) {
 
         mAuth7 = FirebaseAuth.getInstance();
-
         // Comportamento differenziato
         FirebaseUser user5 = mAuth7.getCurrentUser();
         String user7 = user5.getUid();
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference("Utenti").child(user7).child(EXTRA_PRENOTAZIONI);
-
 
         listenerPrenotazioni = new ValueEventListener() {
             @Override
@@ -216,7 +214,7 @@ public class DataStore {
                     libro.setAutore(elemento.child(KEY_AUTORE).getValue(String.class));
                     libro.setGenere(elemento.child(KEY_GENERE).getValue(String.class));
                     libro.setAnno(elemento.child(KEY_ANNO).getValue(String.class));
-                    libro.setGiorni(elemento.child(KEY_GIORNI).getValue(String.class));
+                    libro.setGiorni(elemento.child(KEY_GIORNI).getValue(Integer.class));
                     libro.setUrlimmagine(elemento.child(KEY_IMMAGINE).getValue(String.class));
                     libri.add(libro);
                 }
@@ -232,15 +230,14 @@ public class DataStore {
         ref.addValueEventListener(listenerPrenotazioni);
     }
 
-
     public void terminaOsservazionePrenotazioni() {
         if (listenerPrenotazioni!= null)
             mAuth7 = FirebaseAuth.getInstance();
+            // Comportamento differenziato
+            FirebaseUser user5 = mAuth7.getCurrentUser();
+            String user7 = user5.getUid();
+            FirebaseDatabase.getInstance().getReference("Utenti").child(user7).child(EXTRA_PRENOTAZIONI).removeEventListener(listenerPrenotazioni);
 
-        // Comportamento differenziato
-        FirebaseUser user5 = mAuth7.getCurrentUser();
-        String user7 = user5.getUid();
-        FirebaseDatabase.getInstance().getReference("Utenti").child(user7).child(EXTRA_PRENOTAZIONI).removeEventListener(listenerPrenotazioni);
     }
 
     /**
@@ -258,7 +255,7 @@ public class DataStore {
     }
 
     /**
-     * aggiorna i dati del libro impostando il codice libro come parametro identificativo
+     * aggiorna i dati della prenotazione impostando il codice libro come parametro identificativo
      * @param libro dati da aggiornare
      */
     public void aggiornaPrenotazione(Libro libro) {
@@ -270,7 +267,7 @@ public class DataStore {
     }
 
     /**
-     * Elimina un libro
+     * Elimina una prenotazione
      * @param codlibro dello studente da eliminare
      */
     public void eliminaPrenotazione(String codlibro) {
@@ -280,9 +277,9 @@ public class DataStore {
     }
 
     /**
-     * Legge il libro dal codice libro passato
+     * Legge la prenotazione dal codice libro passato
      * @param codlibro codlibro da cercare
-     * @return Libro letto, oppure null nel caso non venga trovato
+     * @return prenotazione letta, oppure null nel caso non venga trovato
      */
     public Libro leggiPrenotazione(String codlibro) {
         int posizione =  getPrenotazioneIndex(codlibro);
@@ -293,8 +290,7 @@ public class DataStore {
     }
 
     /**
-     * Ottiene l'elenco di tutti i libri
-     * Todo: Attenzione il metodo è potenzialmente pericoloso. Potrebbe restituire troppi dati!
+     * Ottiene l'elenco di tutte le prenotazioni
      * @return Lista di libri
      */
     public List<Libro> elencoPrenotazioni() {
@@ -302,17 +298,17 @@ public class DataStore {
     }
 
     /**
-     * Restituisce il numero di libri presenti nel database
-     * @return numero di libri
+     * Restituisce il numero delle prenotazioni presenti nel database
+     * @return numero di prenotazioni
      */
     public int numeroPrenotazioni() {
         return libri.size();
     }
 
     /**
-     * Restituisce l'indice di un libro nell'array partendo dal codice libro
+     * Restituisce l'indice di una prenotazione nell'array partendo dal codice libro
      * @param codlibro codice del libro da cercare
-     ** @return indice del libro. -1 se non trovato
+     ** @return indice della prenotazione. -1 se non trovato
      */
     private int getPrenotazioneIndex(String codlibro) {
         boolean trovato = false;
@@ -325,5 +321,4 @@ public class DataStore {
         }
         return -1;
     }
-
 }

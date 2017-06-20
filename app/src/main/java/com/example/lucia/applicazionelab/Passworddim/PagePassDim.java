@@ -28,7 +28,6 @@ public class PagePassDim extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_page_pass_dim);
 
-
         editEmailp = (EditText)findViewById(R.id.editPassEmail);
         btnProcedi = (Button)findViewById(R.id.buttonProcedi);
         textbacklog = (TextView)findViewById(R.id.textBackLog);
@@ -43,24 +42,14 @@ public class PagePassDim extends AppCompatActivity {
             }
         });
 
-
         btnProcedi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String email3 = editEmailp.getText().toString();
-
                 if (email3.isEmpty())
                 {
                     editEmailp.setError(getString(R.string.obbligatorio));
-
                 }
-
-
-
-
-
-
                 mAuth3.sendPasswordResetEmail(email3)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
@@ -70,15 +59,9 @@ public class PagePassDim extends AppCompatActivity {
                                 } else {
                                     Toast.makeText(PagePassDim.this, "Procedura non riuscita, controlla i dati o la tua connessione.", Toast.LENGTH_SHORT).show();
                                 }
-
-
                             }
                         });
-
-
-
             }
         });
-
     }
 }

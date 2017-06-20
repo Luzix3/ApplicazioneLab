@@ -13,6 +13,8 @@ import java.net.URL;
  */
 
 public class Libro implements Serializable{
+
+    //attributi libro
     private String autore;
     private String codlibro;
     private String nome;
@@ -21,13 +23,7 @@ public class Libro implements Serializable{
     private int giorni;
     private String urlimmagine;
 
-
-
-    //mettere private cosi si nasconde l'implementazione della classe
-    //aggiunge getter e setter
-    //mancano i costruttori
-
-
+    //getters and setters
     public String getUrlimmagine() {
         return urlimmagine;
     }
@@ -91,7 +87,7 @@ public class Libro implements Serializable{
      * @param nome
      * @param anno
      * @param genere
-     *
+     * @param urlimmagine
      */
     public Libro(String autore, String codlibro, String nome, String anno, String genere, String urlimmagine) {
         this.autore = autore;
@@ -102,7 +98,16 @@ public class Libro implements Serializable{
         this.urlimmagine=urlimmagine;
 
     }
-
+    /**
+     *
+     * @param autore
+     * @param codlibro
+     * @param nome
+     * @param anno
+     * @param genere
+     * @param urlimmagine
+     * @param giorni
+     */
 
     public Libro(String autore, String codlibro, String nome, String anno, String genere, String urlimmagine, int giorni) {
         this.autore = autore;
@@ -115,9 +120,8 @@ public class Libro implements Serializable{
 
     }
 
+    //costruttore vuoto
     public Libro() {
-
-
     }
 }
 

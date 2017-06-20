@@ -35,37 +35,28 @@ public class CercaActivity extends AppCompatActivity implements SearchView.OnQue
 
     // Widget
     private ListView listaLibri;
-
+    //datastore
     private DataStore archivio = new DataStore();
 
     // Adapter
     private LibroAdapter adapter;
 
-      // Autenticazione Firebase
+    // Autenticazione Firebase
     private FirebaseAuth mAuth5;
     ArrayList<Libro> arraylist = new ArrayList<Libro>();
 
-
-
-    //searchbar
+    //Barra di ricerca
     SearchView editsearch;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_cerca);
 
-
-
-       final SwipeRefreshLayout swipeLayout = (SwipeRefreshLayout) findViewById(R.id.swipeToRefresh);
-
+        final SwipeRefreshLayout swipeLayout = (SwipeRefreshLayout) findViewById(R.id.swipeToRefresh);
         swipeLayout.setEnabled(false);
-
 
         // Autenticazione Firebase
         mAuth5 = FirebaseAuth.getInstance();
@@ -91,9 +82,7 @@ public class CercaActivity extends AppCompatActivity implements SearchView.OnQue
         archivio.iniziaOsservazioneLibri(new DataStore.UpdateListener() {
             @Override
             public void libriAggiornati() {
-
-
-               adapter.update(archivio.elencoLibri());
+                adapter.update(archivio.elencoLibri());
             }
         });
 
@@ -102,22 +91,11 @@ public class CercaActivity extends AppCompatActivity implements SearchView.OnQue
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Libro libro = adapter.getItem(position);
-
                 Intent intent = new Intent(view.getContext(), SpecLibro.class);
                 intent.putExtra(EXTRA_LIBRO, libro);
-
-
-
                 startActivity(intent);
-
-
             }
         });
-
-
-
-
-
 
         TextView textAddLibro = (TextView)findViewById(R.id.textAddLibro);
 
@@ -128,8 +106,6 @@ public class CercaActivity extends AppCompatActivity implements SearchView.OnQue
                 startActivity(openPageAdd);
             }
         });
-
-
 
         swipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -146,8 +122,6 @@ public class CercaActivity extends AppCompatActivity implements SearchView.OnQue
 
         });
 
-
-
         listaLibri.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(AbsListView absListView, int i) {
@@ -161,22 +135,9 @@ public class CercaActivity extends AppCompatActivity implements SearchView.OnQue
                     swipeLayout.setEnabled(false);
             }
         });
-
-
-
         editsearch = (SearchView) findViewById(R.id.searchView);
         editsearch.setOnQueryTextListener(this);
-
-
     }
-
-
-
-
-
-
-
-
 
     @Override
     protected void onDestroy() {
@@ -184,15 +145,10 @@ public class CercaActivity extends AppCompatActivity implements SearchView.OnQue
         archivio.terminaOsservazioneLibri();
     }
 
-
     @Override
     public boolean onQueryTextSubmit(String query) {
         return false;
     }
-
-
-
-
 
     @Override
     public boolean onQueryTextChange(String newText) {

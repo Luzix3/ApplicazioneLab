@@ -45,61 +45,36 @@ import static android.support.design.R.id.image;
  */
 
 public class LibroAdapter extends BaseAdapter  {
+    //reference dello storage
     private FirebaseStorage storage = FirebaseStorage.getInstance();
     private StorageReference storageRef = storage.getReference();
+    //lista libri: collezione di libri
     private List<Libro> libri = Collections.emptyList();
     private Context context;
+    //oggetto datastore
     private DataStore archivio = new DataStore();
     LayoutInflater inflater;
+    //costanti
     private final static String KEY_IMMAGINE    = "urlimmagine";
 
-
+    //costruttore
     public LibroAdapter (Context context, List<Libro> libri)
     {
         this.context = context;
         this.libri = libri;
         inflater = LayoutInflater.from(context);
-
-
-
     }
+
     public class ViewHolder {
         TextView name;
 
     }
 
-
-
     public void update(List<Libro> newList)
     {
         libri = newList;
         notifyDataSetChanged();
-
     }
-
-
-
-
-
-    private Drawable caricaimmagine(String url) {
-
-        try {
-            InputStream inputstr = (InputStream) new URL(url).getContent();
-            Drawable d = Drawable.createFromStream(inputstr, KEY_IMMAGINE);
-            return d;
-        } catch (Exception e) {
-            System.out.println("Eccezione=" + e);
-            return null;
-        }
-
-    }
-
-
-
-
-
-
-
 
     //la listview chiederà all'adapter qunti elementi deve visualizzare
     @Override
@@ -119,8 +94,6 @@ public class LibroAdapter extends BaseAdapter  {
         return 0;
     }
 
-
-
     //chiede all'adapter la view da visualizzare in quel punto
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -129,19 +102,12 @@ public class LibroAdapter extends BaseAdapter  {
         {
             holder = new ViewHolder();
             convertView = inflater.inflate(R.layout.rigalibro, null);
-
             holder.name = (TextView) convertView.findViewById(R.id.textLibro2);
-
             convertView.setTag(holder);
-
-            // convertView= LayoutInflater.from(context).inflate(R.layout.rigalibro, parent, false);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-
         holder.name.setText(libri.get(position).getNome());
-
-
 
 
         TextView textLibro = (TextView)convertView.findViewById(R.id.textLibro2);
@@ -151,8 +117,7 @@ public class LibroAdapter extends BaseAdapter  {
         TextView textCodLibro= (TextView)convertView.findViewById(R.id.textCodLibro2);
         ImageView ImageCopertina = (ImageView)convertView.findViewById(R.id.ImmagineCopertina2);
 
-
-
+        //metto i parametri nell'oggetto libro per poi farli comparire nella listview
         Libro libro = libri.get(position);
         textLibro.setText(libro.getNome());
         textAutore.setText(libro.getAutore());
@@ -160,27 +125,23 @@ public class LibroAdapter extends BaseAdapter  {
         textAnno.setText(libro.getAnno());
         textCodLibro.setText(libro.getCodlibro());
         //carico immagine dal metodo creato prima attraverso url
-       Picasso.with(context).load(libro.getUrlimmagine()).fit().into(ImageCopertina);
+        //uso picasso che è
+        Picasso.with(context).load(libro.getUrlimmagine()).fit().into(ImageCopertina);
 
         if (!(archivio.elencoPrenotazioni().isEmpty())) {
             TextView textGiorni = (TextView)convertView.findViewById(R.id.textPrenotato);
             textGiorni.setText(libro.getGiorni());
         }
-
         return convertView;
     }
 
 
     // Filtra quando viene digitato un char
-
     public void filter(String charText) {
         charText = charText.toLowerCase(Locale.getDefault());
-
         List <Libro> libritemp = new ArrayList<Libro>(libri);
-
         if (charText.length() == 0) {
             libritemp.addAll(libri);
-
         } else {
             for (Libro libro : libri) {
                 if (libro.getNome().toLowerCase(Locale.getDefault()).contains(charText)) {
@@ -189,26 +150,5 @@ public class LibroAdapter extends BaseAdapter  {
             }
         }
         notifyDataSetChanged();
-
-
     }
-
-
-
-
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -52,7 +52,7 @@ public class Loginpage extends AppCompatActivity {
          editPassword = (EditText)findViewById(R.id.editPassword);
          barra = (ProgressBar)findViewById(R.id.barraprogress);
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+            btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 /*// definisco l'intenzione di aprire l'Activity "MainActivity.java"
@@ -65,7 +65,6 @@ public class Loginpage extends AppCompatActivity {
                 if (email.isEmpty())
                 {
                     editUser.setError(getString(R.string.obbligatorio));
-
                 }
                 if (password.isEmpty())
                 {
@@ -106,13 +105,10 @@ public class Loginpage extends AppCompatActivity {
                                 }
 
                             });
-                    //è implicitamente asicrona
-                    //voglio essere informato cosi metto oncomplete, quando l'autentic è avvenuta
                 }
             }
 
         });
-
 
         btnRegistrati.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,19 +118,14 @@ public class Loginpage extends AppCompatActivity {
             }
         });
 
-
         btnPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent openPagePassDim = new Intent(Loginpage.this, PagePassDim.class);
                 startActivity(openPagePassDim);
-
             }
         });
 
-
     }
-
-
 
 }

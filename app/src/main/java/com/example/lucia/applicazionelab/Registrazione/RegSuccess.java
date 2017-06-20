@@ -20,8 +20,6 @@ public class RegSuccess extends AppCompatActivity {
         setContentView(R.layout.activity_reg_success);
 
         btnlog = (Button)findViewById(R.id.buttonLog);
-
-
         btnlog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -29,8 +27,5 @@ public class RegSuccess extends AppCompatActivity {
                 startActivity(openLogPage);
             }
         });
-
-
-
     }
 }
