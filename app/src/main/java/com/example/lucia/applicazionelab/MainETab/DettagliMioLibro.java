@@ -63,9 +63,10 @@ public class DettagliMioLibro extends AppCompatActivity {
                 FirebaseUser user = mAuth.getCurrentUser();
                 String user2 = user.getUid();
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference ref = database.getReference("Utenti").child(user2).child(EXTRA_PRENOTAZIONI);
-                archivioprenotazioni.eliminaPrenotazione(libro.getCodlibro());
 
+                DatabaseReference ref = database.getReference("Utenti").child(user2).child(EXTRA_PRENOTAZIONI);
+
+                ref.child(libro.getCodlibro()).removeValue();
                 Intent i = new Intent(DettagliMioLibro.this, MainActivity.class);
                 startActivity(i);
             }

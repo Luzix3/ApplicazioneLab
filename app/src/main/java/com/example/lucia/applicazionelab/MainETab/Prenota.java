@@ -94,7 +94,7 @@ public class Prenota extends AppCompatActivity {
                      Date datarisultante = new Date(c.getTimeInMillis());
                      libro2.setDataconsegna(sdf.format(datarisultante));
                      Libro libro1 = new Libro(libro2.getAutore(), libro2.getCodlibro(), libro2.getNome(), libro2.getAnno(), libro2.getGenere(),libro2.getUrlimmagine() ,libro2.getGiorni(), libro2.getDataconsegna());
-                     ref.child(user6.getUid()).child(EXTRA_PRENOTAZIONE).push().setValue(libro1);
+                     ref.child(user6.getUid()).child(EXTRA_PRENOTAZIONE).child(libro1.getCodlibro()).setValue(libro1);
                      Intent intent1 = new Intent(Prenota.this, MainActivity.class);
                      intent1.putExtra(EXTRA_LIBRO2, libro1);
                      Toast.makeText(getApplicationContext(), "Prenotazione avvenuta con successo!" +
