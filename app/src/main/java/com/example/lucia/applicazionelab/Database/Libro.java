@@ -22,8 +22,19 @@ public class Libro implements Serializable{
     private String genere;
     private int giorni;
     private String urlimmagine;
+    private String dataconsegna;
 
     //getters and setters
+
+
+    public String getDataconsegna() {
+        return dataconsegna;
+    }
+
+    public void setDataconsegna(String dataconsegna) {
+        this.dataconsegna = dataconsegna;
+    }
+
     public String getUrlimmagine() {
         return urlimmagine;
     }
@@ -109,14 +120,16 @@ public class Libro implements Serializable{
      * @param giorni
      */
 
-    public Libro(String autore, String codlibro, String nome, String anno, String genere, String urlimmagine, int giorni) {
+    public Libro(String autore, String codlibro, String nome, String anno, String genere, String urlimmagine, int giorni, String dataconsegna) {
         this.autore = autore;
         this.codlibro=codlibro;
         this.nome = nome;
         this.anno=anno;
         this.genere=genere;
         this.urlimmagine=urlimmagine;
-       this.giorni = giorni;
+        this.giorni = giorni;
+        this.dataconsegna=dataconsegna;
+
 
     }
 

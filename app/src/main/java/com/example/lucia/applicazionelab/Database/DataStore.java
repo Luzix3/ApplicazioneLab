@@ -45,7 +45,8 @@ public class DataStore {
     private final static String KEY_ANNO = "anno";
     private final static String KEY_IMMAGINE = "urlimmagine";
     private final static String KEY_GIORNI = "giorni";
-    private final static String KEY_CODLIBRO = "codice libro";
+    private final static String KEY_CODLIBRO = "codlibro";
+    private final static String KEY_DATACONSEGNA = "dataconsegna";
 
     //Storage reference
     private StorageReference mstorage;
@@ -135,7 +136,7 @@ public class DataStore {
 
     /**
      * Elimina un libro
-     * @param codlibro dello studente da eliminare
+     * @param codlibro del libro da eliminare
      */
     public void eliminaLibro(String codlibro) {
         int posizione = getLibroIndex(codlibro);
@@ -190,10 +191,10 @@ public class DataStore {
     }
 
     public interface UpdateListenerPrenotazioni {
-        void libriAggiornati();
+        void PrenotazioniAggiornate();
     }
 
-    public void iniziaOsservazionePrenotazioni (final DataStore.UpdateListener notifica) {
+    public void iniziaOsservazionePrenotazioni (final DataStore.UpdateListenerPrenotazioni notifica2) {
 
         mAuth7 = FirebaseAuth.getInstance();
         // Comportamento differenziato
@@ -216,9 +217,10 @@ public class DataStore {
                     libro.setAnno(elemento.child(KEY_ANNO).getValue(String.class));
                     libro.setGiorni(elemento.child(KEY_GIORNI).getValue(Integer.class));
                     libro.setUrlimmagine(elemento.child(KEY_IMMAGINE).getValue(String.class));
+                    libro.setDataconsegna(elemento.child(KEY_DATACONSEGNA).getValue(String.class));
                     libri.add(libro);
                 }
-                notifica.libriAggiornati();
+                notifica2.PrenotazioniAggiornate();
             }
 
             @Override

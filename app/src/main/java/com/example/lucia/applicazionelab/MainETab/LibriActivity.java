@@ -63,9 +63,9 @@ public class LibriActivity extends AppCompatActivity {
         listaMieiLibri = (ListView)findViewById(R.id.ListaMieiLibri);
         adapter1 = new LibroAdapter(this,arraylist);
 
-        archivio.iniziaOsservazionePrenotazioni(new DataStore.UpdateListener() {
+        archivio.iniziaOsservazionePrenotazioni(new DataStore.UpdateListenerPrenotazioni() {
             @Override
-            public void libriAggiornati() {
+            public void PrenotazioniAggiornate() {
 
                 adapter1.update(archivio.elencoPrenotazioni());
             }

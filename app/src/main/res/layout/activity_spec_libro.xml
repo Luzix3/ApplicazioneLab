@@ -28,181 +28,20 @@
 
     <ImageView
         android:id="@+id/ImmagineLibro"
-        android:layout_width="78dp"
-        android:layout_height="112dp"
-        android:layout_marginEnd="34dp"
-        android:layout_marginStart="8dp"
-        android:visibility="invisible"
+        android:layout_width="137dp"
+        android:layout_height="127dp"
+        android:layout_marginTop="36dp"
 
-        tools:layout_editor_absoluteX="265dp"
-        tools:layout_editor_absoluteY="153dp" />
-
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="349dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="70dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:visibility="visible"
         app:layout_constraintTop_toBottomOf="@+id/textSpec"
-        app:layout_constraintVertical_bias="1.0">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:weightSum="1">
-
-            <TextView
-                android:id="@+id/text1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
-                android:text="Nome libro:"
-                android:textColor="@android:color/holo_orange_dark"
-                android:textStyle="bold"
-                app:layout_constraintHorizontal_bias="0.078"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/textLibro2"
-                tools:layout_editor_absoluteY="53dp" />
-
-            <TextView
-                android:id="@+id/textLibro2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="174dp"
-                android:layout_marginRight="174dp"
-                android:text="TextView"
-                android:textColor="@android:color/holo_orange_dark"
-                android:textStyle="bold"
-                app:layout_constraintBaseline_toBaselineOf="@+id/text1"
-                app:layout_constraintRight_toRightOf="parent" />
-
-            <TextView
-                android:id="@+id/text2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:text="Autore:"
-                android:textColor="@android:color/holo_orange_dark"
-                android:textStyle="bold"
-                app:layout_constraintHorizontal_bias="0.073"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/textAutore2"
-                app:layout_constraintTop_toBottomOf="@+id/text1" />
-
-            <TextView
-                android:id="@+id/textAutore2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="174dp"
-                android:layout_marginRight="174dp"
-                android:text="TextView"
-                android:textColor="@android:color/holo_orange_dark"
-                android:textStyle="bold"
-                app:layout_constraintBaseline_toBaselineOf="@+id/text2"
-                app:layout_constraintRight_toRightOf="parent" />
-
-            <TextView
-                android:id="@+id/text3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="14dp"
-                android:text="Genere:"
-                android:textColor="@android:color/holo_orange_dark"
-                android:textStyle="bold"
-                app:layout_constraintHorizontal_bias="0.074"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/textGenere2"
-                app:layout_constraintTop_toBottomOf="@+id/text2" />
-
-            <TextView
-                android:id="@+id/textGenere2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="174dp"
-                android:layout_marginRight="174dp"
-                android:text="TextView"
-                android:textColor="@android:color/holo_orange_dark"
-                android:textStyle="bold"
-                app:layout_constraintBaseline_toBaselineOf="@+id/text3"
-                app:layout_constraintRight_toRightOf="parent" />
-
-            <TextView
-                android:id="@+id/text4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_weight="0.37"
-                android:text="Anno di uscita:"
-                android:textColor="@android:color/holo_orange_dark"
-                android:textStyle="bold"
-                app:layout_constraintHorizontal_bias="0.077"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/textAnno2"
-                app:layout_constraintTop_toBottomOf="@+id/text3" />
-
-            <TextView
-                android:id="@+id/textAnno2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="174dp"
-                android:layout_marginRight="174dp"
-                android:text="TextView"
-                android:textColor="@android:color/holo_orange_dark"
-                android:textStyle="bold"
-                app:layout_constraintBaseline_toBaselineOf="@+id/text4"
-                app:layout_constraintRight_toRightOf="parent" />
-
-            <TextView
-                android:id="@+id/text5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
-                android:text="Codice libro:"
-                android:textColor="@android:color/holo_orange_dark"
-                android:textStyle="bold"
-                app:layout_constraintBaseline_toBaselineOf="@+id/textCodLibro2"
-                app:layout_constraintHorizontal_bias="0.08"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/textCodLibro2" />
-
-            <TextView
-                android:id="@+id/textCodLibro2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="174dp"
-                android:layout_marginRight="174dp"
-                android:text="TextView"
-                android:textColor="@android:color/holo_orange_dark"
-                android:textStyle="bold"
-                app:layout_constraintRight_toRightOf="parent"
-                tools:layout_editor_absoluteY="174dp" />
-        </LinearLayout>
-    </ScrollView>
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0.917"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textPrenota"
@@ -211,13 +50,170 @@
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
         android:text="Prenota questo libro!"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@android:color/holo_orange_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
+
+    <LinearLayout
+        android:layout_width="264dp"
+        android:layout_height="373dp"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        android:weightSum="1"
+        app:layout_constraintTop_toBottomOf="@+id/textSpec"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.173">
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="85dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:text="Nome libro:"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="0.078"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/textLibro2"
+            tools:layout_editor_absoluteY="53dp" />
+
+        <TextView
+            android:id="@+id/textLibro2"
+            android:layout_width="149dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="174dp"
+            android:layout_marginRight="174dp"
+            android:text="TextView"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text1"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="98dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Autore:"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="0.073"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/textAutore2"
+            app:layout_constraintTop_toBottomOf="@+id/text1" />
+
+        <TextView
+            android:id="@+id/textAutore2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="174dp"
+            android:layout_marginRight="174dp"
+            android:text="TextView"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text2"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/text3"
+            android:layout_width="93dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="14dp"
+            android:text="Genere:"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="0.074"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/textGenere2"
+            app:layout_constraintTop_toBottomOf="@+id/text2" />
+
+        <TextView
+            android:id="@+id/textGenere2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="174dp"
+            android:layout_marginRight="174dp"
+            android:text="TextView"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text3"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/text4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="Anno di uscita:"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="0.077"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/textAnno2"
+            app:layout_constraintTop_toBottomOf="@+id/text3" />
+
+        <TextView
+            android:id="@+id/textAnno2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="174dp"
+            android:layout_marginRight="174dp"
+            android:text="TextView"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text4"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/text5"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:text="Codice libro:"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textCodLibro2"
+            app:layout_constraintHorizontal_bias="0.08"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/textCodLibro2" />
+
+        <TextView
+            android:id="@+id/textCodLibro2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="174dp"
+            android:layout_marginRight="174dp"
+            android:text="TextView"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textStyle="bold"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:layout_editor_absoluteY="174dp" />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -72,7 +72,7 @@ public class SpecLibro extends ActionBarActivity {
         Intent intent = getIntent();
         final Libro libro = (Libro)intent.getSerializableExtra(EXTRA_LIBRO);
 
-        StorageReference childRef = storageRef.child(cod1);
+        StorageReference childRef = storageRef.child(libro.getCodlibro());
 
         if (libro != null) {
             mCodLibro.setText(libro.getCodlibro());
@@ -84,6 +84,7 @@ public class SpecLibro extends ActionBarActivity {
             Glide.with(getApplicationContext())
                     .using(new FirebaseImageLoader())
                     .load(childRef)
+                    .centerCrop()
                     .into(mImageLibro);
 
         }

@@ -125,12 +125,15 @@ public class LibroAdapter extends BaseAdapter  {
         textAnno.setText(libro.getAnno());
         textCodLibro.setText(libro.getCodlibro());
         //carico immagine dal metodo creato prima attraverso url
-        //uso picasso che è
+        //uso picasso che è una libreria trovata su github, essenzialmente carica, dato un context, un url in una immagine
+        //gestisce si amemoria che cache
         Picasso.with(context).load(libro.getUrlimmagine()).fit().into(ImageCopertina);
 
         if (!(archivio.elencoPrenotazioni().isEmpty())) {
             TextView textGiorni = (TextView)convertView.findViewById(R.id.textPrenotato);
             textGiorni.setText(libro.getGiorni());
+            TextView textConsegna = (TextView)convertView.findViewById(R.id.textConsegna);
+            textConsegna.setText(libro.getDataconsegna());
         }
         return convertView;
     }

@@ -4,12 +4,22 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.lucia.applicazionelab.Database.DataStore;
 import com.example.lucia.applicazionelab.Database.Libro;
+import com.example.lucia.applicazionelab.Database.LibroAdapter;
 import com.example.lucia.applicazionelab.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.w3c.dom.Text;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class DettagliMioLibro extends AppCompatActivity {
 
@@ -17,10 +27,12 @@ public class DettagliMioLibro extends AppCompatActivity {
     private TextView mNome;
     private TextView mPrenotato;
     private TextView mConsegna;
-    private TextView mTorna;
+    private ImageView mCestino;
+    DataStore archivioprenotazioni = new DataStore();
+    private FirebaseAuth mAuth;
 
     private final static String EXTRA_LIBRO2 = "libro2";
-    private final static String EXTRA_PERIODO = "periodo prenotazione";
+    private final static String EXTRA_PRENOTAZIONI = "prenotazioni";
 
 
     @Override
@@ -30,7 +42,7 @@ public class DettagliMioLibro extends AppCompatActivity {
         mNome = (TextView)findViewById(R.id.textNome2);
         mPrenotato = (TextView)findViewById(R.id.textPrenotato);
         mConsegna= (TextView)findViewById(R.id.textConsegna);
-        mTorna= (TextView)findViewById(R.id.textTorna);
+        mCestino = (ImageView)findViewById(R.id.imageCestino);
 
         Intent i = getIntent();
         final Libro libro = (Libro) i.getSerializableExtra(EXTRA_LIBRO2);
@@ -38,15 +50,26 @@ public class DettagliMioLibro extends AppCompatActivity {
         if (libro != null) {
             mNome.setText(libro.getNome());
             mPrenotato.setText(Integer.toString(libro.getGiorni()) + " giorni.");
-            mConsegna.setText(" ");
+            mConsegna.setText(libro.getDataconsegna());
         }
 
-        mTorna.setOnClickListener(new View.OnClickListener() {
+
+        mCestino.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1 = new Intent ( DettagliMioLibro.this, MainActivity.class);
-                startActivity(intent1);
+
+                mAuth = FirebaseAuth.getInstance();
+                // Comportamento differenziato
+                FirebaseUser user = mAuth.getCurrentUser();
+                String user2 = user.getUid();
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference ref = database.getReference("Utenti").child(user2).child(EXTRA_PRENOTAZIONI);
+                archivioprenotazioni.eliminaPrenotazione(libro.getCodlibro());
+
+                Intent i = new Intent(DettagliMioLibro.this, MainActivity.class);
+                startActivity(i);
             }
         });
+
     }
 }

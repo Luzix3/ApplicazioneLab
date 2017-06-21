@@ -18,6 +18,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Prenota extends AppCompatActivity {
     private final static String EXTRA_LIBRO2 = "libro2";
@@ -75,7 +80,20 @@ public class Prenota extends AppCompatActivity {
 
                      FirebaseDatabase database = FirebaseDatabase.getInstance();
                      DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Utenti");
-                     Libro libro1 = new Libro(libro2.getAutore(), libro2.getCodlibro(), libro2.getNome(), libro2.getAnno(), libro2.getGenere(),libro2.getUrlimmagine() ,libro2.getGiorni());
+                     DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm");
+                     String dataoggi = df.format(Calendar.getInstance().getTime());
+                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                     Calendar c = Calendar.getInstance();
+                     try {
+                         c.setTime(sdf.parse(dataoggi));
+                     } catch (ParseException e) {
+                         e.printStackTrace();
+                     }
+                     c.add(Calendar.DATE, libro2.getGiorni());
+                     sdf = new SimpleDateFormat("dd/MM/yyyy");
+                     Date datarisultante = new Date(c.getTimeInMillis());
+                     libro2.setDataconsegna(sdf.format(datarisultante));
+                     Libro libro1 = new Libro(libro2.getAutore(), libro2.getCodlibro(), libro2.getNome(), libro2.getAnno(), libro2.getGenere(),libro2.getUrlimmagine() ,libro2.getGiorni(), libro2.getDataconsegna());
                      ref.child(user6.getUid()).child(EXTRA_PRENOTAZIONE).push().setValue(libro1);
                      Intent intent1 = new Intent(Prenota.this, MainActivity.class);
                      intent1.putExtra(EXTRA_LIBRO2, libro1);
