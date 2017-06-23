@@ -93,7 +93,7 @@ public class Prenota extends AppCompatActivity {
                      sdf = new SimpleDateFormat("dd/MM/yyyy");
                      Date datarisultante = new Date(c.getTimeInMillis());
                      libro2.setDataconsegna(sdf.format(datarisultante));
-                     Libro libro1 = new Libro(libro2.getAutore(), libro2.getCodlibro(), libro2.getNome(), libro2.getAnno(), libro2.getGenere(),libro2.getUrlimmagine() ,libro2.getGiorni(), libro2.getDataconsegna());
+                     Libro libro1 = new Libro(libro2.getAutore(), libro2.getCodlibro(), libro2.getNome(), libro2.getAnno(), libro2.getGenere(),libro2.getUrlimmagine() ,libro2.getGiorni(), libro2.getDataconsegna(), libro2.getTrama());
                      ref.child(user6.getUid()).child(EXTRA_PRENOTAZIONE).child(libro1.getCodlibro()).setValue(libro1);
                      Intent intent1 = new Intent(Prenota.this, MainActivity.class);
                      intent1.putExtra(EXTRA_LIBRO2, libro1);

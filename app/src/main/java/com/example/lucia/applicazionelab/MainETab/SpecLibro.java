@@ -7,7 +7,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.MultiAutoCompleteTextView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +24,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.IOException;
@@ -48,6 +51,7 @@ public class SpecLibro extends ActionBarActivity {
     private ImageView mImageLibro;
     TextView prenota;
     private FirebaseAuth mauth;
+    private TextView mTrama;
 
     private FirebaseStorage storage = FirebaseStorage.getInstance();
     private StorageReference storageRef = storage.getReferenceFromUrl("gs://biblapp-432f7.appspot.com/");
@@ -65,6 +69,7 @@ public class SpecLibro extends ActionBarActivity {
         mGenere = (TextView)findViewById(R.id.textGenere2);
         mAnno= (TextView)findViewById(R.id.textAnno2);
         mImageLibro = (ImageView)findViewById(R.id.ImmagineLibro);
+        mTrama = (TextView)findViewById(R.id.textTrama2);
 
         final String cod1 = mCodLibro.getText().toString();
 
@@ -80,13 +85,10 @@ public class SpecLibro extends ActionBarActivity {
             mLibro.setText(libro.getNome());
             mAnno.setText(libro.getAnno());
             mGenere.setText(libro.getGenere());
-            // Load the image using Glide
-            Glide.with(getApplicationContext())
-                    .using(new FirebaseImageLoader())
-                    .load(childRef)
-                    .centerCrop()
-                    .into(mImageLibro);
+            mTrama.setText(libro.getTrama());
 
+            //uso ancora picasso per poter mettere tramite l'url l'immagine nell'imageview
+            Picasso.with(getApplicationContext()).load(libro.getUrlimmagine()).fit().into(mImageLibro);
         }
         mauth = FirebaseAuth.getInstance();
         prenota= (TextView)findViewById(R.id.textPrenota);
@@ -101,7 +103,7 @@ public class SpecLibro extends ActionBarActivity {
                        startActivity(intent1);
                    }else
                    {
-                       Libro libro2 = new Libro(libro.getAutore(), libro.getCodlibro(), libro.getNome(), libro.getAnno(), libro.getGenere(), libro.getUrlimmagine());
+                       Libro libro2 = new Libro(libro.getAutore(), libro.getCodlibro(), libro.getNome(), libro.getAnno(), libro.getGenere(), libro.getUrlimmagine(), libro.getTrama());
                        Intent intent = new Intent(SpecLibro.this, Prenota.class);
                        intent.putExtra(EXTRA_LIBRO2, libro2);
                        startActivity(intent);

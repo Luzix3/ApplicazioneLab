@@ -4,6 +4,8 @@ import android.media.Image;
 import android.net.Uri;
 import android.widget.ImageView;
 
+import org.w3c.dom.Text;
+
 import java.io.Serializable;
 import java.net.URL;
 
@@ -23,9 +25,18 @@ public class Libro implements Serializable{
     private int giorni;
     private String urlimmagine;
     private String dataconsegna;
+    private String trama;
 
-    //getters and setters
+    //getters e setters
 
+
+    public String getTrama() {
+        return trama;
+    }
+
+    public void setTrama(String trama) {
+        this.trama = trama;
+    }
 
     public String getDataconsegna() {
         return dataconsegna;
@@ -100,13 +111,14 @@ public class Libro implements Serializable{
      * @param genere
      * @param urlimmagine
      */
-    public Libro(String autore, String codlibro, String nome, String anno, String genere, String urlimmagine) {
+    public Libro(String autore, String codlibro, String nome, String anno, String genere, String urlimmagine, String trama ) {
         this.autore = autore;
         this.codlibro=codlibro;
         this.nome = nome;
         this.anno=anno;
         this.genere=genere;
         this.urlimmagine=urlimmagine;
+        this.trama = trama;
 
     }
     /**
@@ -120,7 +132,7 @@ public class Libro implements Serializable{
      * @param giorni
      */
 
-    public Libro(String autore, String codlibro, String nome, String anno, String genere, String urlimmagine, int giorni, String dataconsegna) {
+    public Libro(String autore, String codlibro, String nome, String anno, String genere, String urlimmagine, int giorni, String dataconsegna, String trama) {
         this.autore = autore;
         this.codlibro=codlibro;
         this.nome = nome;
@@ -129,8 +141,7 @@ public class Libro implements Serializable{
         this.urlimmagine=urlimmagine;
         this.giorni = giorni;
         this.dataconsegna=dataconsegna;
-
-
+        this.trama = trama;
     }
 
     //costruttore vuoto

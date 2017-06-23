@@ -92,6 +92,7 @@ public class AddLibro extends ActionBarActivity {
                 final String gener1 = EditGener.getText().toString();
                 final String code = EditCode.getText().toString();
                 final String anno1 = EditAnn.getText().toString();
+                final String trama1 = EditTrama.getText().toString();
 
                 if (anno1.isEmpty()) {
                     EditAnn.setError(getString(R.string.obbligatorio));
@@ -140,7 +141,7 @@ public class AddLibro extends ActionBarActivity {
                                 Toast.makeText(AddLibro.this, "Upload avvenuto con successo!", Toast.LENGTH_SHORT).show();
                                 downloadUrl = taskSnapshot.getDownloadUrl();
                                 urlstring = downloadUrl.toString();
-                                Libro l1 = new Libro(autor1, code, name1, anno1, gener1, urlstring);
+                                Libro l1 = new Libro(autor1, code, name1, anno1, gener1, urlstring, trama1);
                                 // metto l'user nel database sotto il nodo Utenti con la sua chiave unica
                                 mDatabase1.child(BookId).setValue(l1);
                             }
@@ -153,7 +154,7 @@ public class AddLibro extends ActionBarActivity {
                         });
                     }
                     else {
-                        Toast.makeText(AddLibro.this, "Seleziona un'immagine", Toast.LENGTH_SHORT).show();
+
                     }
                     Intent openPageSucces2= new Intent(AddLibro.this, MainActivity.class);
                     startActivity(openPageSucces2);

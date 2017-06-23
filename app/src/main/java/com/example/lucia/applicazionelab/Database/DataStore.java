@@ -47,6 +47,7 @@ public class DataStore {
     private final static String KEY_GIORNI = "giorni";
     private final static String KEY_CODLIBRO = "codlibro";
     private final static String KEY_DATACONSEGNA = "dataconsegna";
+    private final static String KEY_TRAMA= "trama";
 
     //Storage reference
     private StorageReference mstorage;
@@ -90,6 +91,7 @@ public class DataStore {
                     libro.setGenere(elemento.child(KEY_GENERE).getValue(String.class));
                     libro.setAnno(elemento.child(KEY_ANNO).getValue(String.class));
                     libro.setUrlimmagine(elemento.child(KEY_IMMAGINE).getValue(String.class));
+                    libro.setTrama(elemento.child(KEY_TRAMA).getValue(String.class));
                     libri.add(libro);
                 }
                 notifica.libriAggiornati();
@@ -218,6 +220,7 @@ public class DataStore {
                     libro.setGiorni(elemento.child(KEY_GIORNI).getValue(Integer.class));
                     libro.setUrlimmagine(elemento.child(KEY_IMMAGINE).getValue(String.class));
                     libro.setDataconsegna(elemento.child(KEY_DATACONSEGNA).getValue(String.class));
+                    libro.setTrama(elemento.child(KEY_TRAMA).getValue(String.class));
                     libri.add(libro);
                 }
                 notifica2.PrenotazioniAggiornate();
