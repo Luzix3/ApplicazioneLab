@@ -86,7 +86,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
-        android:text="Benvenuto in Bibliapp!"
+        android:text="Benvenuto in Biblapp!"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@android:color/holo_orange_dark"
         app:layout_constraintHorizontal_bias="0.098"

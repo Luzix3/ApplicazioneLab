@@ -78,6 +78,7 @@
         android:layout_alignBottom="@+id/textLibro2"
         android:layout_alignParentEnd="true"
         android:text="Codice Libro"
+        android:textSize="9dip"
         android:textColor="@android:color/holo_orange_dark"
         android:textStyle="bold" />
 

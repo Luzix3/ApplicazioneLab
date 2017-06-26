@@ -22,8 +22,14 @@ import com.example.lucia.applicazionelab.Database.LibroAdapter;
 import com.example.lucia.applicazionelab.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class CercaActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
@@ -32,11 +38,13 @@ public class CercaActivity extends AppCompatActivity implements SearchView.OnQue
     // Costanti
     private final static String EXTRA_LIBRO = "libro";
     private final static String TAG = "BiblApp";
+    private final static String DB_LIBRI = "libri";
 
     // Widget
     private ListView listaLibri;
     //datastore
     private DataStore archivio = new DataStore();
+    private List<Libro> librilista = Collections.emptyList();
 
     // Adapter
     private LibroAdapter adapter;
@@ -77,16 +85,19 @@ public class CercaActivity extends AppCompatActivity implements SearchView.OnQue
         }
 
         listaLibri = (ListView)findViewById(R.id.ListaLibri);
-        adapter = new LibroAdapter(this,arraylist );
+        adapter = new LibroAdapter(this,librilista );
 
         archivio.iniziaOsservazioneLibri(new DataStore.UpdateListener() {
             @Override
             public void libriAggiornati() {
                 adapter.update(archivio.elencoLibri());
+
             }
         });
 
+
         listaLibri.setAdapter(adapter);
+
         listaLibri.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -136,6 +147,8 @@ public class CercaActivity extends AppCompatActivity implements SearchView.OnQue
             }
         });
         editsearch = (SearchView) findViewById(R.id.searchView);
+
+
         editsearch.setOnQueryTextListener(this);
     }
 

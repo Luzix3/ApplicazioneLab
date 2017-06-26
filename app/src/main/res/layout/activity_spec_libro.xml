@@ -168,12 +168,23 @@
                 android:textColor="@android:color/holo_orange_dark"
                 android:textStyle="bold"/>
 
-            <TextView
-                android:id="@+id/textTrama2"
-                android:layout_width="match_parent"
-                android:layout_height="176dp"
-                android:text="TextView"
-                android:textColor="@android:color/holo_orange_dark"/>
+            <ScrollView
+                android:layout_width="338dp"
+                android:layout_height="165dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/textTrama2"
+                        android:layout_width="match_parent"
+                        android:layout_height="162dp"
+                        android:text="TextView"
+                        android:textColor="@android:color/holo_orange_dark" />
+                </LinearLayout>
+            </ScrollView>
 
         </LinearLayout>
     </ScrollView>

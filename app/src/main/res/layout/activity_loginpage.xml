@@ -156,10 +156,9 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        android:backgroundTint="@android:color/holo_orange_dark"
         android:progressBackgroundTint="@android:color/holo_orange_dark"
-
         android:progressTint="@android:color/holo_orange_dark"
+        android:backgroundTint="@android:color/holo_orange_dark"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

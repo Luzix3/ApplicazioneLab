@@ -51,6 +51,8 @@ public class LibroAdapter extends BaseAdapter  {
     //lista libri: collezione di libri
     private List<Libro> libri = Collections.emptyList();
     private Context context;
+    private ArrayList<Libro> librifitlratis;
+    private ArrayList<Libro> libriprovv;
     //oggetto datastore
     private DataStore archivio = new DataStore();
     LayoutInflater inflater;
@@ -63,6 +65,8 @@ public class LibroAdapter extends BaseAdapter  {
         this.context = context;
         this.libri = libri;
         inflater = LayoutInflater.from(context);
+        this.librifitlratis = new ArrayList<Libro>();
+        this.librifitlratis.addAll(libri);
     }
 
     public class ViewHolder {
@@ -142,16 +146,30 @@ public class LibroAdapter extends BaseAdapter  {
     // Filtra quando viene digitato un char
     public void filter(String charText) {
         charText = charText.toLowerCase(Locale.getDefault());
-        List <Libro> libritemp = new ArrayList<Libro>(libri);
+
+        if(charText.length() == 0)
+        {
+            libriprovv=librifitlratis;
+        }
+        if (charText.length() == 1)
+        {
+            librifitlratis = new ArrayList<Libro>(libri);
+        }
+
+        libri.clear();
+
         if (charText.length() == 0) {
-            libritemp.addAll(libri);
-        } else {
-            for (Libro libro : libri) {
-                if (libro.getNome().toLowerCase(Locale.getDefault()).contains(charText)) {
-                    libritemp.add(libro);
+            libri.addAll(libriprovv);
+        }else
+        {
+            for (Libro libro : librifitlratis){
+                if(libro.getNome().toLowerCase(Locale.getDefault()).contains(charText))
+                {
+                    libri.add(libro);
                 }
             }
         }
+
         notifyDataSetChanged();
     }
     }
