@@ -35,7 +35,6 @@ public class Page2reg extends ActionBarActivity {
     CheckBox Cutente;
     CheckBox Cgestore;
     CheckBox Ccondizioni;
-    EditText EditCell;
     EditText Editconfpass;
 
     public static boolean isEmailValid(String email) {
@@ -57,7 +56,6 @@ public class Page2reg extends ActionBarActivity {
         Cutente = (CheckBox) findViewById(R.id.checkBoxCliente);
         Cgestore = (CheckBox) findViewById(R.id.checkBoxGestore);
         Ccondizioni = (CheckBox) findViewById(R.id.checkBoxCondizioni);
-        EditCell = (EditText) findViewById(R.id.editCellulare);
         Editconfpass = (EditText) findViewById(R.id.editConfPass);
 
         btnReg.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +64,6 @@ public class Page2reg extends ActionBarActivity {
                 boolean a = false;
                 final String email2 = Editemail.getText().toString();
                 final String password2 = Editpass.getText().toString();
-                final String cellulare = EditCell.getText().toString();
                 String confpass = Editconfpass.getText().toString();
 
                 if (email2.isEmpty()) {
@@ -78,10 +75,6 @@ public class Page2reg extends ActionBarActivity {
 
                 if (confpass.isEmpty()) {
                     Editconfpass.setError(getString(R.string.obbligatorio));
-                }
-
-                if (cellulare.isEmpty()) {
-                    EditCell.setError(getString(R.string.obbligatorio));
                 }
 
                 if (Cgestore.isChecked()) {
@@ -100,10 +93,6 @@ public class Page2reg extends ActionBarActivity {
                     Editemail.setError(getString(R.string.emailvalida));
                 }
 
-                if (cellulare.length() < 10) {
-                    Toast.makeText(getApplicationContext(), "Deve essere di almeno 10 caratteri!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
 
                 if (password2.length() < 6) {
                     Toast.makeText(getApplicationContext(), "Password troppo corta, deve essere di almeno 6 caratteri!", Toast.LENGTH_SHORT).show();
@@ -118,7 +107,7 @@ public class Page2reg extends ActionBarActivity {
                 }
 
 
-                if ( cellulare.length() > 10 && password2.length() > 6 && !email2.isEmpty() && !cellulare.isEmpty() && a == true && !password2.isEmpty() && isEmailValid(email2) && Ccondizioni.isChecked() && Cutente.isChecked() && !(Cgestore.isChecked())) {
+                if (password2.length() > 6 && !email2.isEmpty() && a == true && !password2.isEmpty() && isEmailValid(email2) && Ccondizioni.isChecked() && Cutente.isChecked() && !(Cgestore.isChecked())) {
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                     final FirebaseAuth mAuth2 = FirebaseAuth.getInstance();
 
