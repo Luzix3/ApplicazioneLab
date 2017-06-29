@@ -52,14 +52,14 @@ public class LibriActivity extends AppCompatActivity {
         // Comportamento differenziato
         FirebaseUser user5 = mAuth6.getCurrentUser();
 
-        if (user5 == null) {
+      /*  if (user5 == null) {
             Intent intent = new Intent(this, Loginpage.class);
             startActivity(intent);
         } else {
             // Utente autenticato.
             // Nessuna operazione richiesta
         }
-
+*/
         listaMieiLibri = (ListView)findViewById(R.id.ListaMieiLibri);
         adapter1 = new LibroAdapter(this,arraylist);
 

@@ -62,11 +62,11 @@ public class MainActivity extends TabActivity {
         TabHostWindows = (TabHost) findViewById(android.R.id.tabhost);
 
         //creo le tab
-        TabHost.TabSpec Libri = TabHostWindows.newTabSpec("Libri");
+        TabHost.TabSpec Libri = TabHostWindows.newTabSpec("I miei libri");
         TabHost.TabSpec Cerca = TabHostWindows.newTabSpec("Cerca");
         TabHost.TabSpec Dona = TabHostWindows.newTabSpec("Dona");
         //setto le tab
-        Libri.setIndicator("Libri");
+        Libri.setIndicator("I miei libri");
         //setto le activity di arrivo
 
         Libri.setContent(new Intent (this, LibriActivity.class));

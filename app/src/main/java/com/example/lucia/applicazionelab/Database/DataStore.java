@@ -201,38 +201,40 @@ public class DataStore {
         mAuth7 = FirebaseAuth.getInstance();
         // Comportamento differenziato
         FirebaseUser user5 = mAuth7.getCurrentUser();
-        String user7 = user5.getUid();
+        if (user5 != null) {
+            String user7 = user5.getUid();
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference("Utenti").child(user7).child(EXTRA_PRENOTAZIONI);
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference ref = database.getReference("Utenti").child(user7).child(EXTRA_PRENOTAZIONI);
 
-        listenerPrenotazioni = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                libri.clear();
-                for (DataSnapshot elemento:dataSnapshot.getChildren()) {
-                    Libro libro = new Libro();
-                    libro.setCodlibro(elemento.child(KEY_CODLIBRO).getValue(String.class));
-                    libro.setNome(elemento.child(KEY_NOME).getValue(String.class));
-                    libro.setAutore(elemento.child(KEY_AUTORE).getValue(String.class));
-                    libro.setGenere(elemento.child(KEY_GENERE).getValue(String.class));
-                    libro.setAnno(elemento.child(KEY_ANNO).getValue(String.class));
-                    libro.setGiorni(elemento.child(KEY_GIORNI).getValue(Integer.class));
-                    libro.setUrlimmagine(elemento.child(KEY_IMMAGINE).getValue(String.class));
-                    libro.setDataconsegna(elemento.child(KEY_DATACONSEGNA).getValue(String.class));
-                    libro.setTrama(elemento.child(KEY_TRAMA).getValue(String.class));
-                    libri.add(libro);
+            listenerPrenotazioni = new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    libri.clear();
+                    for (DataSnapshot elemento : dataSnapshot.getChildren()) {
+                        Libro libro = new Libro();
+                        libro.setCodlibro(elemento.child(KEY_CODLIBRO).getValue(String.class));
+                        libro.setNome(elemento.child(KEY_NOME).getValue(String.class));
+                        libro.setAutore(elemento.child(KEY_AUTORE).getValue(String.class));
+                        libro.setGenere(elemento.child(KEY_GENERE).getValue(String.class));
+                        libro.setAnno(elemento.child(KEY_ANNO).getValue(String.class));
+                        libro.setGiorni(elemento.child(KEY_GIORNI).getValue(Integer.class));
+                        libro.setUrlimmagine(elemento.child(KEY_IMMAGINE).getValue(String.class));
+                        libro.setDataconsegna(elemento.child(KEY_DATACONSEGNA).getValue(String.class));
+                        libro.setTrama(elemento.child(KEY_TRAMA).getValue(String.class));
+                        libri.add(libro);
+                    }
+                    notifica2.PrenotazioniAggiornate();
                 }
-                notifica2.PrenotazioniAggiornate();
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        };
+                }
+            };
 
-        ref.addValueEventListener(listenerPrenotazioni);
+            ref.addValueEventListener(listenerPrenotazioni);
+        }
     }
 
     public void terminaOsservazionePrenotazioni() {

@@ -42,7 +42,7 @@ public class PagePassDim extends AppCompatActivity {
             }
         });
 
-        btnProcedi.setOnClickListener(new View.OnClickListener() {
+       btnProcedi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email3 = editEmailp.getText().toString();
@@ -50,18 +50,22 @@ public class PagePassDim extends AppCompatActivity {
                 {
                     editEmailp.setError(getString(R.string.obbligatorio));
                 }
-                mAuth3.sendPasswordResetEmail(email3)
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    Toast.makeText(PagePassDim.this, "Ti abbiamo inviato una mail per resettare la password!", Toast.LENGTH_SHORT).show();
-                                } else {
-                                    Toast.makeText(PagePassDim.this, "Procedura non riuscita, controlla i dati o la tua connessione.", Toast.LENGTH_SHORT).show();
+                else{
+                    mAuth3.sendPasswordResetEmail(email3)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(PagePassDim.this, "Ti abbiamo inviato una mail per resettare la password!", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(PagePassDim.this, "Procedura non riuscita, controlla i dati o la tua connessione.", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
-                            }
-                        });
+                            });
+                }
             }
         });
+
+
     }
 }
